@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="archos-git" fetch=".." />
+
+  <default revision="master" remote="archos-git" />
+
+  <project path="AVP" name="aos/AVP">
+    <copyfile src="Makefile" dest="Makefile" />
+  </project>
+
+  <project path="Video" name="aos/Video" />
+  <project path="MediaLib" name="aos/MediaLib" />
+  <project path="FileCoreLibrary" name="aos/FileCoreLibrary" />
+
+  <!-- <project path="Mpeg2Plugin" name="aos/Mpeg2Plugin" /> -->
+  <!-- <project path="FileManager2" name="aos/FileManager2" /> -->
+
+  <project path="native/avos" name="aos/avos" />
+  <project path="native/audiocompress" name="aos/audiocompress" />
+  <project path="native/ffmpeg-android-builder" name="aos/ffmpeg-android-builder" />
+  <project path="native/libyuv" name="aos/libyuv" />
+  <project path="native/libnativehelper" name="aos/libnativehelper" />
+  <project path="native/boost" name="aos/boost" />
+  <project path="native/libtorrent" name="aos/libtorrent" />
+  <project path="native/torrentd" name="aos/torrentd" />
+  <project path="native/android-libs" name="aos/android-libs" />
+</manifest>
