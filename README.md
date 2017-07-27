@@ -22,7 +22,7 @@ For the full list, please look at https://github.com/archos-sa/aos-AVP/default.x
 Get the repo tool (https://source.android.com/source/downloading), then type:
 ```
 mkdir aos; cd aos
-repo init https://github.com/archos-sa/aos-AVP
+repo init -u https://github.com/archos-sa/aos-AVP
 repo sync -j4
 make
 ```
