@@ -159,13 +159,8 @@ native_clean_$(1):
 	fi;
 endef
 
-
-all dlonly: AVP/android-ndk
-	ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk)
-	
-all:
-	cd Video; ./gradlew aCLNPD
-
+all: AVP/android-ndk
+	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) ./gradlew aCLNPD
 
 AVP/android-ndk:
 	echo "downloading android ndk..."
