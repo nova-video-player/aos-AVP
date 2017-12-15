@@ -28,7 +28,7 @@ endif
 ndk_debug :=
 
 ifeq (,$(NDK_CPU_ARM_NEON))
-NDK_CPU_ARM_NEON = 1
+NDK_CPU_ARM_NEON = 0
 endif
 ifeq (,$(NDK_CPU_ARM_NO_NEON))
 NDK_CPU_ARM_NO_NEON = 0
