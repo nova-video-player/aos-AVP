@@ -164,7 +164,7 @@ all dlonly: AVP/android-ndk
 	ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk)
 	
 all:
-	cd Video; ./gradlew aCLND
+	cd Video; ./gradlew aCLNPD
 
 
 AVP/android-ndk:
