@@ -26,6 +26,12 @@ repo init -u https://github.com/archos-sa/aos-AVP
 repo sync -j4
 make
 ```
+
+Alternatively for those not under Linux with a properly installed Android SDK/NDK, you can launch the build for one of the flavors of the video player through:
+```
+cd Video
+./gradlew assembleCommunityLeanbackNoamazonPrivlibs
+```
 #### Scraping and Scrobbling
 
 Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/), **TheTVDB** (http://thetvdb.com/) and **Trakt** (https://trakt.tv).
