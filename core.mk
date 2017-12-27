@@ -10,8 +10,17 @@ phony_rules :=
 native_rules :=
 native_clean_rules :=
 
-android_sdk := $(shell readlink -f AVP/android-sdk)
-android_ndk := $(shell readlink -f AVP/android-ndk)
+os := $(shell echo $(shell uname -s) | tr '[:upper:]' '[:lower:]')
+
+ifeq ($(os), darwin)
+	readlink_prefix := g
+endif
+READLINK := $(readlink_prefix)readlink
+
+ndk_ver := 16b
+
+android_sdk := $(shell $(READLINK) -f AVP/android-sdk)
+android_ndk := $(shell $(READLINK) -f AVP/android-ndk)
 
 ifneq (,$(ANDROID_SDK))
 android_sdk := $(ANDROID_SDK)
@@ -160,14 +169,14 @@ native_clean_$(1):
 endef
 
 all: AVP/android-ndk
-	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) ./gradlew aCLNPD
+	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) PATH=$(android_ndk):$(PATH) ./gradlew aCLNPD
 
 AVP/android-ndk:
 	echo "downloading android ndk..."
-	wget https://dl.google.com/android/repository/android-ndk-r15-linux-x86_64.zip
-	unzip android-ndk-r15-linux-x86_64.zip -d AVP/
-	rm -f android-ndk-r15-linux-x86_64.zip
-	mv AVP/android-ndk-r15 AVP/android-ndk
+	wget https://dl.google.com/android/repository/android-ndk-r$(ndk_ver)-$(os)-x86_64.zip
+	unzip android-ndk-r$(ndk_ver)-$(os)-x86_64.zip -d AVP/
+	rm -f android-ndk-r$(ndk_ver)-$(os)-x86_64.zip
+	mv AVP/android-ndk-r$(ndk_ver) AVP/android-ndk
 
 $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 
