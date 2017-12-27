@@ -171,6 +171,8 @@ endef
 all: AVP/android-ndk
 	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) PATH=$(android_ndk):$(PATH) ./gradlew aCLNPD
 
+dlonly: AVP/android-ndk
+
 AVP/android-ndk:
 	echo "downloading android ndk..."
 	wget https://dl.google.com/android/repository/android-ndk-r$(ndk_ver)-$(os)-x86_64.zip
