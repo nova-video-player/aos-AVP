@@ -163,8 +163,8 @@ native_build_$(1): $(1)/obj/clean
 native_clean_$(1):
 	@if [ -d $(1) ];then \
 		$(android_ndk)/ndk-build -C $(1) clean; \
-		rm $(1)/obj -rf; \
-		rm $(1)/libs/*/* -rf; \
+		rm -rf $(1)/obj; \
+		rm -rf $(1)/libs/*/*; \
 	fi;
 endef
 
