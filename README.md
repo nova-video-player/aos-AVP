@@ -48,7 +48,7 @@ replacing the fake values below:
     </resources>
 ```
 
-Please note that enabling **TheTVDB** API registration can be completed following this link: http://thetvdb.com/?tab=api
+Please note that enabling **TheTVDB** API registration can be completed following this link: https://www.thetvdb.com/?tab=apiregister
 
 
 To create a **Trakt** api, first register to trakt then add a new app
