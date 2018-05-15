@@ -267,6 +267,10 @@ native_avos_base:
 	$(call cp_ffmpeg_libs,MediaLib,base)
 	$(call make_avos,MediaLib,base)
 
+native_avos_full:
+	$(call cp_ffmpeg_libs,MediaLib,full)
+	$(call make_avos,MediaLib,full)
+
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
 native_build_native/boost:
