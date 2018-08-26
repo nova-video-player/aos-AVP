@@ -29,6 +29,11 @@ Alternatively for those not under Linux with a properly installed Android SDK/ND
 cd Video
 ./gradlew assembleCommunityLeanbackNoamazonPrivlibs
 ```
+#### Latest stable apk
+
+The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
+Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
+
 #### Scraping and Scrobbling
 
 Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/), **TheTVDB** (http://thetvdb.com/) and **Trakt** (https://trakt.tv).
