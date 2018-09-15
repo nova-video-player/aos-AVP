@@ -62,5 +62,5 @@ and be aware to grant all permissions.
 
 #### Localization
 
-You are welcome to contribute to the translation of the application at https://crowdin.com/project/nova-video
+You are welcome to contribute to the translation of the application at https://crowdin.com/project/nova-video-player
 
