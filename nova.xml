@@ -4,7 +4,7 @@
 
   <default revision="master" remote="github" />
 
-  <project path="AVP" name="aos-AVP">
+  <project path="AVP" name="aos-AVP" revision="nova" >
     <copyfile src="Makefile" dest="Makefile" />
   </project>
 
