@@ -19,7 +19,7 @@ For the full list, please look at this manifest https://github.com/nova-video-pl
 Get the repo tool (https://source.android.com/source/downloading), then type:
 ```
 mkdir aos; cd aos
-repo init -u https://github.com/nova-video-player/aos-AVP
+repo init -u https://github.com/nova-video-player/aos-AVP -b nova
 repo sync -j4
 make
 ```
