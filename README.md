@@ -1,5 +1,10 @@
 ### NOVA: opeN sOurce Video plAyer
 
+[![NOVA Community](https://img.shields.io/badge/join-community-blue.svg)](https://plus.google.com/communities/101947888493799161313)
+[![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=17)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/amitshekhariitbhu/Android-Debug-Database/blob/master/LICENSE)
+
 #### Overview
 
 NOVA is an open source video player for Android. It consists in a fork of the original Archos Video Player Community Edition that is hosted here: https://github.com/archos-sa/aos-AVP intended to support new features.
