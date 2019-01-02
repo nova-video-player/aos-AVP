@@ -41,6 +41,9 @@ cd Video
 #### Latest stable apk
 
 The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
+
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=org.courville.nova)
+
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
 #### Scraping and Scrobbling
