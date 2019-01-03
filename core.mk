@@ -43,7 +43,7 @@ ifeq (,$(NDK_CPU_X86))
 NDK_CPU_X86 = 1
 endif
 ifeq (,$(NDK_CPU_ARM_64))
-NDK_CPU_ARM_64= 0
+NDK_CPU_ARM_64= 1
 endif
 ifeq (,$(NDK_CPU_X86_64))
 NDK_CPU_X86_64 = 0
