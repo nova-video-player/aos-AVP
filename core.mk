@@ -39,14 +39,8 @@ ndk_debug :=
 ifeq (,$(NDK_CPU_ARM_NEON))
 NDK_CPU_ARM_NEON = 1
 endif
-ifeq (,$(NDK_CPU_ARM_NO_NEON))
-NDK_CPU_ARM_NO_NEON = 0
-endif
 ifeq (,$(NDK_CPU_X86))
 NDK_CPU_X86 = 1
-endif
-ifeq (,$(NDK_CPU_MIPS))
-NDK_CPU_MIPS = 0
 endif
 ifeq (,$(NDK_CPU_ARM_64))
 NDK_CPU_ARM_64= 0
@@ -54,32 +48,19 @@ endif
 ifeq (,$(NDK_CPU_X86_64))
 NDK_CPU_X86_64 = 0
 endif
-ifeq (,$(NDK_CPU_MIPS_64))
-NDK_CPU_MIPS_64 = 0
-endif
-
 
 NDK_APP_ABI :=
 ifeq ($(NDK_CPU_ARM_NEON),1)
 NDK_APP_ABI += armeabi-v7a
 endif
-ifeq ($(NDK_CPU_ARM_NO_NEON),1)
-NDK_APP_ABI += armeabi
-endif
 ifeq ($(NDK_CPU_X86),1)
 NDK_APP_ABI += x86
-endif
-ifeq ($(NDK_CPU_MIPS),1)
-NDK_APP_ABI += mips
 endif
 ifeq ($(NDK_CPU_ARM_64),1)
 NDK_APP_ABI += arm64-v8a
 endif
 ifeq ($(NDK_CPU_X86_64),1)
 NDK_APP_ABI += x86_64
-endif
-ifeq ($(NDK_CPU_MIPS_64),1)
-NDK_APP_ABI += mips64
 endif
 
 REPO_TOP_DIR := $(shell pwd)
@@ -193,10 +174,6 @@ define cp_ffmpeg_libs
 		mkdir -p $(1)/libs/x86; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86/lib/*so $(1)/libs/x86; \
 	fi
-	@if [ "$(NDK_CPU_MIPS)" = "1" ];then \
-		mkdir -p $(1)/libs/mips; \
-		cp -r $(FFMPEG_DIR)/dist-$(2)-mips/lib/*so $(1)/libs/mips; \
-	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
 		mkdir -p $(1)/libs/arm64-v8a; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
@@ -204,10 +181,6 @@ define cp_ffmpeg_libs
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
 		mkdir -p $(1)/libs/x86_64; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86_64/lib/*so $(1)/libs/x86_64; \
-	fi
-	@if [ "$(NDK_CPU_MIPS_64)" = "1" ];then \
-		mkdir -p $(1)/libs/mips64; \
-		cp -r $(FFMPEG_DIR)/ndk/dist-$(2)-mips64/lib/*so $(1)/libs/mips64; \
 	fi
 endef
 
@@ -242,10 +215,6 @@ define make_avos
 		mkdir -p $(1)/libs/x86; \
 		cp -r $(AVOS_DIR)/libs/x86/*so $(1)/libs/x86; \
 	fi
-	@if [ "$(NDK_CPU_MIPS)" = "1" ];then \
-		mkdir -p $(1)/libs/mips; \
-		cp -r $(AVOS_DIR)/libs/mips/*so $(1)/libs/mips; \
-	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
 		mkdir -p $(1)/libs/arm64-v8a; \
 		cp -r $(AVOS_DIR)/libs/arm64-v8a/*so $(1)/libs/arm64-v8a; \
@@ -253,10 +222,6 @@ define make_avos
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
 		mkdir -p $(1)/libs/x86_64; \
 		cp -r $(AVOS_DIR)/libs/x86_64/*so $(1)/libs/x86_64; \
-	fi
-	@if [ "$(NDK_CPU_MIPS_64)" = "1" ];then \
-		mkdir -p $(1)/libs/mips64; \
-		cp -r $(AVOS_DIR)/libs/mips64/*so $(1)/libs/mips64; \
 	fi
 	$(call make_hacks,$(1),$(2))
 endef
