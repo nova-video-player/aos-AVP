@@ -64,7 +64,6 @@ NDK_APP_ABI += x86_64
 endif
 
 REPO_TOP_DIR := $(shell pwd)
-BUILD_ANDROID_LIBS := $(REPO_TOP_DIR)/native/android-libs/ndkbuild.mk
 AVOS_DIR := native/avos
 FFMPEG_DIR := native/ffmpeg-android-builder
 
@@ -138,7 +137,7 @@ native_build_$(1): $(1)/obj/clean
 		mkdir -p $(1)/obj; \
 		echo $(build_type) > $(1)/obj/build_type; \
 		touch $(1)/obj/clean; \
-		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) BUILD_ANDROID_LIBS=$(BUILD_ANDROID_LIBS) NDK_APP_ABI="$(NDK_APP_ABI)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
+		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) NDK_APP_ABI="$(NDK_APP_ABI)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
 	fi;
 
 native_clean_$(1):
@@ -200,7 +199,7 @@ define make_hacks
 endef
 
 define make_avos
-	MAKE_JOBS=$(MAKE_JOBS) BUILD=$(BUILD) $(ndk_debug) BUILD_ANDROID_LIBS=$(BUILD_ANDROID_LIBS) NDK_APP_ABI="$(NDK_APP_ABI)" LIBAV_CONFIG=$(2) make native_build_native/avos
+	MAKE_JOBS=$(MAKE_JOBS) BUILD=$(BUILD) $(ndk_debug) NDK_APP_ABI="$(NDK_APP_ABI)" LIBAV_CONFIG=$(2) make native_build_native/avos
 
 	@if [ "$(NDK_CPU_ARM_NEON)" = "1" ];then \
 		mkdir -p $(1)/libs/armeabi-v7a; \
