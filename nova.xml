@@ -9,13 +9,13 @@
   </project>
 
   <project path="Video" name="aos-Video" revision="ndk-r19" />
-  <project path="MediaLib" name="aos-MediaLib" revision="nova" />
+  <project path="MediaLib" name="aos-MediaLib" revision="ndk-r19" />
   <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="ndk-r19" />
 
   <project path="native/avos" name="aos-avos" revision="ndk-19" />
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="ndk-r19" />
-  <project path="native/libyuv" name="aos-libyuv" />
+  <project path="native/libyuv" name="aos-libyuv" revision="ndk-r19" />
   <project path="native/libnativehelper" name="aos-libnativehelper" revision="ndk-r19" />
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
