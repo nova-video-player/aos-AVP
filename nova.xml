@@ -12,7 +12,7 @@
   <project path="MediaLib" name="aos-MediaLib" revision="ndk-r19" />
   <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="ndk-r19" />
 
-  <project path="native/avos" name="aos-avos" revision="ndk-19" />
+  <project path="native/avos" name="aos-avos" revision="ndk-r19" />
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="ndk-r19" />
   <project path="native/libyuv" name="aos-libyuv" revision="ndk-r19" />
