@@ -8,6 +8,7 @@
 [![Get it on Google Play](https://badgen.net/badge/Get%20it%20on/Google%20Play/689f38?icon=googleplay)](https://play.google.com/store/apps/details?id=org.courville.nova)
 [![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](irc://irc.freenode.net/novavideoplayer)
 [![Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
+[![Build Status](https://img.shields.io/travis/nova-video-player/aos-Fdroid.svg)](https://travis-ci.org/nova-video-player/aos-Fdroid)
 
 #### Overview
 
