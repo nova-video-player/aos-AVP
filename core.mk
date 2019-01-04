@@ -238,7 +238,7 @@ native_avos_full:
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
 native_build_native/boost:
-	cd native/boost; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
+	cd native/boost; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_boost.sh
 
 native_build_native/libtorrent:
 	cd native/libtorrent; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
