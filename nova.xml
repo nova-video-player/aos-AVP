@@ -4,21 +4,21 @@
 
   <default revision="master" remote="github" />
 
-  <project path="AVP" name="aos-AVP" revision="nova" >
+  <project path="AVP" name="aos-AVP" revision="ndk-r19" >
     <copyfile src="Makefile" dest="Makefile" />
   </project>
 
-  <project path="Video" name="aos-Video" revision="nova" />
+  <project path="Video" name="aos-Video" revision="ndk-r19" />
   <project path="MediaLib" name="aos-MediaLib" revision="nova" />
-  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="nova" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="ndk-r19" />
 
-  <project path="native/avos" name="aos-avos" revision="nova" />
+  <project path="native/avos" name="aos-avos" revision="ndk-19" />
   <project path="native/audiocompress" name="aos-audiocompress" />
-  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="nova" />
+  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="ndk-r19" />
   <project path="native/libyuv" name="aos-libyuv" />
-  <project path="native/libnativehelper" name="aos-libnativehelper" />
-  <project path="native/boost" name="aos-boost" />
-  <project path="native/libtorrent" name="aos-libtorrent" />
-  <project path="native/torrentd" name="aos-torrentd" />
-  <project path="native/android-libs" name="aos-android-libs" />
+  <project path="native/libnativehelper" name="aos-libnativehelper" revision="ndk-r19" />
+  <project path="native/boost" name="aos-boost-android-builder" />
+  <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
+  <project path="native/torrentd" name="aos-torrentd" revision="ndk-r19" />
+  <!-- <project path="native/android-libs" name="aos-android-libs" /> -->
 </manifest>
