@@ -15,6 +15,7 @@
   <project path="native/avos" name="aos-avos" revision="ndk-r19" />
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="ndk-r19" />
+  <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
   <project path="native/libyuv" name="aos-libyuv" revision="ndk-r19" />
   <project path="native/libnativehelper" name="aos-libnativehelper" revision="ndk-r19" />
   <project path="native/boost" name="aos-boost-android-builder" />
