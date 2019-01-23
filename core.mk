@@ -256,7 +256,7 @@ native_build_native/libtorrent:
 
 native_torrentd: native_build_native/torrentd
 	rm -f MediaLib/libs/armeabi/libtorrentd.so ;\
-	for i in armeabi-v7a x86;do \
+	for i in armeabi-v7a arm64-v8a x86 x86_64;do \
 		mkdir -p MediaLib/libs/$$i ;\
 		cp native/torrentd/libs/$$i/torrentd MediaLib/libs/$$i/libtorrentd.so ;\
 	done
