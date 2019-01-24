@@ -17,7 +17,7 @@ ifeq ($(os), darwin)
 endif
 READLINK := $(readlink_prefix)readlink
 
-ndk_ver := 16b
+ndk_ver := 19-beta2
 
 android_sdk := $(shell $(READLINK) -f AVP/android-sdk)
 android_ndk := $(shell $(READLINK) -f AVP/android-ndk)
@@ -39,38 +39,22 @@ ndk_debug :=
 ifeq (,$(NDK_CPU_ARM_NEON))
 NDK_CPU_ARM_NEON = 1
 endif
-ifeq (,$(NDK_CPU_ARM_NO_NEON))
-NDK_CPU_ARM_NO_NEON = 0
-endif
 ifeq (,$(NDK_CPU_X86))
 NDK_CPU_X86 = 1
 endif
-ifeq (,$(NDK_CPU_MIPS))
-NDK_CPU_MIPS = 0
-endif
 ifeq (,$(NDK_CPU_ARM_64))
-NDK_CPU_ARM_64= 0
+NDK_CPU_ARM_64= 1
 endif
 ifeq (,$(NDK_CPU_X86_64))
-NDK_CPU_X86_64 = 0
+NDK_CPU_X86_64 = 1
 endif
-ifeq (,$(NDK_CPU_MIPS_64))
-NDK_CPU_MIPS_64 = 0
-endif
-
 
 NDK_APP_ABI :=
 ifeq ($(NDK_CPU_ARM_NEON),1)
 NDK_APP_ABI += armeabi-v7a
 endif
-ifeq ($(NDK_CPU_ARM_NO_NEON),1)
-NDK_APP_ABI += armeabi
-endif
 ifeq ($(NDK_CPU_X86),1)
 NDK_APP_ABI += x86
-endif
-ifeq ($(NDK_CPU_MIPS),1)
-NDK_APP_ABI += mips
 endif
 ifeq ($(NDK_CPU_ARM_64),1)
 NDK_APP_ABI += arm64-v8a
@@ -78,14 +62,11 @@ endif
 ifeq ($(NDK_CPU_X86_64),1)
 NDK_APP_ABI += x86_64
 endif
-ifeq ($(NDK_CPU_MIPS_64),1)
-NDK_APP_ABI += mips64
-endif
 
 REPO_TOP_DIR := $(shell pwd)
-BUILD_ANDROID_LIBS := $(REPO_TOP_DIR)/native/android-libs/ndkbuild.mk
 AVOS_DIR := native/avos
 FFMPEG_DIR := native/ffmpeg-android-builder
+DAV1D_DIR := native/dav1d-android-builder
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
@@ -157,7 +138,7 @@ native_build_$(1): $(1)/obj/clean
 		mkdir -p $(1)/obj; \
 		echo $(build_type) > $(1)/obj/build_type; \
 		touch $(1)/obj/clean; \
-		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) BUILD_ANDROID_LIBS=$(BUILD_ANDROID_LIBS) NDK_APP_ABI="$(NDK_APP_ABI)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
+		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) NDK_APP_ABI="$(NDK_APP_ABI)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
 	fi;
 
 native_clean_$(1):
@@ -187,27 +168,23 @@ $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 define cp_ffmpeg_libs
 	@if [ "$(NDK_CPU_ARM_NEON)" = "1" ];then \
 		mkdir -p $(1)/libs/armeabi-v7a; \
+		cp -r $(DAV1D_DIR)/build-armeabi-v7a/src/libdav1d.so.0.1.1 $(1)/libs/armeabi-v7a/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-armeabi-v7a/lib/*so $(1)/libs/armeabi-v7a; \
 	fi;
 	@if [ "$(NDK_CPU_X86)" = "1" ];then \
 		mkdir -p $(1)/libs/x86; \
+		cp -r $(DAV1D_DIR)/build-x86/src/libdav1d.so.0.1.1 $(1)/libs/x86/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86/lib/*so $(1)/libs/x86; \
-	fi
-	@if [ "$(NDK_CPU_MIPS)" = "1" ];then \
-		mkdir -p $(1)/libs/mips; \
-		cp -r $(FFMPEG_DIR)/dist-$(2)-mips/lib/*so $(1)/libs/mips; \
 	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
 		mkdir -p $(1)/libs/arm64-v8a; \
+		cp -r $(DAV1D_DIR)/build-arm64-v8a/src/libdav1d.so.0.1.1 $(1)/libs/arm64-v8a/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
 	fi
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
 		mkdir -p $(1)/libs/x86_64; \
+		cp -r $(DAV1D_DIR)/build-x86_64/src/libdav1d.so.0.1.1 $(1)/libs/x86_64/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86_64/lib/*so $(1)/libs/x86_64; \
-	fi
-	@if [ "$(NDK_CPU_MIPS_64)" = "1" ];then \
-		mkdir -p $(1)/libs/mips64; \
-		cp -r $(FFMPEG_DIR)/ndk/dist-$(2)-mips64/lib/*so $(1)/libs/mips64; \
 	fi
 endef
 
@@ -227,7 +204,7 @@ define make_hacks
 endef
 
 define make_avos
-	MAKE_JOBS=$(MAKE_JOBS) BUILD=$(BUILD) $(ndk_debug) BUILD_ANDROID_LIBS=$(BUILD_ANDROID_LIBS) NDK_APP_ABI="$(NDK_APP_ABI)" LIBAV_CONFIG=$(2) make native_build_native/avos
+	MAKE_JOBS=$(MAKE_JOBS) BUILD=$(BUILD) $(ndk_debug) NDK_APP_ABI="$(NDK_APP_ABI)" LIBAV_CONFIG=$(2) make native_build_native/avos
 
 	@if [ "$(NDK_CPU_ARM_NEON)" = "1" ];then \
 		mkdir -p $(1)/libs/armeabi-v7a; \
@@ -242,10 +219,6 @@ define make_avos
 		mkdir -p $(1)/libs/x86; \
 		cp -r $(AVOS_DIR)/libs/x86/*so $(1)/libs/x86; \
 	fi
-	@if [ "$(NDK_CPU_MIPS)" = "1" ];then \
-		mkdir -p $(1)/libs/mips; \
-		cp -r $(AVOS_DIR)/libs/mips/*so $(1)/libs/mips; \
-	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
 		mkdir -p $(1)/libs/arm64-v8a; \
 		cp -r $(AVOS_DIR)/libs/arm64-v8a/*so $(1)/libs/arm64-v8a; \
@@ -254,34 +227,36 @@ define make_avos
 		mkdir -p $(1)/libs/x86_64; \
 		cp -r $(AVOS_DIR)/libs/x86_64/*so $(1)/libs/x86_64; \
 	fi
-	@if [ "$(NDK_CPU_MIPS_64)" = "1" ];then \
-		mkdir -p $(1)/libs/mips64; \
-		cp -r $(AVOS_DIR)/libs/mips64/*so $(1)/libs/mips64; \
-	fi
 	$(call make_hacks,$(1),$(2))
 endef
 
 native_avos: native_build_native/avos
 
-native_avos_base:
+native_avos_base: native_build_native/ffmpeg-android-builder
 	$(call cp_ffmpeg_libs,MediaLib,base)
 	$(call make_avos,MediaLib,base)
 
-native_avos_full:
+native_avos_full: native_build_native/ffmpeg-android-builder
 	$(call cp_ffmpeg_libs,MediaLib,full)
 	$(call make_avos,MediaLib,full)
+
+native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder
+	cd native/ffmpeg-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
+
+native_build_native/dav1d-android-builder:
+	cd native/dav1d-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_dav1d.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
 native_build_native/boost:
-	cd native/boost; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
+	cd native/boost; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_boost.sh
 
 native_build_native/libtorrent:
 	cd native/libtorrent; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
 
 native_torrentd: native_build_native/torrentd
 	rm -f MediaLib/libs/armeabi/libtorrentd.so ;\
-	for i in armeabi-v7a x86;do \
+	for i in armeabi-v7a arm64-v8a x86 x86_64;do \
 		mkdir -p MediaLib/libs/$$i ;\
 		cp native/torrentd/libs/$$i/torrentd MediaLib/libs/$$i/libtorrentd.so ;\
 	done
