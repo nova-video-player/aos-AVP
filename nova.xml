@@ -20,6 +20,6 @@
   <project path="native/libnativehelper" name="aos-libnativehelper" revision="ndk-r19" />
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
-  <project path="native/torrentd" name="aos-torrentd" revision="ndk-r19" />
+  <project path="native/torrentd" name="aos-torrentd" revision="master" />
   <!-- <project path="native/android-libs" name="aos-android-libs" /> -->
 </manifest>
