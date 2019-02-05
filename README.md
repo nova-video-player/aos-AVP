@@ -39,6 +39,21 @@ Alternatively for those not under Linux with a properly installed Android SDK/ND
 cd Video
 ./gradlew assembleCommunityLeanbackNoamazonPrivlibs
 ```
+
+Please note that the following packages are required to build:
+```
+sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+sudo chmod a+x /usr/local/bin/repo
+sudo apt install build-essential wget curl unzip openjdk-8-jdk python git pkg-config meson nasm
+```
+
+Alternatively you can use the provided docker image to build nova:
+```
+cd nova/AVP/docker
+docker build -t nova .
+docker run --rm -ti --entrypoint=/bin/bash nova
+make
+```
 #### Latest stable apk
 
 The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
