@@ -1,0 +1,8 @@
+certifi==2018.4.16
+chardet==3.0.4
+idna==2.7
+PyGithub==1.40
+PyJWT==1.6.4
+requests==2.19.1
+urllib3==1.23
+configparser==3.5.0
