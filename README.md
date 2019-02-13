@@ -31,10 +31,11 @@ Get the repo tool (https://source.android.com/source/downloading), then type:
 mkdir aos; cd aos
 repo init -u https://github.com/nova-video-player/aos-AVP -b nova
 repo sync -j4
+repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
 make
 ```
 
-Alternatively for those not under Linux with a properly installed Android SDK/NDK, you can launch the build for one of the flavors of the video player through:
+Alternatively for those not under Linux with a properly installed Android SDK/NDK, you can launch the video player build through:
 ```
 cd Video
 ./gradlew assembleCommunityLeanbackNoamazonPrivlibs
