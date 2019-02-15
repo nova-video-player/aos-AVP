@@ -9,6 +9,7 @@
 [![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](irc://irc.freenode.net/novavideoplayer)
 [![Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
 [![Build Status](https://img.shields.io/travis/nova-video-player/aos-Fdroid.svg)](https://travis-ci.org/nova-video-player/aos-Fdroid)
+[![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/NovaVideoPlayer/donate)
 
 #### Overview
 
@@ -98,4 +99,12 @@ and be aware to grant all permissions.
 #### Localization
 
 You are welcome to contribute to the translation of the application at https://crowdin.com/project/nova-video-player
+
+#### Donate
+
+You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via liberapay 
+[![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/NovaVideoPlayer/donate).
+
+Please bare in mind that the work carried out here results from a small community effort done with good will on scarce personal time.
+If need be, we might in the future introduce some extra bounty programs for specific feature development requests.
 
