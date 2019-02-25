@@ -68,6 +68,10 @@ The compiled application is available for installation on Google Play: https://p
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=org.courville.nova)
 
+or on Amazon Appstore: https://www.amazon.fr/dp/B07P1Q1DG9
+
+[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" alt="Get it on Amazon Appstore" height="80">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
+
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
 #### Scraping and Scrobbling
