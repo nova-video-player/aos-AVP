@@ -49,11 +49,29 @@ cd native/dav1d-android-builder; git clean -fdx; cd ..
 cd native/ffmpeg-android-builder; git clean -fdx; cd ..
 ```
 
-Please note that the following packages are required to build:
+Note that the following packages are required to build:
 ```
 sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 sudo chmod a+x /usr/local/bin/repo
 sudo apt install build-essential wget curl unzip openjdk-8-jdk python git pkg-config meson nasm
+```
+
+Recent enough versions of nasm (≥2.13) and meson (≥0.47) are now required for buildinf ffmpeg/dav1d.
+Nasm can be installed with:
+```
+wget http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2
+tar xjvf nasm-2.14.02.tar.bz2
+cd nasm-2.14.02
+./autogen.sh
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+PATH="$HOME/bin:$PATH" make
+sudo make install
+```
+Latest meson can be installed via:
+```
+sudo apt install -y pkg-config python3 python3-pip python3-setuptools ninja-build
+sudo pip3 install --upgrade pip
+pip3 install --user meson
 ```
 
 Alternatively you can use the provided docker image to build nova:
@@ -63,6 +81,11 @@ docker build -t nova .
 docker run --rm -ti --entrypoint=/bin/bash nova
 make
 ```
+
+Travis-ci build configuration file is also provided here: https://github.com/nova-video-player/aos-Fdroid/blob/master/.travis.yml
+
+Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to reduce compilation time and remove nasm, meson depedencies. If you need to regenerate torrentd, ffmpeg and dav1d libs, please run `make clean_prebuilt`.
+
 #### Latest stable apk
 
 The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova

@@ -232,7 +232,15 @@ endef
 
 native_avos: native_build_native/avos
 
-native_avos_base: native_build_native/ffmpeg-android-builder
+clean_prebuilt:
+	rm -rf native/torrentd/libs
+	rm -rf $(FFMPEG_DIR)/dist-*
+	rm -rf $(DAV1D_DIR)/build-*
+
+$(FFMPEG_DIR)/dist-full-arm64-v8a/lib/libavcodec.so:
+	make native_build_native/ffmpeg-android-builder
+
+native_avos_base: $(FFMPEG_DIR)/dist-full-arm64-v8a/lib/libavcodec.so
 	$(call cp_ffmpeg_libs,MediaLib,base)
 	$(call make_avos,MediaLib,base)
 
