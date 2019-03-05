@@ -254,7 +254,9 @@ native_build_native/boost:
 native_build_native/libtorrent:
 	cd native/libtorrent; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
 
-native_torrentd: native_build_native/torrentd
+native/torrentd/libs/arm64-v8a/torrentd:
+	make native_build_native/torrentd
+native_torrentd: native/torrentd/libs/arm64-v8a/torrentd
 	rm -f MediaLib/libs/armeabi/libtorrentd.so ;\
 	for i in armeabi-v7a arm64-v8a x86 x86_64;do \
 		mkdir -p MediaLib/libs/$$i ;\
