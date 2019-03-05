@@ -234,8 +234,7 @@ native_avos: native_build_native/avos
 
 clean_prebuilt:
 	rm -rf native/torrentd/libs
-	rm -rf $(FFMPEG_DIR)/dist-*/lib
-	rm -rf $(FFMPEG_DIR)/dist/include/*
+	rm -rf $(FFMPEG_DIR)/dist-*
 	rm -rf $(DAV1D_DIR)/build-*
 
 $(FFMPEG_DIR)/dist-full-arm64-v8a/lib/libavcodec.so:
