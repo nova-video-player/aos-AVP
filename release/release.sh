@@ -22,12 +22,12 @@ if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
 then
   ./gradlew aCLNR || ret = 1
   [ -f $bdir/manifest.xml ] && mv $bdir/manifest.xml $bdir/manifest-old.xml
-  mv $bdir/manifest-new.xml $bdir/manifest.xml
 else
   ret=1
 fi
 if [ "$ret" == "1" ]
 then
+  mv $bdir/manifest-new.xml $bdir/manifest.xml
   cd $prefix/AVP/release
   ./push.py "v${major}.${minor}" "v${major}.${minor} release candidate" $bdir
 fi
