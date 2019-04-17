@@ -20,7 +20,7 @@ ret=0
 #launch build only if manifests are not the same
 if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
 then
-  ./gradlew aCLNPR || ret = 1
+  ./gradlew aCLNR || ret = 1
   [ -f $bdir/manifest.xml ] && mv $bdir/manifest.xml $bdir/manifest-old.xml
   mv $bdir/manifest-new.xml $bdir/manifest.xml
 else
@@ -29,5 +29,5 @@ fi
 if [ "$ret" == "1" ]
 then
   cd $prefix/AVP/release
-  ./push.py "v${major}.${minor}" "v${major}.${minor} Google Play release" $bdir
+  ./push.py "v${major}.${minor}" "v${major}.${minor} release candidate" $bdir
 fi
