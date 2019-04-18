@@ -168,22 +168,22 @@ $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 define cp_ffmpeg_libs
 	@if [ "$(NDK_CPU_ARM_NEON)" = "1" ];then \
 		mkdir -p $(1)/libs/armeabi-v7a; \
-		cp -r $(DAV1D_DIR)/build-armeabi-v7a/src/libdav1d.so.0.1.1 $(1)/libs/armeabi-v7a/libdav1d.so; \
+		cp $(DAV1D_DIR)/build-armeabi-v7a/src/libdav1d.so $(1)/libs/armeabi-v7a/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-armeabi-v7a/lib/*so $(1)/libs/armeabi-v7a; \
 	fi;
 	@if [ "$(NDK_CPU_X86)" = "1" ];then \
 		mkdir -p $(1)/libs/x86; \
-		cp -r $(DAV1D_DIR)/build-x86/src/libdav1d.so.0.1.1 $(1)/libs/x86/libdav1d.so; \
+		cp $(DAV1D_DIR)/build-x86/src/libdav1d.so $(1)/libs/x86/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86/lib/*so $(1)/libs/x86; \
 	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
 		mkdir -p $(1)/libs/arm64-v8a; \
-		cp -r $(DAV1D_DIR)/build-arm64-v8a/src/libdav1d.so.0.1.1 $(1)/libs/arm64-v8a/libdav1d.so; \
+		cp $(DAV1D_DIR)/build-arm64-v8a/src/libdav1d.so $(1)/libs/arm64-v8a/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
 	fi
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
 		mkdir -p $(1)/libs/x86_64; \
-		cp -r $(DAV1D_DIR)/build-x86_64/src/libdav1d.so.0.1.1 $(1)/libs/x86_64/libdav1d.so; \
+		cp $(DAV1D_DIR)/build-x86_64/src/libdav1d.so $(1)/libs/x86_64/libdav1d.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-x86_64/lib/*so $(1)/libs/x86_64; \
 	fi
 endef
