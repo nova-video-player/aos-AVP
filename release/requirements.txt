@@ -4,5 +4,5 @@ idna==2.7
 PyGithub==1.40
 PyJWT==1.6.4
 requests>=2.20.0
-urllib3==1.23
+urllib3>=1.24.2
 configparser==3.5.0
