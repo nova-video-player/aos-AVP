@@ -28,7 +28,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 - Fix sftp playback interruptions
 - Fix an android Q DP3 crash
 
-## v2.2 Google Play public release - 19/5/2019
+## v2.2 stable branch release - 19/5/2019
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 - New TV show categories for quicker browsing through large collection
 - Countless TV UI improvements (roles, trailers, badges, global del/deindex, subs picker)
