@@ -6,7 +6,7 @@ minor=`echo $version | cut -d. -f2`
 prefix=/agraver/git/nova
 avp=$prefix/AVP
 cd $avp
-git tag -a "v${major}.${minor}" -m "v${major}.${minor} new google play public release"
+git tag -a "v${major}.${minor}" -m "v${major}.${minor} release"
 git push --tags
 
 echo "Uploading release v${major}.${minor} to github..."
