@@ -1,5 +1,8 @@
 # Nova Video Player changelog
 
+## Important notes:
+- migrating from v3 or v4 to v2 will delete all your scraping information
+
 ## v4.x current git (unstable)
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 
@@ -41,6 +44,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 - Re-enable downmix on phones to avoid voice channels loss on some phones
 - Stability improvements
 - Upgrade to latest ffmpeg and dav1d soft codecs
+- Fix an android Q DP3 crash
 
 ## v4.2 API28+AndroidX beta release - 27/4/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
