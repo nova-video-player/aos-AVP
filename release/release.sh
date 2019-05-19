@@ -29,5 +29,5 @@ if [ "$ret" == "1" ]
 then
   mv $bdir/manifest-new.xml $bdir/manifest.xml
   cd $prefix/AVP/release
-  ./push.py "v${major}.${minor}" "v${major}.${minor} release candidate" $bdir
+  ./push.py "v${major}.${minor}" "v${major}.${minor} release" $bdir
 fi
