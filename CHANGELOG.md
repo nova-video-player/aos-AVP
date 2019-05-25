@@ -39,8 +39,9 @@ Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpe
 - Fix cloud support (still no streaming)
 - Fix an android Q DP3 crash
 
-## v3.7 beta release - 19/5/2019
+## v3.7 Google Play release - 24/5/2019
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+- Fix software decoding fallback in case of error
 - Re-enable downmix on phones to avoid voice channels loss on some phones
 - Stability improvements
 - Upgrade to latest ffmpeg and dav1d soft codecs
