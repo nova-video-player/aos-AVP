@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/local/bin/python3
 
 from github import Github
 from configparser import ConfigParser
