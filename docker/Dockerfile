@@ -6,7 +6,7 @@ ENV USER root
 RUN dpkg --add-architecture i386
 RUN apt update && apt install -y \
 	locales \
-	sudo ; \
+	sudo \
 	wget \
 	unzip \
 	git \
