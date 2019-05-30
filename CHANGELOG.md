@@ -12,11 +12,12 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
-## v4.4 unstable branch release - 30/5/2019
+## v4.5 unstable branch release - 30/5/2019
 - Fix files cannot play from external sdcard using an external player
 - AndroidTV: fix EpisodesByDate week view crash in case of large TV show collection
 
 ## v3.8 Google Play release - 30/5/2019
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 - Fix files cannot play from external sdcard using an external player
 
 ## v4.3 unstable branch release - 19/5/2019
