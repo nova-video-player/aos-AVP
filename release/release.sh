@@ -3,11 +3,14 @@
 version=$1
 major=`echo $version | cut -d. -f1`
 minor=`echo $version | cut -d. -f2`
-prefix=/agraver/git/nova
+cd ../..
+prefix=`pwd`
 avp=$prefix/AVP
 cd $avp
-git tag -a "v${major}.${minor}" -m "v${major}.${minor} release"
-git push --tags
+#git tag -a "v${major}.${minor}" -m "v${major}.${minor} release"
+#git push --tags
+repo forall -c git tag -a "v${major}.${minor}" -m "v${major}.${minor} release"
+repo forall -c git push --tags
 
 echo "Uploading release v${major}.${minor} to github..."
 
