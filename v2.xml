@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="." />
+
+  <default revision="master" remote="github" />
+
+  <project path="AVP" name="aos-AVP" revision="v2" >
+    <copyfile src="Makefile" dest="Makefile" />
+  </project>
+
+  <project path="Video" name="aos-Video" revision="v2" />
+  <project path="MediaLib" name="aos-MediaLib" revision="v2" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v2" />
+
+  <project path="native/avos" name="aos-avos" revision="v2" />
+  <project path="native/audiocompress" name="aos-audiocompress" revision="v2" />
+  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="v2" />
+  <project path="native/libyuv" name="aos-libyuv" revision="v2" />
+  <project path="native/libnativehelper" name="aos-libnativehelper" revision="v2" />
+  <project path="native/boost" name="aos-boost" revision="v2" />
+  <project path="native/libtorrent" name="aos-libtorrent" revision="v2" />
+  <project path="native/torrentd" name="aos-torrentd" revision="v2" />
+  <project path="native/android-libs" name="aos-android-libs" revision="v2" />
+</manifest>
