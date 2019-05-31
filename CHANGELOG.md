@@ -5,9 +5,15 @@
 
 ## v4.x current git (unstable)
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Attempt to fix UPnP playback of files containing a "/"
+- Do not crash when opening non-video files in browser
+- Stability improvements
 
 ## v3.x current git (testing)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+- Attempt to fix UPnP playback of files containing a "/"
+- Do not crash when opening non-video files in browser
+- Stability improvements
 
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
