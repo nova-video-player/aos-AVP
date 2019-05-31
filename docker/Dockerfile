@@ -4,20 +4,9 @@ MAINTAINER Courville Software <software@courville.org>
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 RUN dpkg --add-architecture i386
-RUN apt update && apt install -y \
-	locales \
-	sudo \
-	wget \
-	unzip \
-	git \
-	curl \
-	build-essential \
-	openjdk-8-jdk \
-	python \
-	pkg-config \
-	meson \
-	nasm \
-	apt clean autoclean
+RUN apt update && \ 
+    apt install -y locales sudo wget unzip git curl build-essential openjdk-8-jdk python pkg-config meson nasm && \
+    apt clean autoclean
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
