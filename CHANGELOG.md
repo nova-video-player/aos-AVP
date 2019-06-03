@@ -11,23 +11,33 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 
 ## v3.x current git (testing)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
-- Attempt to fix UPnP playback of files containing a "/"
-- Do not crash when opening non-video files in browser
-- Stability improvements
 
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
+## v4.6 unstable branch release - 3/6/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
+- Attempt to fix UPnP playback of files containing a "/"
+- Do not crash when opening non-video files in browser
+- Stability improvements
+
+## v3.9 Google Play beta release - 1/6/2019
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
+- Attempt to fix UPnP playback of files containing a "/"
+- Do not crash when opening non-video files in browser
+- Stability improvements
+
 ## v4.5 unstable branch release - 30/5/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
 - Fix files cannot play from external sdcard using an external player
 - AndroidTV: fix EpisodesByDate week view crash in case of large TV show collection
 
 ## v3.8 Google Play release - 30/5/2019
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
 - Fix files cannot play from external sdcard using an external player
 
 ## v4.3 unstable branch release - 19/5/2019
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
 - Scanning and scraping proper Notifications
 - Add an option to force disabling stereo downmix on phones/tablets with Android version > N
 - AndroidTV: add pinning on long press for all movies/tvshows
@@ -54,7 +64,7 @@ Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpe
 - Fix an android Q DP3 crash
 
 ## v3.7 Google Play release - 24/5/2019
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
 - Fix software decoding fallback in case of error
 - Re-enable downmix on phones to avoid voice channels loss on some phones
 - Stability improvements
@@ -62,7 +72,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 - Fix an android Q DP3 crash
 
 ## v4.2 API28+AndroidX beta release - 27/4/2019
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
 - Option to have landscape fullscreen video on display with cutouts
 - AndroidX migration
 - Poster/backdrop zoom on AndroidTV via long press
@@ -71,11 +81,11 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 - New all/not viewed orb option in All TV shows/Movies for limiting browsing to all/not viewed videos
 
 ## v3.6 Google Play beta release - 27/4/2019
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19, ffmpeg 4.2.
 - Upgrade to latest ffmpeg and dav1d soft codecs
 
 ## v3.5 release candidate - 17/4/2019
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19, ffmpeg 4.2.
 - Fix software decoding on pre-M Android versions
 
 ## v4.1 API28 beta release - 8/4/2019
