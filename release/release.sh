@@ -21,13 +21,13 @@ repo manifest -r > $bdir/manifest-new.xml
 
 ret=0
 #launch build only if manifests are not the same
-if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
-then
-  ./gradlew aCLNR || ret = 1
+#if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
+#then
+#  ./gradlew aCLNR || ret = 1
   [ -f $bdir/manifest.xml ] && mv $bdir/manifest.xml $bdir/manifest-old.xml
-else
+#else
   ret=1
-fi
+#fi
 if [ "$ret" == "1" ]
 then
   mv $bdir/manifest-new.xml $bdir/manifest.xml
