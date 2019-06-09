@@ -12,6 +12,10 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmp
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
+## v3.10 Google Play beta release - 9/6/2019
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
+- Fix authentication issue with Trakt
+
 ## v4.6 unstable branch release - 3/6/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
 - Attempt to fix UPnP playback of files containing a "/"
