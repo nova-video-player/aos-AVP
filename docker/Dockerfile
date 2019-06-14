@@ -3,6 +3,7 @@ MAINTAINER Courville Software <software@courville.org>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
+RUN echo "deb http://ftp.de.debian.org/debian stretch main" >> /etc/apt/sources.list
 RUN dpkg --add-architecture i386
 RUN apt update && \ 
     apt install -y locales sudo wget unzip git curl build-essential openjdk-8-jdk python pkg-config meson nasm && \
