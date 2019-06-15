@@ -4,15 +4,24 @@
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
 ## v4.x current git (unstable)
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r19c, ffmpeg 4.2.
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 
 ## v3.x current git (testing)
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
-## v3.10 Google Play beta release - 9/6/2019
+## v4.7 unstable branch release - 15/6/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Improve audio passthrough robustness
+- Fix authentication issue with Trakt
+
+## v3.11 Google Play beta release - 15/6/2019
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+- Improve audio passthrough robustness
+
+## v3.10 Google Play release - 9/6/2019
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r19c, ffmpeg 4.2.
 - Fix authentication issue with Trakt
 
