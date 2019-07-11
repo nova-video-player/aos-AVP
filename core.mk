@@ -150,7 +150,7 @@ native_clean_$(1):
 endef
 
 all: AVP/android-ndk
-	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) PATH=$(android_ndk):$(PATH) ./gradlew aCLND
+	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) PATH=$(android_ndk):$(PATH) ./gradlew aD
 
 dlonly: AVP/android-ndk
 

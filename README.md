@@ -40,7 +40,7 @@ make
 Alternatively for those not under Linux with a properly installed Android SDK/NDK, you can launch the video player build through:
 ```
 cd Video
-./gradlew assembleCommunityLeanbackNoamazon
+./gradlew assembleRelease
 ```
 
 Note that build is performed on local git clone of ffmpeg and dav1d repos and in order to trigger full update rebuild, you need in case of version upstep to manually do:
