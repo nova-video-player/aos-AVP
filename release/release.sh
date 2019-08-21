@@ -15,7 +15,7 @@ repo forall -c git push --tags
 echo "Uploading release v${major}.${minor} to github..."
 
 cd $prefix/Video
-bdir=$prefix/Video/build/outputs/apk/communityLeanbackNoamazon/release
+bdir=$prefix/Video/build/outputs/apk/release
 mkdir -p $bdir
 repo manifest -r > $bdir/manifest-new.xml
 
