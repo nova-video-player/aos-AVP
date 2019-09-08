@@ -12,6 +12,34 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
+## v4.13 unstable branch release - 8/9/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Switch to AudioTrack instead of openSLES to solve audio/video delay on some devices
+- Disable for now UpNext row/channel preventing display of indexed folders
+- Upgrade trakt-java library to solve two way sync
+
+## v4.12 unstable branch release - 15/6/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Fix HEVC decoding for some files on MTK based devices
+- Do not revert on SW decoding in presence of high bitrate spike occurring on some 4k high bitrate videos
+
+## v4.11 unstable branch release - 15/6/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Fix coexistence with Archos Video Player
+
+## v4.10 unstable branch release - 15/6/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Fix video blacklisting on local storage
+
+## v4.9 unstable branch release - 15/6/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- FFmpeg upstep to 4.2 and dav1d to 0.4.0
+- Fix database crash preventing application to start on some custom ROMs
+
+## v4.8 unstable branch release - 15/6/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+- Fix database crash preventing application to start on some devices
+
 ## v4.7 unstable branch release - 15/6/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 - Improve audio passthrough robustness
