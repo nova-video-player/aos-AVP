@@ -15,7 +15,7 @@ repo forall -c git push --tags
 echo "Uploading release v${major}.${minor} to github..."
 
 cd $prefix/Video
-bdir=$prefix/Video/build/outputs/apk/release
+bdir=$prefix/Video/build/outputs/apk/noamazon/release
 mkdir -p $bdir
 repo manifest -r > $bdir/manifest-new.xml
 
@@ -23,7 +23,7 @@ ret=0
 #launch build only if manifests are not the same
 #if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
 #then
-#  ./gradlew aR || ret = 1
+#  ./gradlew aNR || ret = 1
   [ -f $bdir/manifest.xml ] && mv $bdir/manifest.xml $bdir/manifest-old.xml
 #else
   ret=1
