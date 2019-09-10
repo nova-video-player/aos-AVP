@@ -21,5 +21,7 @@
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
   <project path="native/torrentd" name="aos-torrentd" />
+  <project path="external/trakt-java" name="trakt-java" revision="nova" />
+  <project path="external/jcifs-ng" name="jcifs-ng" revision="nova" />
   <!-- <project path="native/android-libs" name="aos-android-libs" /> -->
 </manifest>
