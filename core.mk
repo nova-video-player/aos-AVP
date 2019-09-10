@@ -17,7 +17,7 @@ ifeq ($(os), darwin)
 endif
 READLINK := $(readlink_prefix)readlink
 
-ndk_ver := 19
+ndk_ver := 20
 
 android_sdk := $(shell $(READLINK) -f AVP/android-sdk)
 android_ndk := $(shell $(READLINK) -f AVP/android-ndk)
