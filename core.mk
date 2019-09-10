@@ -271,6 +271,12 @@ native_torrentd: native/torrentd/libs/arm64-v8a/torrentd
 		cp native/torrentd/libs/$$i/torrentd MediaLib/libs/$$i/libtorrentd.so ;\
 	done
 
+trakt-java:
+	cd external/trakt-java; mvn package -DskipTests -Dmaven.javadoc.skip=true
+
+jcifs-ng:
+	cd external/jcifs-ng; mvn package -DskipTests -Dmaven.javadoc.skip=true
+
 native_libyuv: native_build_native/libyuv
 
 native_libnativehelper: native_build_native/libnativehelper
