@@ -236,6 +236,8 @@ clean_prebuilt:
 	rm -rf native/torrentd/libs
 	rm -rf $(FFMPEG_DIR)/dist-*
 	rm -rf $(DAV1D_DIR)/build-*
+	rm -rf MediaLib/libs/trakt-java.jar
+	rm -rf FileCoreLibrary/libs/jcifs-ng.jar
 
 $(FFMPEG_DIR)/dist-full-arm64-v8a/lib/libavcodec.so:
 	make native_build_native/ffmpeg-android-builder
@@ -271,11 +273,25 @@ native_torrentd: native/torrentd/libs/arm64-v8a/torrentd
 		cp native/torrentd/libs/$$i/torrentd MediaLib/libs/$$i/libtorrentd.so ;\
 	done
 
-trakt-java:
-	cd external/trakt-java; mvn package -DskipTests -Dmaven.javadoc.skip=true
+trakt-java: MediaLib/libs/trakt-java.jar
 
-jcifs-ng:
-	cd external/jcifs-ng; mvn package -DskipTests -Dmaven.javadoc.skip=true
+jcifs-ng: FileCoreLibrary/libs/jcifs-ng.jar
+
+FileCoreLibrary/libs/jcifs-ng.jar:
+	cd external/jcifs-ng; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
+
+MediaLib/libs/trakt-java.jar:
+	cd external/trakt-java; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
+
+external_build: trakt-java jcifs-ng
+
+external_clean: external_clean_jcifs-ng external_clean_trakt-java
+
+external_clean_jcifs-ng:
+	cd external/jcifs-ng; mvn clean; rm -f ../../FileCoreLibrary/libs/jcifs-ng.jar
+
+external_clean_trakt-java:
+	cd external/trakt-java; mvn clean; rm -f ../../MediaLib/libs/trakt-java.jar
 
 native_libyuv: native_build_native/libyuv
 
@@ -285,5 +301,5 @@ native : $(native_rules)
 
 native_clean: $(native_clean_rules)
 
-clean: native_clean
+clean: native_clean external_clean
 
