@@ -12,11 +12,17 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 ## v2.x current git (stable)
 Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
 
+## v4.14 unstable branch release - 15/9/2019
+"Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Only switch to AudioTrack instead of openSLES to solve audio/video delay on Amlogic
+- Upgrade to latest version of trakt-java containing NVP upstreamed contribution
+- Add support for codepade 28606 - Latin-10 or South-Eastern European for subs
+
 ## v4.13 unstable branch release - 8/9/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
-- Switch to AudioTrack instead of openSLES to solve audio/video delay on some devices
+- Switch to AudioTrack instead of openSLES to solve audio/video delay on most devices
 - Disable for now UpNext row/channel preventing display of indexed folders
-- Upgrade trakt-java library to solve two way sync
+- Upgrade trakt-java library to solve two ways sync
 
 ## v4.12 unstable branch release - 29/8/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
