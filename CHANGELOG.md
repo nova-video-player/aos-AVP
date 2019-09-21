@@ -3,37 +3,46 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
-## v4.x current git (unstable)
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
+## v5.x current git (unstable)
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 
-## v3.x current git (testing)
+## v4.x current git (testing), current Google Play release
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+
+## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
-## v2.x current git (stable)
-Stable branch: this release is based on minSDK 17, targetSDK 27, NDK-r16b, ffmpeg 3.3.x.
+## v4.15 Google Play release - 21/9/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Switch to jcifs-ng to support SMBv2/3
+- Target API29 (Android Q) and disable scoped storage for now
 
-## v4.14 unstable branch release - 15/9/2019
+## v4.15 Google Play release - 16/9/2019
+Testing branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix resume point update on VideoInfoActivity and auto scraping of unknown files on network shares
+
+## v4.14 Google Play beta release - 15/9/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Only switch to AudioTrack instead of openSLES to solve audio/video delay on Amlogic
 - Upgrade to latest version of trakt-java containing NVP upstreamed contribution
 - Add support for codepade 28606 - Latin-10 or South-Eastern European for subs
 
-## v4.13 unstable branch release - 8/9/2019
+## v4.13 Google Play beta release - 8/9/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 - Switch to AudioTrack instead of openSLES to solve audio/video delay on most devices
 - Disable for now UpNext row/channel preventing display of indexed folders
 - Upgrade trakt-java library to solve two ways sync
 
-## v4.12 unstable branch release - 29/8/2019
+## v4.12 Google Play beta release - 29/8/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 - Fix HEVC decoding for some files on MTK based devices
 - Do not revert on SW decoding in presence of high bitrate spike occurring on some 4k high bitrate videos
 
-## v4.11 unstable branch release - 28/8/2019
+## v4.11 Google Play beta release - 28/8/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 - Fix coexistence with Archos Video Player
 
-## v4.10 unstable branch release - 22/8/2019
+## v4.10 Google Play beta release - 22/8/2019
 "Not so much anymore unstable branch": this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.
 - Fix video blacklisting on local storage
 
