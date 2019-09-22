@@ -12,7 +12,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
-## v4.15 Google Play release - 21/9/2019
+## v5.1 unstable branch release - 21/9/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Switch to jcifs-ng to support SMBv2/3
 - Target API29 (Android Q) and disable scoped storage for now
