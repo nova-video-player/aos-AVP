@@ -4,7 +4,10 @@
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
 ## v5.x current git (unstable)
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- SMBv2/3 support (still issue with guest) via jcifs-ng
+- Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
+- Target API29 disabling scoped storage for now
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
