@@ -5,15 +5,28 @@
 
 ## v5.x current git (unstable)
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- SMBv2/3 support (still issue with guest) via jcifs-ng
+- SMBv2/3 support via jcifs-ng
 - Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
 - Target API29 disabling scoped storage for now
+- Stability enhancements
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+
+## v5.3 Google Play beta release - 3/11/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Leanback setting style for subtitles languages download
+- Remove systematic video background reload in VideoDetailsFragment on leadback when back from video play
+- Stability enhancements
+
+## v5.2 Google Play beta release - 27/10/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix selection of torrent streaming download directory not selectable
+- Indexing, scraping and file copy proper foreground notifications
+- Stability enhancements
 
 ## v5.1 unstable branch release - 21/9/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
