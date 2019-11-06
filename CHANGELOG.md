@@ -16,6 +16,14 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v5.5 Google Play beta release - 6/11/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix lack of focus on last added video row at application start on leanback
+
+## v5.4 Google Play beta release - 4/11/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix cursor based fragments lack of refresh after video deletion on phones/tablets
+
 ## v5.3 Google Play beta release - 3/11/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Leanback setting style for subtitles languages download
