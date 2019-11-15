@@ -284,10 +284,10 @@ MediaLib/libs/trakt-java.jar:
 	cd external/trakt-java; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
 #external_build: trakt-java jcifs-ng
-external_build: jcifs-ng
+external_build:
 
 #external_clean: external_clean_jcifs-ng external_clean_trakt-java
-external_clean: external_clean_jcifs-ng
+external_clean: 
 
 external_clean_jcifs-ng:
 	cd external/jcifs-ng; mvn clean; rm -f ../../FileCoreLibrary/libs/jcifs-ng.jar
