@@ -41,6 +41,13 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 - Switch to jcifs-ng to support SMBv2/3
 - Target API29 (Android Q) and disable scoped storage for now
 
+## v4.16 Google Play beta - 16/11/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20b, ffmpeg 4.2.1.
+- Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
+- Target API29 disabling scoped storage for now
+- Indexing, scraping and file copy proper foreground notifications
+- Stability enhancements
+
 ## v4.15 Google Play release - 16/9/2019
 Testing branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix resume point update on VideoInfoActivity and auto scraping of unknown files on network shares
