@@ -12,6 +12,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix player crashing in Dutch due to translation error
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
