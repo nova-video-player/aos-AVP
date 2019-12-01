@@ -18,6 +18,25 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v5.6 SMBv2 beta release - 1/12/2019
+Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix SMBv1 guest/anonymous auth on freebox
+
+## v4.20 Google Play release - 1/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Stability enhancements
+
+## v4.17 Google Play release - 18/11/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Stability enhancements
+
+## v4.16 Google Play release - 17/11/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
+- Target API29 disabling scoped storage for now
+- Indexing, scraping and file copy proper foreground notifications
+- Stability enhancements
+
 ## v5.5 Google Play beta release - 6/11/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix lack of focus on last added video row at application start on leanback
@@ -42,17 +61,6 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Switch to jcifs-ng to support SMBv2/3
 - Target API29 (Android Q) and disable scoped storage for now
-
-## v4.17 Google Play release - 18/11/2019
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- Stability enhancements
-
-## v4.16 Google Play release - 17/11/2019
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
-- Target API29 disabling scoped storage for now
-- Indexing, scraping and file copy proper foreground notifications
-- Stability enhancements
 
 ## v4.15 Google Play release - 16/9/2019
 Testing branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
