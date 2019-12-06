@@ -26,6 +26,11 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Stability enhancements
 
+## v4.18 Google Play release - 22/11/2019
+Testing branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix player crashing in Dutch due to translation error
+- Fix TV shows meta data retrieval issues due to to TheTVdb.com backend changes
+
 ## v4.17 Google Play release - 18/11/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Stability enhancements
