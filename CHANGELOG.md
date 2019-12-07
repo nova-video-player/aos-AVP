@@ -5,18 +5,18 @@
 
 ## v5.x current git (unstable)
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- SMBv2/3 support via jcifs-ng
-- Migration to TheTVDB API v2 via thetvdb-java external library with request caching support
-- Target API29 disabling scoped storage for now
-- Stability enhancements
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- Fix player crashing in Dutch due to translation error
-- Fix tvshow scrape issue due to thetvdb API server side upgrade
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
+
+## v4.21 Google Play release - 7/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Faster AndroidTV display entering application
+- Attempt to fix an UI glitch on Rockchip based TV boxes
+- Stability enhancements
 
 ## v5.6 SMBv2 beta release - 1/12/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
