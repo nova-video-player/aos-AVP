@@ -12,6 +12,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.22 Google Play release - 8/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix some shows not being scraped correctly after thetvdb.com site changes
+- Fix player controller UI layout issues on tablets
+- update thetvdb-java to version 2.2.0
+
 ## v4.21 Google Play release - 7/12/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Faster AndroidTV display entering application
