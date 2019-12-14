@@ -12,6 +12,14 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.23 Google Play release - 14/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix more shows not being scraped correctly after thetvdb.com site changes
+- Rollback on jcsh upgrade yielding issues on sftp
+- Fix regression in pause/play with enter key on AndroidTV
+- Fix some aspect ratio issues on devices where MediaCodec returns wrong video dimensions (firetv4k, rockchip, etc.)
+- Reduce bottom player UI glitch on chromebook and rockchip leanback interfaces
+
 ## v4.22 Google Play release - 8/12/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix some shows not being scraped correctly after thetvdb.com site changes
