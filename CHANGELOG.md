@@ -12,7 +12,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
-## v4.23 Google Play release - 14/12/2019
+## v4.24 Google Play release - 14/12/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix more shows not being scraped correctly after thetvdb.com site changes
 - Rollback on jcsh upgrade yielding issues on sftp
