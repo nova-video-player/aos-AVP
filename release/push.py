@@ -18,7 +18,7 @@ print(repo.name)
 #changelog is in whatsnew
 with open('../../Video/src/noamazon/play/release-notes/en-US/internal.txt', 'r') as whatsnew:
     changelog=whatsnew.read()
-    changelog=whatsnew.read().replace('^', '- ')
+#    changelog=whatsnew.read().replace('^', '- ')
 #    changelog=whatsnew.read().replace('\n', '')
 
 #create_git_release(tag, name, message, draft=False, prerelease=False, target_commitish=NotSet)
