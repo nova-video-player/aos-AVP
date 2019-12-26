@@ -12,6 +12,15 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.25 Google Play release - 26/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Introduce stretched video format to fill entire display with video image (only way to preserve aspect ratio on recent Philips TVs!)
+- Add Norwegian, Vietnamese scrape languages support
+- 2020 year banners for Android TV
+- Improve filename pre-processing garbage rules to improve scrape
+- Prevent scrape notification to fire up when nothing is to be scraped
+- Fix sftp indexing
+
 ## v5.7 SMBv2 beta release - 14/12/2019
 Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Align with v4.24 with jcifs-ng on top
