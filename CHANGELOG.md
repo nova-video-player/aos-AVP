@@ -12,6 +12,11 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.26 Google Play release - 29/12/2019
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Better scrape result through Levenshtein result distance computation
+- Stability enhancement
+
 ## v4.25 Google Play release - 26/12/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Introduce stretched video format to fill entire display with video image (only way to preserve aspect ratio on recent Philips TVs!)
