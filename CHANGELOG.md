@@ -12,6 +12,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.27 Google Play release - 5/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- ffmpeg update to 4.2.2
+- dav1d update to 0.5.2
+- Stability enhancement
+
 ## v4.26 Google Play release - 29/12/2019
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Better scrape result through Levenshtein result distance computation
