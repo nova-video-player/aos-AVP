@@ -8,11 +8,17 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix hevc 10 bit support on rk devices 
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
-## v4.27 Google Play release - 5/1/2020
+## v4.28 Google Play release - 11/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Prefer ffmpeg over c2.android or omx.google software codecs to avoid multimedia issues on pixel3xl phone
+- Stability enhancements
+
+## v4.27 Google Play beta release - 5/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - ffmpeg update to 4.2.2
 - dav1d update to 0.5.2
