@@ -12,6 +12,16 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.30 Google Play beta release - 22/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Use Audiotrack instead of OpenSL ES for audio output for improving video fluidity
+- Fix TV show Trakt progress sync
+- Disable periodic bookmark save that could interfere with video decoding performance over contrained bandwidth network shares
+- Complete Turkish and Simplified Chinese translations
+- New icon compliant with Google Play Store requirements
+- Only launch SMB discovery on local networks
+- New hidden force audio interface setting for experimentation
+
 ## v4.29 Google Play beta release - 11/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix HEVC 10 bit support on Rockchip devices 
