@@ -14,7 +14,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 
 ## v4.30 Google Play beta release - 22/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- Use Audiotrack instead of OpenSL ES for audio output for improving video fluidity
+- Use Audiotrack instead of OpenSL ES for audio interface improving video fluidity
 - Fix TV show Trakt progress sync
 - Disable periodic bookmark save that could interfere with video decoding performance over contrained bandwidth network shares
 - Complete Turkish and Simplified Chinese translations
