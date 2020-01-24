@@ -12,11 +12,23 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
-## v4.31 release - 22/1/2020
+## v5.8 release - 24/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Align with v4.32 with jcifs-ng on top
+
+## v4.32 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix indexing counter looping due to thetvdb site changes
 
-## v4.28_1 Google Play release - 24/1/2020
+## v4.31 release - 24/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix indexing counter looping due to thetvdb site changes
+
+## v4.28.2 Google Play release - 24/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix regression in TV show not recognized due to TheTVdb backend unilateral change
+
+## v4.28.1 Google Play release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Fix indexing counter looping due to thetvdb site changes
 - Fix build with latest NDK
