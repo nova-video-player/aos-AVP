@@ -18,7 +18,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 
 ## v4.32 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
-- Fix indexing counter looping due to thetvdb site changes
+- Fix regression in TV show not recognized due to TheTVdb backend unilateral change
 
 ## v4.31 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
