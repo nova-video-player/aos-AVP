@@ -12,6 +12,15 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.
 
+## v4.31 release - 22/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix indexing counter looping due to thetvdb site changes
+
+## v4.28_1 Google Play release - 24/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
+- Fix indexing counter looping due to thetvdb site changes
+- Fix build with latest NDK
+
 ## v4.30 Google Play beta release - 22/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
 - Use Audiotrack instead of OpenSL ES for audio interface improving video fluidity
@@ -21,6 +30,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - New icon compliant with Google Play Store requirements
 - Only launch SMB discovery on local networks
 - New hidden force audio interface setting for experimentation
+- Fix indexing counter looping due to thetvdb site changes
 
 ## v4.29 Google Play beta release - 11/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1.
