@@ -8,9 +8,10 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Fix grey bar issue on Sony when watching HDR content
 
 ## v3.x current git (stable)
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2
+Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
 ## v5.8 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
