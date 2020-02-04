@@ -34,6 +34,10 @@ ifneq (,$(ANDROID_NDK))
 android_ndk := $(ANDROID_NDK)
 endif
 
+ifneq (,$(ASAN))
+asan := $(ASAN)
+endif
+
 ndk_debug :=
 
 ifeq (,$(NDK_CPU_ARM_NEON))
@@ -138,7 +142,7 @@ native_build_$(1): $(1)/obj/clean
 		mkdir -p $(1)/obj; \
 		echo $(build_type) > $(1)/obj/build_type; \
 		touch $(1)/obj/clean; \
-		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) NDK_APP_ABI="$(NDK_APP_ABI)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
+		REPO_TOP_DIR=$(REPO_TOP_DIR) BUILD=$(BUILD) NDK_APP_ABI="$(NDK_APP_ABI)" ASAN="$(asan)" android_ndk=$(android_ndk) $(android_ndk)/ndk-build $(ndk_debug) $(ndk_v) $(ndk_jobs) -C $(1); \
 	fi;
 
 native_clean_$(1):
@@ -189,7 +193,7 @@ define cp_ffmpeg_libs
 endef
 
 define make_hacks
-	@if [ "$(NDK_CPU_X86)" = "1" ];then \
+	@if [ "$(ASAN)" != 1 && "$(NDK_CPU_X86)" = "1" ];then \
 		echo -----------------------------------------; \
 		echo -----------------------------------------; \
 		echo create fake _no_neon libs in $(1)/libs/x86 because Intel wants to see the exact same number of ARM and x86 libs otherwise it will Houdini us; \
