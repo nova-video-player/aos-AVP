@@ -13,6 +13,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 - Fix green bars present in software decoding on Nvidia shield
 - Fix audio regressions in night/boost mode
 - Use new mode based switch API instead of refresh rate based one for adaptive refresh rate (fixes FireTV4k)
+- Use Android App Bundles to reduce apk size
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
