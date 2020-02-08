@@ -8,15 +8,24 @@ Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libr
 
 ## v4.x current git (testing), current Google Play release
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
-- Fix grey bar issue on Sony when watching HDR content
 - Switch to tmdb-java movie scraper
-- Fix green bars present in software decoding on Nvidia shield
-- Fix audio regressions in night/boost mode
 - Use new mode based switch API instead of refresh rate based one for adaptive refresh rate (fixes FireTV4k)
-- Use Android App Bundles to reduce apk size
 
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
+
+## v4.34 release - 8/2/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Switch to tmdb-java movie scraper
+- Use new mode based switch API instead of refresh rate based one for adaptive refresh rate (fixes FireTV4k)
+
+## v4.28.3 Google Play release - 8/2/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1
+- Fix TV show Trakt progress sync
+- Fix grey bar issue on Sony when watching HDR content
+- Fix green bars present in software decoding on Nvidia shield
+- Fix audio regressions in night/boost mode
+- Fix video not opening when enabling adaptive refresh rate on FireTV
 
 ## v5.8 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
@@ -29,10 +38,6 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 ## v4.31 release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Fix indexing counter looping due to thetvdb site changes
-
-## v4.28.3 Google Play release - 26/1/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1
-- Fix TV show Trakt progress sync
 
 ## v4.28.2 Google Play release - 24/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1
