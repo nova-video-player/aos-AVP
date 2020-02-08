@@ -16,6 +16,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Switch to tmdb-java movie scraper
 - Use new mode based switch API instead of refresh rate based one for adaptive refresh rate (fixes FireTV4k)
+- Switch to app bundles to reduce apk size
 
 ## v4.28.3 Google Play release - 8/2/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.1
