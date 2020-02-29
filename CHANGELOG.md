@@ -12,6 +12,14 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.38 Google Play beta release - 29/2/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Fix cloud storage (file picker) and folder picker on phones
+
+## v4.37 Google Play release - 29/2/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Fix cloud storage (file picker) and folder picker on phones
+
 ## v4.36 release - 22/2/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Roll back to old MovieScraper2
