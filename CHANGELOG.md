@@ -17,10 +17,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 - Refactored TmDb and TheTVDb scrapers
 - Better TV show scrape result through multi-language Levenshtein metric computation
 - Fix crash observed on play console
+- Use new application icon for TV channels
 
 ## v4.39 Google Play release - 2/3/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Fix crash observed on play console
+- Use new application icon for TV channels
 
 ## v5.9 release - 1/3/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
