@@ -12,6 +12,10 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v5.10 SMBv2/3 experimental release - 2/3/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Align with v4.40 with latest jcifs-ng on top
+
 ## v4.40 Google Play beta release - 2/3/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Refactored TmDb and TheTVDb scrapers
@@ -24,7 +28,7 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 - Fix crash observed on play console
 - Use new application icon for TV channels
 
-## v5.9 release - 1/3/2020
+## v5.9 SMBv2/3 experimental release - 1/3/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Align with v4.38 with latest jcifs-ng on top
 
