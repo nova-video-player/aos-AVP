@@ -16,6 +16,12 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Align with v4.40 with latest jcifs-ng on top
 
+## v4.41 Google Play beta release - 30/3/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Subtitle manual download improvement via scraped information search
+- UI polishing on phones/tablets and partners logo refresh (trakt, tmdb, tvdb, imdb)
+- AppCompat migration
+
 ## v4.40 Google Play beta release - 2/3/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Refactored TmDb and TheTVDb scrapers
