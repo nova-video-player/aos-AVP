@@ -12,8 +12,24 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
-## v4.43 Google Play beta release - 31/3/2020
+## v4.45 Google Play beta release - 5/4/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.43 with these changes:
+- Fix opensubtitles change requiring credentials to use API
+- Fix DTSHD playback crashing sometimes
+
+## v4.44 Google Play release - 5/4/2020
+Stable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.39 with these changes:
+- Fix opensubtitles change requiring credentials to use API
+- Fix DTSHD playback crashing sometimes
+
+## v4.43 beta release - 31/3/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.40 with these changes:
 - Subtitle manual download improvement via scraped information search
 - UI polishing on phones/tablets and partners logo refresh (trakt, tmdb, tvdb, imdb)
 - AppCompat migration
@@ -24,13 +40,15 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 
 ## v4.40 Google Play beta release - 2/3/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.38 with these changes:
 - Refactored TmDb and TheTVDb scrapers
 - Better TV show scrape result through multi-language Levenshtein metric computation
 - Fix crash observed on play console
 - Use new application icon for TV channels
 
 ## v4.39 Google Play release - 2/3/2020
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+Stable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Fix crash observed on play console
 - Use new application icon for TV channels
 
