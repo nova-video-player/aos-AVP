@@ -12,10 +12,16 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.47 Google Play beta release - 11/4/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.46 with these changes:
+- Fix trakt resume point sync issues
+
 ## v4.46 Google Play beta release - 5/4/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 
-Based on v4.43 with these changes:
+Based on v4.44 with these changes:
 - Fix opensubtitles change requiring credentials to use API
 - Fix DTSHD playback crashing sometimes
 
