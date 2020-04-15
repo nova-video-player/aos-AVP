@@ -12,12 +12,14 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
-## v5.12 SMBv2/3 Google Play beta release - 13/4/2020
+## v5.12 SMBv2/3 experimental release - 13/4/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Align with v4.47 with latest jcifs-ng on top
 - Fix samba file listing truncation when dealing with SMBv1 only servers
 - Add opensubtitles credentials support in preferences since opensubtitles mandates it to download subtitles
 - Fix an appcompat incompatibility with webview (Google bug)
+
+Note that this release will experience interoperability issues when using SMBv1 only capable server.
 
 ## v4.47 Google Play beta release - 11/4/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
@@ -50,6 +52,8 @@ Based on v4.40 with these changes:
 ## v5.10 SMBv2/3 experimental release - 2/3/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Align with v4.40 with latest jcifs-ng on top
+
+Note that this release will experience interoperability issues when using SMBv1 only capable server.
 
 ## v4.40 Google Play beta release - 2/3/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
