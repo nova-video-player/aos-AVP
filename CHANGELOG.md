@@ -16,6 +16,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 
 Based on v4.48 with these changes:
+- Fix ability to open videos via http/https from another application
 - Improved scraping results
 - UI navbar correct color on Samsung
 - jsch update for sftp

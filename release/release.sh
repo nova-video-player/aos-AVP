@@ -12,8 +12,8 @@ avp=$prefix/AVP
 cd $avp
 #git tag -a "v${major}.${minor}" -m "v${major}.${minor} release"
 #git push --tags
-repo forall -c git tag -a "v${version}" -m "v${version} release"
-repo forall -c git push --tags
+#repo forall -c git tag -a "v${version}" -m "v${version} release"
+#repo forall -c git push --tags
 
 echo "Uploading release v${version} to github..."
 
