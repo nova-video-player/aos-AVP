@@ -12,6 +12,15 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.48.2 Google Play beta release - 3/5/2020
+Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+
+Based on v4.48 with these changes:
+- Improved scraping results
+- UI navbar correct color on Samsung
+- jsch update for sftp
+- Stability enhancements
+
 ## v5.13 SMBv2/3 experimental release - 13/4/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Align with v4.48 with latest jcifs-ng on top
