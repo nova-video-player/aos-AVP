@@ -8,7 +8,7 @@
     <copyfile src="Makefile" dest="Makefile" />
   </project>
 
-  <project path="Video" name="aos-Video" revision="androidx" />
+  <project path="Video" name="aos-Video" revision="androidx-jcifsng" />
   <project path="MediaLib" name="aos-MediaLib" revision="v4-jcifsng" />
   <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v4-jcifsng" />
 
@@ -19,6 +19,6 @@
   <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
-  <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
+  <project path="native/libtorrent" name="aos-libtorrent" revision="gen_v1.2.5" />
   <project path="native/torrentd" name="aos-torrentd" />
 </manifest>
