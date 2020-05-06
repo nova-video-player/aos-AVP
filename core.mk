@@ -303,7 +303,7 @@ MediaLib/libs/trakt-java.jar:
 	cd external/trakt-java; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
 MediaLib/libs/cling-core-2.1.2.jar:
-	cd external/cling; mbn clean && mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -rf :cling-core && mv core/target/cling-core-2.1.2.jar ../../MediaLib/libs/cling-core-2.1.2.jar
+	cd external/cling; mvn clean && mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -rf :cling-core && mv core/target/cling-core-2.1.2.jar ../../MediaLib/libs/cling-core-2.1.2.jar
 
 MediaLib/libs/cling-support-2.1.2.jar:
 	cd external/cling; mvn clean && mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -rf :cling-support && mv support//target/cling-support-2.1.2.jar ../../MediaLib/libs/cling-support-2.1.2.jar
