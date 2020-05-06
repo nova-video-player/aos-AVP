@@ -12,6 +12,11 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v5.14.1 SMBv2/3 experimental release - 6/5/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+- Align with v4.48.2 with latest jcifs-ng on top
+- Support for SMBv2 is disabled by default and can be enabled in settings
+
 ## v4.48.2 Google Play beta release - 3/5/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 
