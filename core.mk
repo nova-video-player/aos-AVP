@@ -284,17 +284,13 @@ native_torrentd: native/torrentd/libs/arm64-v8a/torrentd
 
 trakt-java: MediaLib/libs/trakt-java.jar
 
-cling-core: MediaLib/libs/cling-core-2.1.2.jar
-
-cling-support: MediaLib/libs/cling-support-2.1.2.jar
-
-seamless-util: MediaLib/libs/seamless-util-1.1.2.jar
-
-seamless-http: MediaLib/libs/seamless-http-1.1.2.jar
-
-seamless-xml: MediaLib/libs/seamless-xml-1.1.2.jar
-
 jcifs-ng: FileCoreLibrary/libs/jcifs-ng.jar
+
+cling:
+	cd external/cling; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+	
+seamless:
+	cd external/seamless; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
 	cd external/jcifs-ng; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
@@ -302,24 +298,9 @@ FileCoreLibrary/libs/jcifs-ng.jar:
 MediaLib/libs/trakt-java.jar:
 	cd external/trakt-java; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
-MediaLib/libs/cling-core-2.1.2.jar:
-	cd external/cling; mvn clean && mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -rf :cling-core && mv core/target/cling-core-2.1.2.jar ../../MediaLib/libs/cling-core-2.1.2.jar
+external_build: jcifs-ng seamless cling
 
-MediaLib/libs/cling-support-2.1.2.jar:
-	cd external/cling; mvn clean && mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -rf :cling-support && mv support//target/cling-support-2.1.2.jar ../../MediaLib/libs/cling-support-2.1.2.jar
-
-MediaLib/libs/seamless-util-1.1.2.jar:
-	cd external/seamless/util; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/seamless-util-1.1.2.jar ../../../MediaLib/libs/seamless-util-1.1.2.jar
-
-MediaLib/libs/seamless-http-1.1.2.jar:
-	cd external/seamless/http; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/seamless-http-1.1.2.jar ../../../MediaLib/libs/seamless-http-1.1.2.jar
-
-MediaLib/libs/seamless-xml-1.1.2.jar:
-	cd external/seamless/xml; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/seamless-xml-1.1.2.jar ../../../MediaLib/libs/seamless-xml-1.1.2.jar
-
-external_build: jcifs-ng cling-core cling-support seamless-util seamless-http seamless-xml
-
-external_clean: external_clean_jcifs-ng external_clean_cling-core external_clean_cling-support external_clean_seamless-util external_clean_seamless-http external_clean_seamless-xml
+external_clean: external_clean_jcifs-ng external_clean_cling external_clean_seamless
 
 external_clean_jcifs-ng:
 	cd external/jcifs-ng; mvn clean; rm -f ../../FileCoreLibrary/libs/jcifs-ng.jar
@@ -327,20 +308,11 @@ external_clean_jcifs-ng:
 external_clean_trakt-java:
 	cd external/trakt-java; mvn clean; rm -f ../../MediaLib/libs/trakt-java.jar
 
-external_clean_cling-core:
-	cd external/cling/core; mvn clean; rm -f ../../../MediaLib/libs/cling-core-2.1.2.jar
+external_clean_cling:
+	cd external/cling; mvn clean; rm -f ../../MediaLib/libs/cling*-2.1.2.jar
 
-external_clean_cling-support:
-	cd external/cling/support; mvn clean; rm -f ../../../MediaLib/libs/cling-support-2.1.2.jar
-
-external_clean_seamless-util:
-	cd external/seamless/util; mvn clean; rm -f ../../../MediaLib/libs/seamless-util-1.1.2.jar
-
-external_clean_seamless-http:
-	cd external/seamless/http; mvn clean; rm -f ../../../MediaLib/libs/seamless-http-1.1.2.jar
-
-external_clean_seamless-xml:
-	cd external/seamless/xml; mvn clean; rm -f ../../../MediaLib/libs/seamless-xml-1.1.2.jar
+external_clean_seamless:
+	cd external/seamless; mvn clean; rm -f ../../MediaLib/libs/seamless*-1.1.2.jar
 
 native_libyuv: native_build_native/libyuv
 
