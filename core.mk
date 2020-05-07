@@ -241,11 +241,8 @@ clean_prebuilt:
 	rm -rf $(FFMPEG_DIR)/dist-*
 	rm -rf $(DAV1D_DIR)/build-*
 	rm -rf MediaLib/libs/trakt-java.jar
-	rm -rf MediaLib/libs/cling-core-2.1.2.jar
-	rm -rf MediaLib/libs/cling-support-2.1.2.jar
-	rm -rf MediaLib/libs/seamless-util-1.1.2.jar
-	rm -rf MediaLib/libs/seamless-http-1.1.2.jar
-	rm -rf MediaLib/libs/seamless-xml-1.1.2.jar
+	rm -rf MediaLib/libs/cling-*-2.1.2.jar
+	rm -rf MediaLib/libs/seamless-*-1.1.2.jar
 	rm -rf FileCoreLibrary/libs/jcifs-ng.jar
 
 $(FFMPEG_DIR)/dist-full-arm64-v8a/lib/libavcodec.so:
@@ -285,6 +282,26 @@ native_torrentd: native/torrentd/libs/arm64-v8a/torrentd
 trakt-java: MediaLib/libs/trakt-java.jar
 
 jcifs-ng: FileCoreLibrary/libs/jcifs-ng.jar
+
+cling-core: MediaLib/libs/cling-core-2.1.2.jar
+
+cling-support: MediaLib/libs/cling-support-2.1.2.jar
+
+seamless-util: MediaLib/libs/seamless-util-1.1.2.jar
+
+seamless-http: MediaLib/libs/seamless-http-1.1.2.jar
+
+seamless-xml: MediaLib/libs/seamless-xml-1.1.2.jar
+
+seamless-swing: MediaLib/libs/seamless-swing-1.1.2.jar
+
+cling-objects = MediaLib/libs/cling-core-2.1.2.jar MediaLib/libs/cling-support-2.1.2.jar
+
+seamless-objects = MediaLib/libs/seamless-util-1.1.2.jar MediaLib/libs/seamless-http-1.1.2.jar MediaLib/libs/seamless-xml-1.1.2.jar MediaLib/libs/seamless-swing-1.1.2.jar
+
+$(seamless-objects): seamless
+
+$(cling-objects): cling
 
 cling:
 	cd external/cling; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
