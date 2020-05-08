@@ -14,7 +14,13 @@ os := $(shell echo $(shell uname -s) | tr '[:upper:]' '[:lower:]')
 
 ifeq ($(os), darwin)
 	readlink_prefix := g
+	JAVA18 := $(shell /usr/libexec/java_home -v 1.8)
 endif
+
+ifeq ($(os), linux)
+	JAVA18 := $(shell update-alternatives --list java | grep java-8)
+endif
+
 READLINK := $(readlink_prefix)readlink
 
 ndk_ver := 20
@@ -304,16 +310,16 @@ $(seamless-objects): seamless
 $(cling-objects): cling
 
 cling:
-	cd external/cling; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+	cd external/cling; JAVA_HOME=$(JAVA18) mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
 	
 seamless:
-	cd external/seamless; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
+	cd external/seamless; JAVA_HOME=$(JAVA18) mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
-	cd external/jcifs-ng; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
+	cd external/jcifs-ng; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
 
 MediaLib/libs/trakt-java.jar:
-	cd external/trakt-java; mvn clean && mvn package -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
+	cd external/trakt-java; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
 external_build: jcifs-ng seamless cling
 
