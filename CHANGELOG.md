@@ -14,7 +14,8 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 
 ## v5.14.5 SMBv2/3 Google Play beta release - 9/5/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
-- Align with v4.48.3 with latest jcifs-ng on top
+- Align with v4.48.3 with latest jcifs-ng on top for SMBv2/3 support
+- Support for SMBv2 is disabled by default and can be enabled in settings
 
 ## v4.48.3 Google Play release - 8/5/2020
 Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
