@@ -16,6 +16,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Experimental SMBv2/3 support with latest jcifs-ng
 - Support for SMBv2 is disabled by default and can be enabled in settings
+- Disable SMB1/SMB2 protocol negotiation when SMB2 server is detected
 - jsch update for sftp
 - Stability enhancements
 
