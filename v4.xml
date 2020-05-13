@@ -21,4 +21,6 @@
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent" name="aos-libtorrent" revision="gen_v1.2.5" />
   <project path="native/torrentd" name="aos-torrentd" />
+  <project path="external/seamless" name="seamless" revision="nova" />
+  <project path="external/cling" name="cling" revision="nova" />
 </manifest>
