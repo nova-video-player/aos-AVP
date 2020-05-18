@@ -18,7 +18,7 @@ ifeq ($(os), darwin)
 endif
 
 ifeq ($(os), linux)
-	JAVA18 := $(shell update-alternatives --list java | grep java-8)
+	JAVA18 := $(shell update-alternatives --list java |sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
 endif
 
 READLINK := $(readlink_prefix)readlink
