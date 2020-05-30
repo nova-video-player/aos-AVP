@@ -12,6 +12,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.48.8 release - 30/5/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+- solve some A/V sync issues
+- 0.7.0 dav1d and ffmpeg 4.2.3 upsteps
+- faster boost compilation
+
 ## v4.48.6 release - 13/5/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
 - Upgrade jsch for sftp support
