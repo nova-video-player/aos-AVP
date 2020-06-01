@@ -289,37 +289,29 @@ trakt-java: MediaLib/libs/trakt-java.jar
 
 jcifs-ng: FileCoreLibrary/libs/jcifs-ng.jar
 
-cling-core: MediaLib/libs/cling-core-2.1.2.jar
-
-cling-support: MediaLib/libs/cling-support-2.1.2.jar
-
-seamless-util: MediaLib/libs/seamless-util-1.1.2.jar
-
-seamless-http: MediaLib/libs/seamless-http-1.1.2.jar
-
-seamless-xml: MediaLib/libs/seamless-xml-1.1.2.jar
-
-seamless-swing: MediaLib/libs/seamless-swing-1.1.2.jar
-
 cling-objects = MediaLib/libs/cling-core-2.1.2.jar MediaLib/libs/cling-support-2.1.2.jar
 
 seamless-objects = MediaLib/libs/seamless-util-1.1.2.jar MediaLib/libs/seamless-http-1.1.2.jar MediaLib/libs/seamless-xml-1.1.2.jar MediaLib/libs/seamless-swing-1.1.2.jar
 
-$(seamless-objects): seamless
+seamless: $(seamless-objects)
 
-$(cling-objects): cling
+cling: $(cling-objects)
 
-cling:
-	cd external/cling; JAVA_HOME=$(JAVA18) mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+MediaLib/libs/cling-core-2.1.2.jar:
+MediaLib/libs/cling-support-2.1.2.jar:
+	cd external/cling; JAVA_HOME=$(JAVA18) mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
 	
-seamless:
-	cd external/seamless; JAVA_HOME=$(JAVA18) mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
+MediaLib/libs/seamless-util-1.1.2.jar:
+MediaLib/libs/seamless-http-1.1.2.jar:
+MediaLib/libs/seamless-xml-1.1.2.jar:
+MediaLib/libs/seamless-swing-1.1.2.jar:
+	cd external/seamless; JAVA_HOME=$(JAVA18) mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
-	cd external/jcifs-ng; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
+	cd external/jcifs-ng; mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
 
 MediaLib/libs/trakt-java.jar:
-	cd external/trakt-java; mvn clean install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
+	cd external/trakt-java; mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
 external_build: jcifs-ng seamless cling
 
