@@ -7,6 +7,7 @@
 [![Crowdin](https://crowdin.net/badges/nova-video-player/localized.png)](https://crowdin.com/project/nova-video-player)
 [![Get it on Google Play](https://badgen.net/badge/Get%20it%20on/Google%20Play/689f38?icon=googleplay)](https://play.google.com/store/apps/details?id=org.courville.nova)
 [![Get it on Amazon Appstore](https://badgen.net/badge/Get%20it%20on/Amazon%20Appstore/689f38)](https://www.amazon.fr/dp/B07P1Q1DG9)
+[![Get it on F-Droid](https://badgen.net/badge/Get%20it%20on/F-Droid/689f38)](https://f-droid.org/packages/org.courville.nova)
 [![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](https://webchat.freenode.net)
 [![Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
 [![Build Status](https://img.shields.io/travis/nova-video-player/aos-Fdroid.svg)](https://travis-ci.org/nova-video-player/aos-Fdroid)
@@ -90,11 +91,15 @@ Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to red
 
 The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
 
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=org.courville.nova)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80" align="center">](https://play.google.com/store/apps/details?id=org.courville.nova)
 
-or on Amazon Appstore: https://www.amazon.fr/dp/B07P1Q1DG9
+or on Amazon Appstore: https://www.amazon.fr/dp/B07P1Q1DG9 
 
-[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" alt="Get it on Amazon Appstore" height="50">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
+[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" alt="Get it on Amazon Appstore" height="50" align="center">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
+
+or on F-Droid https://f-droid.org/packages/org.courville.nova
+
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80" align="center">](https://f-droid.org/packages/org.courville.nova)
 
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
