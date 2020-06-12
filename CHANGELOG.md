@@ -16,6 +16,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpe
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
 - Fix missing poster on some movies
 - Fix playback not smooth regression on Sony and Philips AndroidTV
+- Stretch mode is back
 - Allow adaptive refresh rate on phones
 - Improve A/V sync for some videos (PTS instead of sample based sync)
 - Scraping improvements
