@@ -10,7 +10,7 @@
 [![Get it on F-Droid](https://badgen.net/badge/Get%20it%20on/F-Droid/689f38)](https://f-droid.org/packages/org.courville.nova)
 [![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](https://webchat.freenode.net)
 [![Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
-[![Build Status](https://img.shields.io/travis/nova-video-player/aos-Fdroid.svg)](https://travis-ci.org/nova-video-player/aos-Fdroid)
+![Video CI](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/NovaVideoPlayer/donate)
 
 #### Overview
