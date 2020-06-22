@@ -1,0 +1,48 @@
+name: NOVA CI
+on:
+  push:
+    branches: [ androidx ]
+  pull_request:
+    branches: [ androidx ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ANDROID_SDK_HOME:   ${ANDROID_HOME}/sdk
+      ANDROID_SDK:        ${ANDROID_HOME}/sdk
+      ANDROID_NDK_HOME:   ${ANDROID_HOME}/ndk-bundle
+      ANDROID_NDK:        ${ANDROID_HOME}/ndk-bundle
+    steps:
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: install packages
+      run: |
+        sudo apt-get update || sudo apt-get update
+        sudo apt-get install -y ninja-build maven build-essential wget curl unzip python git pkg-config
+    - name: install recent nasm for dav1d
+      run: |
+        wget http://mirrors.kernel.org/ubuntu/pool/universe/n/nasm/nasm_2.14.02-1_amd64.deb
+        sudo dpkg -i ./nasm_2.14.02-1_amd64.deb
+        nasm --version
+    - name: install compatible meson with dav1d
+      run: |
+        sudo apt-get install -y python3 python3-pip python3-setuptools python3-wheel
+        sudo pip3 install meson==0.53.2
+        meson --version
+    - name: install repo
+      run: |
+        curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/local/bin/repo > /dev/null
+        sudo chmod a+x /usr/local/bin/repo
+    - name: retrieve full nova source
+      run: |
+         mkdir nova
+         cd nova
+         repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v4.xml
+         repo sync -j 4
+         repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
+    - name: build
+      run: |
+        cd nova/Video
+        ./gradlew aNR
