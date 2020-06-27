@@ -9,7 +9,7 @@
 [![Get it on Amazon Appstore](https://badgen.net/badge/Get%20it%20on/Amazon%20Appstore/689f38)](https://www.amazon.fr/dp/B07P1Q1DG9)
 [![Get it on F-Droid](https://img.shields.io/f-droid/v/org.courville.nova)](https://f-droid.org/packages/org.courville.nova)
 [![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](https://webchat.freenode.net)
-[![Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
+[![Github Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
 
