@@ -4,7 +4,7 @@
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/nova-video-player/aos-AVP/blob/nova/LICENSE.txt)
-[![Crowdin](https://crowdin.net/badges/nova-video-player/localized.png)](https://crowdin.com/project/nova-video-player)
+[![Crowdin](https://badges.crowdin.net/nova-video-player/localized.svg)](https://crowdin.com/project/nova-video-player)
 [![Get it on Google Play](https://badgen.net/badge/Get%20it%20on/Google%20Play/689f38?icon=googleplay)](https://play.google.com/store/apps/details?id=org.courville.nova)
 [![Get it on Amazon Appstore](https://badgen.net/badge/Get%20it%20on/Amazon%20Appstore/689f38)](https://www.amazon.fr/dp/B07P1Q1DG9)
 [![Get it on F-Droid](https://badgen.net/badge/Get%20it%20on/F-Droid/689f38)](https://f-droid.org/packages/org.courville.nova)
