@@ -12,6 +12,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.48.18 release - 28/6/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+- Add sponsor link when not installed from Google Play
+- Reduce compilation strain on boost
+- Stability enhancement
+
 ## v4.48.10 release - 20/6/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
 - Stability enhancement
