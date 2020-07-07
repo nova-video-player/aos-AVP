@@ -12,18 +12,33 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.49.3 release - 7/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
+- Better USB disk detection and management on AndroidTV
+- Stability enhancement
+
+## v4.49.2 release - 6/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Fix OOM on Android TV with HDD plugged
+
+## v4.49.1 release - 4/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Fix number of audio tracks limited to 6
+- ffmpeg version 4.3.0 and dav1d version 0.7.1 upstep
+- Stability enhancement
+
 ## v4.48.18 release - 28/6/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Add sponsor link when not installed from Google Play
 - Reduce compilation strain on boost
 - Stability enhancement
 
 ## v4.48.10 release - 20/6/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Stability enhancement
 
 ## v4.48.9 release - 11/6/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Fix missing poster on some movies
 - Fix playback not smooth regression on Sony and Philips AndroidTV
 - Stretch mode is back
@@ -33,7 +48,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Stability enhancement
 
 ## v4.48.8 release - 30/5/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - solve some A/V sync issues
 - 0.7.0 dav1d and ffmpeg 4.2.3 upsteps
 - faster boost compilation
