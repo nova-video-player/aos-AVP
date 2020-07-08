@@ -12,6 +12,11 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v5.15.1 SMBv2/3 Google Play beta release - 8/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
+- Align with v4.49.3 with latest jcifs-ng on top
+- Fix samba issues reported with WD MyCloud and with win10 guest login
+
 ## v4.49.3 release - 7/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
 - Better USB disk detection and management on AndroidTV
