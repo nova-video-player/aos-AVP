@@ -12,6 +12,12 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
+## v4.49.5 release - 11/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
+- Fix x86 software decoding support (nexus player, non 64b chromebooks)
+- Faster network scanning
+- Stability enhancement
+
 ## v5.15.1 SMBv2/3 Google Play beta release - 8/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
 - Align with v4.49.3 with latest jcifs-ng on top
