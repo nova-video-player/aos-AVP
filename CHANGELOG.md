@@ -12,27 +12,31 @@ Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libr
 ## v3.x current git (stable)
 Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
 
-## v4.49.5 release - 11/7/2020
+## v5.15.2 SMBv2/3 not so experimental release anymore - 11/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
+- Align with v4.49.5 with latest jcifs-ng on top
+
+## v4.49.5 Google Play release - 11/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
 - Fix x86 software decoding support (nexus player, non 64b chromebooks)
 - Faster network scanning
 - Stability enhancement
 
-## v5.15.1 SMBv2/3 Google Play beta release - 8/7/2020
+## v5.15.1 SMBv2/3 not so experimental release anymore - 8/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
 - Align with v4.49.3 with latest jcifs-ng on top
 - Fix samba issues reported with WD MyCloud and with win10 guest login
 
-## v4.49.3 release - 7/7/2020
+## v4.49.3 Google Play release - 7/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
 - Better USB disk detection and management on AndroidTV
 - Stability enhancement
 
-## v4.49.2 release - 6/7/2020
+## v4.49.2 Google Play release - 6/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Fix OOM on Android TV with HDD plugged
 
-## v4.49.1 release - 4/7/2020
+## v4.49.1 Google Play release - 4/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Fix number of audio tracks limited to 6
 - ffmpeg version 4.3.0 and dav1d version 0.7.1 upstep
