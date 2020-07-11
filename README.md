@@ -73,7 +73,7 @@ Latest meson can be installed via:
 ```
 sudo apt install -y pkg-config python3 python3-pip python3-setuptools ninja-build
 sudo pip3 install --upgrade pip
-pip3 install --user meson
+pip3 install --user meson==0.53.2
 ```
 
 Alternatively you can use the provided docker image to build nova:
