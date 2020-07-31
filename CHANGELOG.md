@@ -3,14 +3,14 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
-## v5.x current git (unstable)
-Unstable branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
+## v5.15.4 SMBv2/3 not so experimental release anymore - 31/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.6 with latest jcifs-ng on top
 
-## v4.x current git (testing), current Google Play release
-Unstable branch: this release is based on minSDK 21, targetSDK 28, AndroidX libraries, NDK-r20, ffmpeg 4.2.2
-
-## v3.x current git (stable)
-Testing branch: this release is based on minSDK 21, targetSDK 27, NDK-r20, ffmpeg 4.2.2
+## v4.49.6 Google Play release - 31/7/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Fix video stopping often on arm64 due to latest ffmpeg upstep
+- Revert to ffmpeg 4.3.2 and dav1d 0.7.0
 
 ## v5.15.3 SMBv2/3 not so experimental release anymore - 18/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.0
