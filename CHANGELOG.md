@@ -3,6 +3,36 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
+## v5.15.7 SMBv2/3 not so experimental release anymore - 11/10/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.8 with latest jcifs-ng on top
+
+## v4.49.8 Google Play release - 11/10/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Do not stop local video playback on network connectivity change
+- Use new nova icon for search bar
+- Fix search crash on old Amazon firesticks
+- Fix wrong player layout when screen rotation is locked and video started in portrait
+
+## v5.15.6 SMBv2/3 not so experimental release anymore - 25/9/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.7 with latest jcifs-ng on top
+- Fix guest login on win10
+
+## v5.15.5 SMBv2/3 not so experimental release anymore - 17/9/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.7 with latest jcifs-ng on top
+
+## v4.49.7 Google Play release - 17/9/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Display external storage label/description on AndroidTV
+- Do not pollute subtitle manual picker with cached online retrieved subs
+- Allow http video streaming
+- chromeOS/Amazon UI fixes
+- Add missing subtitles ISO639 code strings
+- ffmpeg version 4.3.1 and dav1d version 0.7.1 upstep
+- Stability enhancement
+
 ## v5.15.4 SMBv2/3 not so experimental release anymore - 31/7/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Align with v4.49.6 with latest jcifs-ng on top
