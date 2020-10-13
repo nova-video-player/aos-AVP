@@ -3,6 +3,14 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
+## v5.15.8 SMBv2/3 not so experimental release anymore - 13/10/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.9 with latest jcifs-ng on top
+
+## v4.49.9 Google Play release - 13/10/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Fix time displayed at video start on Android TV regression
+
 ## v5.15.7 SMBv2/3 not so experimental release anymore - 11/10/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Align with v4.49.8 with latest jcifs-ng on top
