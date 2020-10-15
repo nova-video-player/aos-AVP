@@ -3,6 +3,14 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
+## v5.15.9 SMBv2/3 not so experimental release anymore - xx/xx/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+- Align with v4.49.10 with latest jcifs-ng on top
+
+## v4.49.10 Google Play release - xx/xx/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Fix folder play mode
+
 ## v5.15.8 SMBv2/3 not so experimental release anymore - 13/10/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
 - Align with v4.49.9 with latest jcifs-ng on top
