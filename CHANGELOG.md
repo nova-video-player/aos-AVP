@@ -10,6 +10,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 ## v4.49.10 Google Play release - xx/xx/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Fix folder play mode
+- Correct subtitles download failing while playing video on local storage
 
 ## v5.15.8 SMBv2/3 not so experimental release anymore - 13/10/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
