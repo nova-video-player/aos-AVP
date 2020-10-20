@@ -3,17 +3,17 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
-## v5.15.9 SMBv2/3 not so experimental release anymore - xx/xx/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+## v5.15.9 SMBv2/3 not so experimental release anymore - 20/10/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.10 with latest jcifs-ng on top
 
-## v4.49.10 Google Play release - xx/xx/2020
+## v4.49.10 Google Play release - 20/10/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Fix folder play mode
 - Correct subtitles download failing while playing video on local storage
 
 ## v5.15.8 SMBv2/3 not so experimental release anymore - 13/10/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.9 with latest jcifs-ng on top
 
 ## v4.49.9 Google Play release - 13/10/2020
@@ -21,7 +21,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Fix time displayed at video start on Android TV regression
 
 ## v5.15.7 SMBv2/3 not so experimental release anymore - 11/10/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.8 with latest jcifs-ng on top
 
 ## v4.49.8 Google Play release - 11/10/2020
@@ -32,12 +32,12 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Fix wrong player layout when screen rotation is locked and video started in portrait
 
 ## v5.15.6 SMBv2/3 not so experimental release anymore - 25/9/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.7 with latest jcifs-ng on top
 - Fix guest login on win10
 
 ## v5.15.5 SMBv2/3 not so experimental release anymore - 17/9/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.2.3
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.7 with latest jcifs-ng on top
 
 ## v4.49.7 Google Play release - 17/9/2020
