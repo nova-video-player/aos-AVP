@@ -140,8 +140,11 @@ You are welcome to contribute to the translation of the application at https://c
 
 #### Donate
 
-You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via liberapay 
-[![Donate](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/NovaVideoPlayer/donate).
+Any contribution to show your gratitude and appreciation is always welcome keeping the small team of developers working on their personal time motivated and aware that their dedication means something.
+
+Three main platforms are proposed for that purpose: [liberapay](https://liberapay.com/NovaVideoPlayer/donate), [github sponsor](https://github.com/sponsors/courville) and [opencollective](https://opencollective.com/novavideoplayer).
+
+Funds collected are essentially used to buy devices on which problems are reported for analysis and fix in order to cope with Android fragmentation.
 
 Please bare in mind that the work carried out here results from a small community effort done with good will on scarce personal time.
 If need be, we might in the future introduce some extra bounty programs for specific feature development requests.
