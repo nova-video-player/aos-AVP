@@ -104,7 +104,7 @@ or on F-Droid https://f-droid.org/packages/org.courville.nova
 
 or on Huawei AppGallery https://appgallery.huawei.com/#/app/C102811509
 
-[<img src="https://huaweimobileservices.com/wp-content/uploads/2020/02/Badge-White-1200x360.pngg" alt="Get it on Huaweu AppGallery" height="50" align="center">](https://appgallery.huawei.com/#/app/C102811509)
+[<img src="https://huaweimobileservices.com/wp-content/uploads/2020/02/Badge-White-1200x360.png" alt="Get it on Huawei AppGallery" height="50" align="center">](https://appgallery.huawei.com/#/app/C102811509)
 
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
