@@ -77,7 +77,7 @@ REPO_TOP_DIR := $(shell pwd)
 AVOS_DIR := native/avos
 FFMPEG_DIR := native/ffmpeg-android-builder
 DAV1D_DIR := native/dav1d-android-builder
-OPUS_DIR := native/libopus
+OPUS_DIR := native/opus-android-builder
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
@@ -274,7 +274,7 @@ native_build_native/dav1d-android-builder:
 	cd native/dav1d-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_dav1d.sh
 
 native_build_native/opus-android-builder:
-	cd native/libopus; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+	cd native/opus-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
