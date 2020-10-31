@@ -16,7 +16,7 @@
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="nova" />
   <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
-  <project path="native/libopus" name="libopus" />
+  <project path="native/libopus" name="libopus" revision="main" />
   <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
