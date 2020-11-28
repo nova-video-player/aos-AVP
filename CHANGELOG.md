@@ -3,12 +3,13 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
-## v5.15.11 SMBv2/3 not so experimental release anymore - 21/11/2020
+## v6.00.01 experimental release - 28/11/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
-- Align with v4.49.12 with latest jcifs-ng on top
+- Add movie collection/saga support
 
-## v4.49.12 Google Play release - 21/11/2020
+## v5.15.11 Google Play release - 28/11/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- SMBv2/3 support via jcifs-ng
 - Fix anime playback using opus track using libopus instead of platform one
 - Update trakt/tmdb/thetvdb-java libraries to 6.8.5/2.2.0/2.4.0
 - Restrict nova webview to nova usage
