@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="." />
+
+  <default revision="master" remote="github" />
+
+  <project path="AVP" name="aos-AVP" revision="nova" >
+    <copyfile src="Makefile" dest="Makefile" />
+  </project>
+
+  <project path="Video" name="aos-Video" revision="v6" />
+  <project path="MediaLib" name="aos-MediaLib" revision="v6" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v6" />
+
+  <project path="native/avos" name="aos-avos" revision="nova" />
+  <project path="native/audiocompress" name="aos-audiocompress" />
+  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="nova" />
+  <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
+  <project path="native/opus-android-builder" name="opus-android-builder" revision="main" />
+  <project path="native/libyuv" name="aos-libyuv" />
+  <project path="native/libnativehelper" name="aos-libnativehelper" />
+  <project path="native/boost" name="aos-boost-android-builder" />
+  <project path="native/libtorrent" name="aos-libtorrent" revision="gen_v1.2.5" />
+  <project path="native/torrentd" name="aos-torrentd" />
+  <!-- project path="external/trakt-java" name="trakt-java" revision="refs/tags/v6.3.0" /-->
+  <project path="external/jcifs-ng" name="jcifs-ng" revision="nova" />
+  <project path="external/seamless" name="seamless" revision="nova" />
+  <project path="external/cling" name="cling" revision="nova" />
+</manifest>
