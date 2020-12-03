@@ -3,9 +3,23 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
+## v6.00.03 experimental release - 4/12/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Align with v5.15.13 with movie collection/saga support
+
+## v5.15.13 Google Play release - 4/12/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Align with v4.49.11 with latest jcifs-ng on top
+- Fix SMB timeout happening on some servers (jcifs-ng resolver)
+
+## v4.49.11 Google Play release - 3/12/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Rollback release aligned with v5.15.11 without jcifs-ng support to address SMB issue seen in the field https://github.com/nova-video-player/aos-AVP/issues/398
+
 ## v6.00.01 experimental release - 28/11/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Add movie collection/saga support
+- Clearer watched mark on movie/show/collection view
 
 ## v5.15.11 Google Play release - 28/11/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
