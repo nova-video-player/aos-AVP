@@ -7,6 +7,11 @@
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v5.15.13 with movie collection/saga support
 
+## v5.15.14 Google Play release - 6/12/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Align with v4.49.11 with latest jcifs-ng on top
+- Attempt to fix SMB on WD Mycloud with guest login
+
 ## v5.15.13 Google Play release - 4/12/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v4.49.11 with latest jcifs-ng on top
