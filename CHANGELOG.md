@@ -3,6 +3,11 @@
 ## Important notes:
 - migrating from v3 or v4 to v2 will delete all your scraping information
 
+
+## v4.49.15 Google Play release - 8/12/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- SMB1 support only rollback release aligned with v5.15.14 without jcifs-ng support to address SMB issue seen in the field
+
 ## v6.00.03 experimental release - 4/12/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v5.15.13 with movie collection/saga support
