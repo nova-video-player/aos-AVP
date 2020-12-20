@@ -1,0 +1,17 @@
+<logger name="com.archos.mediacenter.video.browser.MainActivity" level="DEBUG"/>
+
+<logger name="com.archos.mediacenter.video.player.Player" level="DEBUG"/>
+<logger name="com.archos.mediacenter.video.player.PlayerActivity" level="DEBUG"/>
+
+<logger name="com.archos.mediascraper.AutoScrapeService" level="DEBUG"/>
+<logger name="com.archos.mediascraper.xml.MovieScraper3" level="DEBUG"/>
+<logger name="com.archos.mediascraper.xml.ShowScraper3" level="DEBUG"/>
+
+<logger name="com.archos.mediascraper.thetvdb.MyTheTVdb" level="TRACE"/>
+<logger name="com.archos.mediascraper.themoviedb3.MyTmdb" level="TRACE"/>
+
+<logger name="com.archos.environment.NetworkState" level="DEBUG"/>
+<logger name="com.archos.mediaprovider.video.RemoteStateService" level="DEBUG"/>
+
+<logger name="com.archos.filecorelibrary.ftp" level="TRACE"/>
+
