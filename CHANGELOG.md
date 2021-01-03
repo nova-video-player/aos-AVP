@@ -9,6 +9,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - SMBv2/3 support via jcifs-ng
 - Fix non systematic wrong IP selected when browsing SMB shares
 - New debug infrastructure based on slf4j/logback
+- New 2021 banner icons for AndroidTV
 
 ## v5.15.15 SMBv2/3 not so experimental release anymore - 8/12/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
