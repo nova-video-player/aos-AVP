@@ -1,0 +1,92 @@
+## What is Nova Video Player?
+
+NOVA is an opeN sOurce Video plAyer designed for Android devices (tablets, phones and TVs).  
+This application is based on a fork of Archos Video Player open-source release, intended to support new features with an enhanced stability.
+
+NOVA is published on [GooglePlay](https://play.google.com/store/apps/details?id=org.courville.nova) or on [Amazon Appstore](https://www.amazon.fr/dp/B07P1Q1DG9) or on [Huawei AppGallery](https://appgallery.huawei.com/#/app/C102811509) or on [F-Droid](https://f-droid.org/en/packages/org.courville.nova/) or directly on [github](https://github.com/nova-video-player/aos-AVP/releases). 
+Latest changes are tracked [here](https://github.com/nova-video-player/aos-AVP/blob/nova/CHANGELOG.md).
+
+Please note that NOVA is free and consists in a small community effort done on personal time.
+
+## I have just downloaded Nova Video Player and it shows no video.
+
+On a fresh start, the discovery process for videos stored on local storage can take some time.  
+Nova Video Player is just a video player and does not point to any streaming service. If you do not have already video content on your device no videos will be displayed.
+
+Network shares can also be added as video sources.
+
+## What is the difference between passthrough mode 1 and passthrough mode 2?
+
+Audio passthrough amounts to transmit through HDMI interface compressed sound channels directly to your AV receiver that will perform the decoding and rendering. It is thus a feature targeted for Android TV or TV boxes.  
+On Nova Video Player, two experimental audio passthrough modes are supported:  
+
+* Mode 1 targets TV boxes with early versions of Android (up to Kitkat 4.4). Note that on some devices you need to set the sound volume to maximum (so that the streams are not altered by the sound mixer).
+* Mode 2 targets latest versions of Android above 5.1 (Nvidia Shield TV and télévision Android TV).
+
+You might have to try the two modes and figure out what suits you best depending on the multi-channel audio codec used in your video files.
+
+Note that:
+
+* when using an Android TV box (not an Android TV TV) directly connected via HDMI to your AV multichannel receiver and thus not through ARC, multichannel support can be achieved through multichannel PCM which is natively supported by Nova without the need to activate passthrough;
+* multichannel PCM or AAC is not supported via ARC (eARC is required) resulting in stereo output
+
+More details are available [here](https://github.com/nova-video-player/aos-AVP/wiki/Audio-and-passthrough).
+
+## Some videos play really slowly on my device.
+
+Nova Video Player relies on the hardware acceleration capabilities of the product it runs on. For instance some products do not support HEVC(H.265) hardware decoding and revert to software decoding yielding to a choppy video playback.  
+
+In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).
+
+## How multimedia information is retrieved?
+
+Nova relies on external services to retrieve multimedia information (descriptions and posters/backdrops) based on your video collection:
+
+* [TheTVDB](https://www.thetvdb.com/) is used for TV shows
+* [The Movie Database TMDB](https://www.themoviedb.org/) is used for movies
+
+If you experience issues in the automatic scrape process, please check that it is not a backend service issue by directly seaching your movie/show on the [TheTVDB](https://thetvdb.com/search?query=) or [TMDB](https://www.themoviedb.org/).
+
+More details are availble [here](https://github.com/nova-video-player/aos-AVP/wiki/Scrape:-retrieve-video-meta-data) and [here](https://github.com/nova-video-player/aos-AVP/wiki/Indexing).
+
+Note that on Sony Android TVs, a rescan of USB disk is triggered at each power up/return from suspend and it is a Sony bug (cf. [here](https://github.com/nova-video-player/aos-AVP/issues/354)).
+
+## Nova Video Player can’t find information on some of my videos, I’d like to add them manually.
+
+Nova Video Player supports NFO file description format that follows the [Kodi specification](http://kodi.wiki/view/NFO_files/Movies).Advanced users can manually create them or use a dedicated tool for this task. More details are available [here](https://github.com/nova-video-player/aos-AVP/wiki/NFO-files).
+
+## What type of subtitles are supported?
+
+SRT, SUB subtitles are supported. SSA support is rudimentary. PGS subs are not yet supported.
+
+## Which network shares are supported?
+
+Nova Video Player supports adding videos on network shares using SMB1, sftp, ftp and ftps protocols.
+Note that:
+
+* Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
+* only SMB1 is supported for now, however an experimental build supporting SMB2/3 is available on [github](https://github.com/nova-video-player/aos-AVP/releases) for v5.x versions of Nova.
+
+## I’d like to request a new feature.
+
+Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer).
+
+## I'd like to report a bug
+
+When discussing an issue on reddit, it is best also to report it on [github project issue](https://github.com/nova-video-player/aos-AVP/issues) with details about your specific configuration/setup/hardware/Android version and if possible a way or link or sample to reproduce the problem. It is also best to include logs to help figuring out the problem ([debugging procedure](https://github.com/nova-video-player/aos-AVP/wiki/Debugging)).
+
+## How can I contribute in the development?
+
+Source code is available on [github](https://github.com/nova-video-player/aos-AVP) and pull requests are welcome.
+
+## The application does not support my language, how can I help?
+
+You are welcome to contribute to the translation of the application via [crowdin service](https://crowdin.com/project/nova-video-player)
+
+## Where to find Nova Video Player application privacy policy?
+
+Nova application privacy policy can be found [here](https://home.courville.org/nova_video_player-faq/privacy.html).
+
+## I want to sponsor Nova.
+
+You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
