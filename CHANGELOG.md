@@ -1,19 +1,19 @@
 # Nova Video Player changelog
 
 ## Important notes:
-- migrating from v3 or v4 to v2 will delete all your scraping information
+- migrating from v6 to v5 or below will delete all your scraping information
 
-
-## v5.15.16 SMBv2/3 not so experimental release anymore - 24/12/2020
+## v6.00.04 Movie Collection experimental release - 7/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
-- SMBv2/3 support via jcifs-ng
+- Align with v5.16.16 with movie collections/sagas support on top
+
+## v5.15.15 Google Play release - 7/1/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
+- Align with v4.49.15 with latest jcifs-ng on top for SMBv2/3 support
 - Fix non systematic wrong IP selected when browsing SMB shares
 - New debug infrastructure based on slf4j/logback
 - New 2021 banner icons for AndroidTV
-
-## v5.15.15 SMBv2/3 not so experimental release anymore - 8/12/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
-- Align with v4.49.15 with latest jcifs-ng on top
+- dav1d update to 0.8.1
 
 ## v4.49.15 Google Play release - 8/12/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
