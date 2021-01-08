@@ -70,6 +70,7 @@ Note that:
 ## Trakt complains about no Internet connection
 
 Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
+
 ```
 static.criteo.net
 www.google-analytics.com
