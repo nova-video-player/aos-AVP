@@ -67,6 +67,15 @@ Note that:
 * Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
 * only SMB1 is supported for now, however an experimental build supporting SMB2/3 is available on [github](https://github.com/nova-video-player/aos-AVP/releases) for v5.x versions of Nova.
 
+## Trakt complains about no Internet connection
+
+Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
+```
+static.criteo.net
+www.google-analytics.com
+stats.g.doubleclick.net
+```
+
 ## I’d like to request a new feature.
 
 Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer).
