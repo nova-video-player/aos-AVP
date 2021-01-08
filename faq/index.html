@@ -109,6 +109,15 @@ Note that:</p>
 <li>only SMB1 is supported for now, however an experimental build supporting SMB2/3 is available on <a href="https://github.com/nova-video-player/aos-AVP/releases">github</a> for v5.x versions of Nova.</li>
 </ul>
 
+<h2>Trakt complains about no Internet connection</h2>
+
+<p>Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
+<code>
+static.criteo.net
+www.google-analytics.com
+stats.g.doubleclick.net
+</code></p>
+
 <h2>I’d like to request a new feature.</h2>
 
 <p>Feel free to join our <a href="https://www.reddit.com/r/NovaVideoPlayer">Reddit community</a>.</p>
