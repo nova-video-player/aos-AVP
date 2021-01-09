@@ -6,6 +6,7 @@
 ## v6.00.04 Movie Collection experimental release - 7/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v5.16.16 with movie collections/sagas support on top
+- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
 ## v5.15.15 Google Play release - 7/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
