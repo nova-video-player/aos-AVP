@@ -23,10 +23,7 @@ endif
 
 READLINK := $(readlink_prefix)readlink
 
-ndk_ver := 20
-
-android_sdk := $(shell $(READLINK) -f AVP/android-sdk)
-android_ndk := $(shell $(READLINK) -f AVP/android-ndk)
+ndk_ver := 22
 
 ifneq (,$(ANDROID_SDK))
 android_sdk := $(ANDROID_SDK)
@@ -36,9 +33,18 @@ ifneq (,$(ANDROID_HOME))
 android_sdk := $(ANDROID_HOME)
 endif
 
-ifneq (,$(ANDROID_NDK))
-android_ndk := $(ANDROID_NDK)
+ifneq (,$(ANDROID_SDK_ROOT))
+android_sdk := $(ANDROID_SDK_ROOT)
+$(info android_sdk is $(android_sdk))
 endif
+
+ifneq ($(wildcard $(android_sdk)/ndk-bundle/.*),)
+android_ndk := $(android_sdk)/ndk-bundle
+endif
+ifneq ($(wildcard $(android_sdk)/ndk/.*),)
+android_ndk := $(shell ls -d $(android_sdk)/ndk/* | sort -V | tail -n 1)
+endif
+$(info android_ndk is $(android_ndk))
 
 ifneq (,$(ASAN))
 asan := $(ASAN)
@@ -161,16 +167,12 @@ native_clean_$(1):
 endef
 
 all: AVP/android-ndk
-	cd Video; ANDROID_HOME=$(android_sdk) ANDROID_NDK_HOME=$(android_ndk) PATH=$(android_ndk):$(PATH) ./gradlew aND
-
-dlonly: AVP/android-ndk
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH=$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$(PATH) ./gradlew aND
 
 AVP/android-ndk:
-	echo "downloading android ndk..."
-	wget https://dl.google.com/android/repository/android-ndk-r$(ndk_ver)-$(os)-x86_64.zip
-	unzip android-ndk-r$(ndk_ver)-$(os)-x86_64.zip -d AVP/
-	rm -f android-ndk-r$(ndk_ver)-$(os)-x86_64.zip
-	mv AVP/android-ndk-r$(ndk_ver) AVP/android-ndk
+	echo "installing android ndk..."
+	PATH=$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$$PATH
+	if [ -z "$(android_sdk)" ]; then sdkmanager ndk-bundle; fi
 
 $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 
@@ -268,21 +270,21 @@ native_avos_full: native_build_native/ffmpeg-android-builder
 	$(call make_avos,MediaLib,full)
 
 native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder
-	cd native/ffmpeg-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
+	cd native/ffmpeg-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
 
 native_build_native/dav1d-android-builder:
-	cd native/dav1d-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_dav1d.sh
+	cd native/dav1d-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_dav1d.sh
 
 native_build_native/opus-android-builder:
-	cd native/opus-android-builder; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+	cd native/opus-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
 native_build_native/boost:
-	cd native/boost; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_boost.sh
+	cd native/boost; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_boost.sh
 
 native_build_native/libtorrent:
-	cd native/libtorrent; android_ndk=$(android_ndk) REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
+	cd native/libtorrent; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
 
 native/torrentd/libs/arm64-v8a/torrentd:
 	make native_build_native/torrentd
