@@ -15,9 +15,9 @@ os := $(shell echo $(shell uname -s) | tr '[:upper:]' '[:lower:]')
 ifeq ($(os), darwin)
 	readlink_prefix := g
 	# FIXME: current limitation of bigsur
-	#JAVA18 := $(shell unset JAVA_HOME; /usr/libexec/java_home -v 1.8)
+	#JAVA18 := $(shell /usr/libexec/java_home -v 1.8)
 	JAVA_VERSION := $(shell /usr/libexec/java_home -V 2>&1 | grep -v 'Internet Plug-Ins' | sed -nE -e 's/^ *(1\.8[^ ]*).*$$/\1/p')
-	JAVA18 := $(shell /usr/libexec/java_home -v $(JAVA_VERSION) )
+	JAVA18 := $(shell unset JAVA_HOME; /usr/libexec/java_home -v $(JAVA_VERSION) )
 endif
 
 ifeq ($(os), linux)
