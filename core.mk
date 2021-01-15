@@ -14,11 +14,14 @@ os := $(shell echo $(shell uname -s) | tr '[:upper:]' '[:lower:]')
 
 ifeq ($(os), darwin)
 	readlink_prefix := g
-	JAVA18 := $(shell /usr/libexec/java_home -v 1.8)
+	# FIXME: current limitation of bigsur
+	#JAVA18 := $(shell unset JAVA_HOME; /usr/libexec/java_home -v 1.8)
+	JAVA_VERSION := $(shell /usr/libexec/java_home -V 2>&1 | grep -v 'Internet Plug-Ins' | sed -nE -e 's/^ *(1\.8[^ ]*).*$$/\1/p')
+	JAVA18 := $(shell /usr/libexec/java_home -v $(JAVA_VERSION) )
 endif
 
 ifeq ($(os), linux)
-	JAVA18 := $(shell update-alternatives --list java |sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
+	JAVA18 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
 endif
 
 READLINK := $(readlink_prefix)readlink
@@ -309,13 +312,13 @@ cling: $(cling-objects)
 
 MediaLib/libs/cling-core-2.1.2.jar:
 MediaLib/libs/cling-support-2.1.2.jar:
-	cd external/cling; JAVA_HOME=$(JAVA18) mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+	cd external/cling; JAVA_HOME="$(JAVA18)" mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
 	
 MediaLib/libs/seamless-util-1.1.2.jar:
 MediaLib/libs/seamless-http-1.1.2.jar:
 MediaLib/libs/seamless-xml-1.1.2.jar:
 MediaLib/libs/seamless-swing-1.1.2.jar:
-	cd external/seamless; JAVA_HOME=$(JAVA18) mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
+	cd external/seamless; JAVA_HOME="$(JAVA18)" mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
 	cd external/jcifs-ng; mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
