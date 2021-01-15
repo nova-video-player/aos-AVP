@@ -3,19 +3,31 @@
 ## Important notes:
 - migrating from v6 to v5 or below will delete all your scraping information
 
-## v4.49.16 F-Droid only release - 9/1/2020
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
-- Attempt to fix F-Droid server build
-- dav1d update to 0.8.1
+## v4.49.17 F-Droid only release - 16/1/2020
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+- Yet another attempt to fix F-Droid server build
+- NDK r22 support
+
+## v6.00.06 Movie Collection experimental release - 16/1/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+- Align with v5.16.17 with movie collections/sagas support on top
+- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
+
+## v5.15.17 Google Play release - 16/1/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+- Latest jcifs-ng on top for SMBv2/3 support
+- Use DNS,BCAST default SMB resolver order to avoid slow SMB share responses in some network configurations
+- Allow AV1 hardware decoding
+- Switch to NDK r22
 
 ## v6.00.04 Movie Collection experimental release - 7/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
 - Align with v5.16.16 with movie collections/sagas support on top
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
-## v5.15.15 Google Play release - 7/1/2021
+## v5.15.16 Google Play release - 7/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r21, ffmpeg 4.3.1
-- Align with v4.49.15 with latest jcifs-ng on top for SMBv2/3 support
+- Align with v4.49.16 with latest jcifs-ng on top for SMBv2/3 support
 - Fix non systematic wrong IP selected when browsing SMB shares
 - New debug infrastructure based on slf4j/logback
 - New 2021 banner icons for AndroidTV
