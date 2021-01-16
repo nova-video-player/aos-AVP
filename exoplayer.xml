@@ -10,7 +10,7 @@
 
   <project path="Video" name="aos-Video" revision="dev/exoplayer" />
   <project path="MediaLib" name="aos-MediaLib" revision="dev/exoplayer" />
-  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v4-jcifsng" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v6" />
 
   <project path="ExoPlayer" name="ExoPlayer" revision="release-v2" />
 
@@ -18,9 +18,14 @@
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="nova" />
   <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
+  <project path="native/opus-android-builder" name="opus-android-builder" revision="main" />
   <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
-  <project path="native/libtorrent" name="aos-libtorrent" revision="ndk-r19" />
+  <project path="native/libtorrent" name="aos-libtorrent" revision="gen_v1.2.5" />
   <project path="native/torrentd" name="aos-torrentd" />
+  <!-- project path="external/trakt-java" name="trakt-java" revision="refs/tags/v6.3.0" /-->
+  <project path="external/jcifs-ng" name="jcifs-ng" revision="nova" />
+  <project path="external/seamless" name="seamless" revision="nova" />
+  <project path="external/cling" name="cling" revision="nova" />
 </manifest>
