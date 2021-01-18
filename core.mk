@@ -256,6 +256,7 @@ clean_prebuilt:
 	rm -rf native/torrentd/libs
 	rm -rf $(FFMPEG_DIR)/dist-*
 	rm -rf $(DAV1D_DIR)/build-*
+	rm -rf $(OPUS_DIR)/lib/*
 	rm -rf MediaLib/libs/trakt-java.jar
 	rm -rf MediaLib/libs/cling-*-2.1.2.jar
 	rm -rf MediaLib/libs/seamless-*-1.1.2.jar
