@@ -1,57 +1,54 @@
-FROM debian:buster
+FROM debian:bullseye
 MAINTAINER Courville Software <software@courville.org>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
-RUN echo "deb http://ftp.de.debian.org/debian stretch main" >> /etc/apt/sources.list
-RUN dpkg --add-architecture i386
-RUN apt update && \ 
-    apt install -y locales sudo wget unzip git curl build-essential openjdk-8-jdk python pkg-config meson nasm && \
-    apt clean autoclean
 
-RUN locale-gen en_US.UTF-8
-RUN dpkg-reconfigure locales
+# install build tools
+RUN echo "Install Linux build environment"
+RUN apt update && apt upgrade --yes --assume-yes
+RUN apt install -y -t testing nasm
+RUN apt install -y ninja-build maven build-essential \
+        git wget curl unzip sudo pkg-config \
+        python3 python3-pip python3-setuptools python3-wheel
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+RUN apt clean autoclean
+RUN pip3 install meson==0.53.2
+RUN apt install -y tig vim-tiny less screen 
 
 # Download and install repo
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/local/bin/repo > /dev/null
 RUN chmod a+x /usr/local/bin/repo
 
-RUN git config --global user.name "Courville Software"
-RUN git config --global user.email "software@courville.org"
+ENV ANDROID_SDK_TOOLS=6858069 \
+    OS=linux \
+    ANDROID_SDK_TOOLS=6858069 \
+    SDK_URL="https://dl.google.com/android/repository"
 
-ENV SDK_URL="https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip" \
-    ANDROID_HOME="/opt/android-sdk" \
-    ANDROID_SDK="/opt/android-sdk" \
-    ANDROID_NDK="/opt/android-ndk" \
-    NDK_VERSION=r19-beta2 \
-    SDK_VERSION=4333796 \
-    GRADLE_VERSION=4.6 \
-    ANDROID_BUILD_TOOLS_VERSION=28.0.3 \
-    ANDROID_VERSION=27
-# Download Android SDK
-RUN mkdir -p "$ANDROID_HOME" $HOME/.android \
-    && cd "$ANDROID_HOME" \
-    && curl -o sdk.zip https://dl.google.com/android/repository/sdk-tools-linux-${SDK_VERSION}.zip \
-    && unzip sdk.zip \
-    && rm sdk.zip \
-    && yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses --sdk_root=${ANDROID_HOME}
-# Install Android Build Tool and Libraries
-RUN $ANDROID_HOME/tools/bin/sdkmanager --update
-RUN yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" \
-    "platforms;android-${ANDROID_VERSION}" \
-    "platform-tools" --sdk_root=${ANDROID_HOME}
-ENV PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
-# Install Gradle
-RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip
-RUN mkdir /opt/gradle
-RUN unzip gradle-${GRADLE_VERSION}-all.zip -d /opt/gradle
-ENV PATH=${PATH}:/opt/gradle/gradle-${GRADLE_VERSION}/bin
-# Install NDK
-RUN wget https://dl.google.com/android/repository/android-ndk-${NDK_VERSION}-linux-x86_64.zip
-RUN unzip android-ndk-${NDK_VERSION}-linux-x86_64.zip -d /opt && mv /opt/android-ndk-${NDK_VERSION} ${ANDROID_NDK}
-ENV PATH=${PATH}:${ANDROID_NDK}
+ENV ANDROID_SDK_ROOT=/opt/android-sdk
+ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
 
-RUN mkdir /nova && cd /nova && repo init -u https://github.com/nova-video-player/aos-AVP -b nova && repo sync -j 4
+ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
+
+# Download minimal Android SDK/NDK
+
+RUN echo "Install minimal Android SDK" && \
+    wget --quiet --output-document=/opt/android-cmdline.zip ${SDK_URL}/commandlinetools-${OS}-${ANDROID_SDK_TOOLS}_latest.zip && \
+    unzip -q /opt/android-cmdline.zip -d /opt && \
+    mkdir -p /opt/android-sdk/cmdline-tools && \
+    mv /opt/cmdline-tools /opt/android-sdk/cmdline-tools/tools
+
+RUN echo "Install Android NDK" && \
+    ndk=$(pkg="ndk;21"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg\.[0-9\.]*\) .*$/\1/g" | head -n 1) && \
+    yes | sdkmanager "${ndk}" > /dev/null
+
+RUN echo "Fetch nova source code" && \
+    mkdir -p /nova && \
+    cd /nova && \
+    repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v4.xml && \
+    repo sync -j 4 && \
+    repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV' 
+
 WORKDIR /nova
 
 #ENTRYPOINT ["make"] 
