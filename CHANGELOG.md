@@ -8,12 +8,12 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Yet another attempt to fix F-Droid server build
 - NDK r22 support
 
-## v6.00.06 Movie Collection experimental release - 16/1/2021
+## v6.00.07 Movie Collection experimental release - 22/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
-- Align with v5.16.17 with movie collections/sagas support on top
+- Align with v5.16.18 with movie collections/sagas support on top
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
-## v5.15.17 Google Play release - 16/1/2021
+## v5.15.18 Google Play release - 22/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Latest jcifs-ng on top for SMBv2/3 support
 - Use DNS,BCAST default SMB resolver order to avoid slow SMB share responses in some network configurations
