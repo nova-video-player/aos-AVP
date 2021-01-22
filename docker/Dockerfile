@@ -27,8 +27,7 @@ RUN chmod a+x /usr/local/bin/repo
 ENV ANDROID_SDK_TOOLS=6858069 \
     OS=linux \
     ANDROID_SDK_TOOLS=6858069 \
-    SDK_URL="https://dl.google.com/android/repository" \
-    JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64
+    SDK_URL="https://dl.google.com/android/repository"
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
