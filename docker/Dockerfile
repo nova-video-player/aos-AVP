@@ -43,8 +43,7 @@ RUN echo "Install minimal Android SDK" && \
     mv /opt/cmdline-tools /opt/android-sdk/cmdline-tools/tools
 
 RUN echo "Install Android NDK" && \
-    ndk=$(pkg="ndk;21"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg\.[0-9\.]*\) .*$/\1/g" | head -n 1) && \
-    yes | sdkmanager "${ndk}" > /dev/null
+    yes | sdkmanager ndk-bundle > /dev/null
 
 RUN echo "Fetch nova source code" && \
     mkdir -p /nova && \
