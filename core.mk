@@ -291,7 +291,7 @@ native_build_native/boost:
 	cd native/boost; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_boost.sh
 
 native_build_native/libtorrent:
-	cd native/libtorrent; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build-android-all.sh
+	cd native/libtorrent-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_libtorrent.sh
 
 native/torrentd/libs/arm64-v8a/torrentd:
 	make native_build_native/torrentd

@@ -22,7 +22,7 @@
   <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
-  <project path="native/libtorrent" name="aos-libtorrent" revision="gen_v1.2.5" />
+  <project path="native/libtorrent-android-builder" name="aos-libtorrent-android-builder" revision="main" />
   <project path="native/torrentd" name="aos-torrentd" />
   <!-- project path="external/trakt-java" name="trakt-java" revision="refs/tags/v6.3.0" /-->
   <project path="external/jcifs-ng" name="jcifs-ng" revision="nova" />
