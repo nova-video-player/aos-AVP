@@ -15,6 +15,11 @@
   <appender-ref ref="logcat"/>
 </logger>
 
+<logger name="com.archos.mediacenter.video.browser.filebrowsing.network.SmbBrowser" level="DEBUG">
+  <appender-ref ref="SMB_FILE"/>
+  <appender-ref ref="logcat"/>
+</logger>
+
 <logger name="com.archos.filecorelibrary.samba" level="DEBUG">
   <appender-ref ref="SMB_FILE"/>
   <appender-ref ref="logcat"/>
