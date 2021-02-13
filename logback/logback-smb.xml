@@ -33,6 +33,9 @@
   <appender-ref ref="SMB_FILE"/>
 </logger>
 
+<logger name="jcifs.util.transport.Transport" level="TRACE">
+  <appender-ref ref="SMB_FILE"/>
+</logger>
 
 <logger name="jcifs.smb.SmbTransportImpl" level="TRACE">
   <appender-ref ref="SMB_FILE"/>
