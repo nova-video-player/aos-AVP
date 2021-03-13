@@ -3,7 +3,7 @@
 ## Important notes:
 - migrating from v6/7 to v5 or below will delete all your scraping information
 
-## v6.00.08 Google Play release - xx/xx/2021
+## v6.00.06 Google Play release - xx/xx/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
@@ -21,7 +21,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Yet another attempt to fix F-Droid server build
 - NDK r22 support
 
-## v6.00.07 Movie Collection experimental release - 22/1/2021
+## v6.00.05 Movie Collection experimental release - 22/1/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Align with v5.16.18 with movie collections/sagas support on top
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
