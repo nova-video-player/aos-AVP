@@ -7,6 +7,14 @@
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
 
+## v6.00.08 Google Play release - xx/x/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+- Add support for movie collections/sagas on Android TV
+- Separate section for animation movies and series on Android TV
+- Faster TV shows media information retrieval
+- Use DNS,BCAST default SMB resolver order to avoid slow SMB share responses in some network configurations
+- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
+
 ## v4.49.17 F-Droid only release - 16/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Yet another attempt to fix F-Droid server build
