@@ -12,6 +12,16 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - ffmpeg version 4.3.2 and dav1d version 0.8.2 upstep
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
+**Important migration note:**
+
+* This new version upgrades the internal nova media database to a new scheme and any downgrade to v4/v5 versions of nova will wipe out your entire video collection to prevent any incompatibility.
+* Proper support for movie collections and animation movies/series on AndroidTV requires some manual steps. Acquisition of the additional movie collection informations and movies/TV series genres realignement requires a full rescrape of your video without interference of existing .nfo files (that do not yet contain the required information). For that purpose the following steps should do the trick:
+    * backup all your customized handcrafted .nfo file (if you have any)
+    * install nova version 6.x
+    * in nova settings unselect "process '.nfo' files"
+    * in nova settings launch a "rescrape all" and wait for completion
+    * in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
+
 ## v7.00.01 ExoPlayer experimental release - xx/xx/2021
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
