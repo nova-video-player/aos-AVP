@@ -3,17 +3,18 @@
 ## Important notes:
 - migrating from v6/7 to v5 or below will delete all your scraping information
 
-## v7.00.01 ExoPlayer experimental release - xx/xx/2021
-Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
-- Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
-
-## v6.00.08 Google Play release - xx/x/2021
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+## v6.00.08 Google Play release - xx/xx/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
 - Faster TV shows media information retrieval
 - Use DNS,BCAST default SMB resolver order to avoid slow SMB share responses in some network configurations
+- ffmpeg version 4.3.2 and dav1d version 0.8.2 upstep
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
+
+## v7.00.01 ExoPlayer experimental release - xx/xx/2021
+Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
+- Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
 
 ## v4.49.17 F-Droid only release - 16/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
