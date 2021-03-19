@@ -3,7 +3,7 @@
 ## Important notes:
 - migrating from v6/7 to v5 or below will delete all your scraping information
 
-## v6.00.06 Google Play release - xx/xx/2021
+## v6.00.06 Google Play beta release - 19/03/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
