@@ -26,6 +26,11 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
 
+## v5.15.19 Google Play release - 19/3/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
+- Fix occasional SMB2/3 timeouts
+- ffmpeg version 4.3.2 and dav1d version 0.8.2 upstep
+
 ## v4.49.17 F-Droid only release - 16/1/2020
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Yet another attempt to fix F-Droid server build
