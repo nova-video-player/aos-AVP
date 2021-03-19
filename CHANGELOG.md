@@ -8,8 +8,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
 - Faster TV shows media information retrieval
-- Use DNS,BCAST default SMB resolver order to avoid slow SMB share responses in some network configurations
-- ffmpeg version 4.3.2 and dav1d version 0.8.2 upstep
+- Fix scraping counter calculation on AndroidTV
 - WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
 **Important migration note:**
@@ -29,6 +28,7 @@ Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libra
 ## v5.15.19 Google Play release - 19/3/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
 - Fix occasional SMB2/3 timeouts
+- Add support for coloured TV remote buttons via HDMI-CEC
 - ffmpeg version 4.3.2 and dav1d version 0.8.2 upstep
 
 ## v4.49.17 F-Droid only release - 16/1/2020
