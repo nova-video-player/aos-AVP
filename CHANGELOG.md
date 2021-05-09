@@ -25,6 +25,11 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
 - Add ExoPlayer with ffmpeg video support as alternate player (hidden for now)
 
+## v5.15.20 Google Play release - 9/5/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
+- Better tv show subtitle download based on IMDB ID
+- Disable delete on UPnP shares not supporting it
+
 ## v5.15.19 Google Play release - 19/3/2021
 Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
 - Fix occasional SMB2/3 timeouts
