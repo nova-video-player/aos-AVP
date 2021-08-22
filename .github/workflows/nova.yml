@@ -39,7 +39,7 @@ jobs:
       run: |
          mkdir nova
          cd nova
-         repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v4.xml
+         repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v5.xml
          repo sync -j 4
          repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
     - name: build
