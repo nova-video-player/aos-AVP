@@ -12,7 +12,7 @@ This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, f
 - Better tv show subtitle download based on IMDB ID
 - Disable delete on UPnP shares not supporting it
 
-## v6.00.10 Google Play internal release (non public) - 1/9/2021
+## v6.00.11 Google Play internal release (non public) - 1/9/2021
 This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
