@@ -3,13 +3,28 @@
 ## Important notes:
 - migrating from v6/7 to v5 or below will delete all your scraping information
 
-## v6.00.07 Google Play beta release - 20/03/2021
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
+## v5.15.21 Google Play release - 1/9/2021
+This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
+- Fix crash on Android 12/S/API31
+- Full screen display is enabled by default even on displays with cutouts
+- Properly report DTS-HD and DTS-HD MA
+- ffmpeg 4.4 and dav1d 0.9 integration
+- Better tv show subtitle download based on IMDB ID
+- Disable delete on UPnP shares not supporting it
+
+## v6.00.10 Google Play internal release (non public) - 1/9/2021
+This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
 - Add support for movie collections/sagas on Android TV
 - Separate section for animation movies and series on Android TV
 - Faster TV shows media information retrieval
-- Fix scraping counter calculation on AndroidTV
-- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
+- Fix crash on Android 12/S/API31
+- Properly report DTS-HD and DTS-HD MA
+- ffmpeg 4.4 and dav1d 0.9 integration
+- Add MDNS samba discovery
+- New refresh rate selection algorithm optimizing judder effect
+- Add domain option to samba network credential dialog
+- Optimize network shares rescan speed in case of files delete/rename
+- WARNING: media db upgrade to version 39 (any downgrade will wipe out your meta data)
 
 **Important migration note:**
 
@@ -19,7 +34,15 @@ Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libra
     * install nova version 6.x
     * in nova settings unselect "process '.nfo' files"
     * in nova settings launch a "rescrape all" and wait for completion
-    * in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
+    * (optional) in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
+
+## v6.00.07 Google Play internal release - 20/03/2021
+Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
+- Add support for movie collections/sagas on Android TV
+- Separate section for animation movies and series on Android TV
+- Faster TV shows media information retrieval
+- Fix scraping counter calculation on AndroidTV
+- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
 ## v7.00.01 ExoPlayer experimental release - xx/xx/2021
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
