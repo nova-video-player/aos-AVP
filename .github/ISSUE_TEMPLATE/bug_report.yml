@@ -1,0 +1,44 @@
+name: "Bug report"
+description: "Create a report to help us improve"
+title: "[Bug]: "
+labels: ["bug report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please use search before opening an issue to check whether your issue has already been reported and perhaps solved to avoid duplicates.
+
+        Please check also [NOVA FAQ](https://home.courville.org/nova_video_player-faq/index.html) for know problems/limitations.
+
+        In order to submit a bug report, please fill the form below. Provide as much information as possible.
+        
+        Providing additional logs will help application maintainers/developers to better understand the problem and come up with a solution. 
+        
+        Be patient, do not expect that issue could get resolved immediately.
+  - type: textarea
+    attributes:
+      label: Problem description
+      description: |
+        A clear and concise description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce the issue
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+  - type: textarea
+    attributes:
+      label: System information
+      description: Provide details about your specific configuration/setup/hardware/Android version.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Debug logs
+      description: Refer to the [debugging wiki section](https://github.com/nova-video-player/aos-AVP/wiki/Debugging) and provide logcat logs in a Markdown **code block** (\`\`\`     ... \`\`\`).
+    validations:
+      required: no
