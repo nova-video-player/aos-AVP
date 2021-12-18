@@ -3,6 +3,7 @@
 ## Important notes:
 - migrating from v6/7 to v5 or below will delete all your scraping information
 
+
 ## v5.15.21 Google Play release - 1/9/2021
 This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
 - Fix crash on Android 12/S/API31
@@ -12,42 +13,36 @@ This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, f
 - Better tv show subtitle download based on IMDB ID
 - Disable delete on UPnP shares not supporting it
 
-## v6.00.24 Google Play internal release (non public) - 30/9/2021
+## v6.00.33 Google Play internal release (non public) - 30/12/2021
 This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
-- Add support for movie collections/sagas on Android TV
-- Separate section for animation movies and series on Android TV
+- Movie collections/sagas support on Android TV
+- Separate animation/movies/series sections on Android TV
 - Faster TV shows media information retrieval
-- Fix crash on Android 12/S/API31
-- Properly report DTS-HD and DTS-HD MA
-- ffmpeg 4.4 and dav1d 0.9.2 integration
-- Add MDNS samba discovery
+- Report properly DTSHD & DTSHD MA
+- ffmpeg 4.4.1 & dav1d 0.9.2 upstep
+- MDNS samba discovery
 - New refresh rate selection algorithm optimizing judder effect
 - Add domain option to samba network credential dialog
-- Optimize network shares rescan speed in case of files delete/rename
-- Add Dolby vision support
-- WARNING: media db upgrade to version 39 (any downgrade will wipe out your meta data)
+- Optimize network shares rescan speed when files deleted/renamed
+- Dolby vision support
+- Binge watch mode
+- Target API31 (warning: relocation of nfo/jpg for local storage videos)
+- WARNING: media db upgrade (any downgrade will wipe out your meta data)
 
-**Important migration note:**
+**Important migration notes:**
 
 * This new version upgrades the internal nova media database to a new scheme and any downgrade to v4/v5 versions of nova will wipe out
  your entire video collection to prevent any incompatibility.
-* This version switches to theMovieDb for retrieving TV shows information instead of theTvDb. 
-* It is strongly recommended to rescrape all your TV shows or start from a fresh install to avoid to go through the below migration steps.
-* Proper support for movie collections and animation movies/series on AndroidTV requires some manual steps. Acquisition of the additional movie collection informations and movies/TV series genres realignment requires a full rescrape of your video without interference of existing .nfo files (that do not yet contain the required information). For that purpose the following steps should do the trick:
+* This version switches to theMovieDb for retrieving TV shows information instead of theTvDb. It is strongly recommended to rescrape all your TV shows or start from a fresh install.
+* Proper support for movie collections and animation movies/series on AndroidTV requires some manual steps. Acquisition of the additional movie collection informations and movies/TV series genres realignment requires a
+ full rescrape of your video without interference of existing .nfo files (that do not yet contain the required information). For that purpose the following steps should do the trick:
     * backup all your customized handcrafted .nfo file (if you have any)
-    * install nova version 6.x
+    * install nova version 6.xx
     * in nova settings unselect "process '.nfo' files"
     * in nova settings launch a "rescrape all" and wait for completion
     * in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
+* versions later than v6.0.30 targets API31 and due to Android storage restrictions for API30, local NFO/JPG media information files for videos stored on local storage have been moved to nova public application folder located /sdcard/Android/data/org.courville.nova/files/nfoPoster 
  * If you ever want to get back to nova v5.xx, you will need to clean application data *and cache*
-
-## v6.00.07 Google Play internal release - 20/03/2021
-Testing branch: this release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.3.2
-- Add support for movie collections/sagas on Android TV
-- Separate section for animation movies and series on Android TV
-- Faster TV shows media information retrieval
-- Fix scraping counter calculation on AndroidTV
-- WARNING: media db upgrade to version 38 (any downgrade will wipe out your meta data)
 
 ## v7.00.01 ExoPlayer experimental release - xx/xx/2021
 Testing branch: this release is based on minSDK 21, targetSDK 30, AndroidX libraries, NDK-r22, ffmpeg 4.3.1
