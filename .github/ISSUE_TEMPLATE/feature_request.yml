@@ -18,6 +18,7 @@ body:
     id: additional-information
     attributes:
       label: Additional information
-      description: Provide some additional information on the feature request: e.g. proposed solutions, links, screenshots, etc.
+      description: |
+        Provide some additional information on the feature request, e.g. proposed solutions, links, screenshots, etc.
     validations:
       required: false
