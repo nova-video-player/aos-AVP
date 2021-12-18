@@ -49,6 +49,7 @@ body:
     attributes:
       label: Application version and app store
       placeholder: e.g. 5.15.21 from Google Play store, version 6.0.33 from github
+    validations:
       required: false
   - type: textarea
     attributes:
