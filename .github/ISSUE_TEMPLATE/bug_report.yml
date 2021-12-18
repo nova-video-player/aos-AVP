@@ -30,15 +30,35 @@ body:
   - type: textarea
     attributes:
       label: Expected behavior
-  - type: textarea
+  - type: input
+    id: device
     attributes:
-      label: System information
-      description: Provide details about your specific configuration/setup/hardware/Android version.
+      label: Your phone/tablet/androidTV model
+      placeholder: e.g. Pixel 6/NVidia Shield 2019
     validations:
       required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system version
+      placeholder: e.g. Android 12
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Application version and app store
+      placeholder: e.g. 5.15.21 from Google Play store, version 6.0.33 from github
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional system information
+      description: Provide additional details about your specific configuration/setup (e.g. AV receiver, TV details etc.).
+    validations:
+      required: false
   - type: textarea
     attributes:
       label: Debug logs
       description: Refer to the [debugging wiki section](https://github.com/nova-video-player/aos-AVP/wiki/Debugging) and provide logcat logs in a Markdown **code block** (\`\`\`     ... \`\`\`).
     validations:
-      required: no
+      required: false
