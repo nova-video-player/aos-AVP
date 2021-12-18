@@ -14,7 +14,7 @@ This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, f
 - Disable delete on UPnP shares not supporting it
 
 ## v6.00.33 Google Play internal release (non public) - 30/12/2021
-This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, ffmpeg 4.4
+This release is based on minSDK 21, targetSDK 31, AndroidX libraries, NDK-r22, ffmpeg 4.4.1
 - Movie collections/sagas support on Android TV
 - Separate animation/movies/series sections on Android TV
 - Faster TV shows media information retrieval
