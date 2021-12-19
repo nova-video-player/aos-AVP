@@ -61,11 +61,16 @@ SRT, SUB subtitles are supported. SSA support is rudimentary. PGS subs are not y
 
 ## Which network shares are supported?
 
-Nova Video Player supports adding videos on network shares using SMB1, sftp, ftp and ftps protocols.
+Nova Video Player supports adding videos on network shares using SMB, SFTP, FTP and FTPS protocols.
 Note that:
 
 * Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
-* only SMB1 is supported for now, however an experimental build supporting SMB2/3 is available on [github](https://github.com/nova-video-player/aos-AVP/releases) for v5.x versions of Nova.
+* SMB1/2/3 are supported since v5.x version of Nova;
+* Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server.
+
+## Blue screen starting nova
+
+If you get an empty blue screen at application start, just reboot your device to get in a sane state.
 
 ## Trakt complains about no Internet connection
 
@@ -77,9 +82,17 @@ www.google-analytics.com
 stats.g.doubleclick.net
 ```
 
+## Dolby Vision and HDR
+
+Dolby Vision and HDR support on AndroidTV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. 
+
+Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI support.
+
+Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
+
 ## I’d like to request a new feature.
 
-Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer).
+Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer) or open a feature request on [github project issue](https://github.com/nova-video-player/aos-AVP/issues) .
 
 ## I'd like to report a bug
 
