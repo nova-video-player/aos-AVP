@@ -101,13 +101,18 @@ On Nova Video Player, two experimental audio passthrough modes are supported:  <
 
 <h2>Which network shares are supported?</h2>
 
-<p>Nova Video Player supports adding videos on network shares using SMB1, sftp, ftp and ftps protocols.
+<p>Nova Video Player supports adding videos on network shares using SMB, SFTP, FTP and FTPS protocols.
 Note that:</p>
 
 <ul>
 <li>Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command (<a href="https://tools.ietf.org/html/rfc3659">RFC3659</a>), e.g. with proftpd but NOT with vsftpd;</li>
-<li>only SMB1 is supported for now, however an experimental build supporting SMB2/3 is available on <a href="https://github.com/nova-video-player/aos-AVP/releases">github</a> for v5.x versions of Nova.</li>
+<li>SMB1/2/3 are supported since v5.x version of Nova;</li>
+<li>Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server.</li>
 </ul>
+
+<h2>Blue screen starting nova</h2>
+
+<p>If you get an empty blue screen at application start, just reboot your device to get in a sane state.</p>
 
 <h2>Trakt complains about no Internet connection</h2>
 
@@ -119,9 +124,17 @@ www.google-analytics.com
 stats.g.doubleclick.net
 </code></p>
 
+<h2>Dolby Vision and HDR</h2>
+
+<p>Dolby Vision and HDR support on AndroidTV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. </p>
+
+<p>Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI support.</p>
+
+<p>Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.</p>
+
 <h2>I’d like to request a new feature.</h2>
 
-<p>Feel free to join our <a href="https://www.reddit.com/r/NovaVideoPlayer">Reddit community</a>.</p>
+<p>Feel free to join our <a href="https://www.reddit.com/r/NovaVideoPlayer">Reddit community</a> or open a feature request on <a href="https://github.com/nova-video-player/aos-AVP/issues">github project issue</a> .</p>
 
 <h2>I'd like to report a bug</h2>
 
