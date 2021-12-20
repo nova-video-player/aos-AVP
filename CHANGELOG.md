@@ -13,7 +13,7 @@ This release is based on minSDK 21, targetSDK 29, AndroidX libraries, NDK-r22, f
 - Better tv show subtitle download based on IMDB ID
 - Disable delete on UPnP shares not supporting it
 
-## v6.00.33 Google Play internal release (non public) - 30/12/2021
+## v6.00.34 Google Play internal release (non public) - 30/12/2021
 This release is based on minSDK 21, targetSDK 31, AndroidX libraries, NDK-r22, ffmpeg 4.4.1
 - Movie collections/sagas support on Android TV
 - Separate animation/movies/series sections on Android TV
@@ -27,6 +27,7 @@ This release is based on minSDK 21, targetSDK 31, AndroidX libraries, NDK-r22, f
 - Dolby vision support
 - Binge watch mode
 - Target API31 (warning: relocation of nfo/jpg for local storage videos)
+- Fix trakt sync for tvshows
 - WARNING: media db upgrade (any downgrade will wipe out your meta data)
 
 **Important migration notes:**
