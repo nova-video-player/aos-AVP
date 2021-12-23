@@ -13,10 +13,10 @@ jobs:
       ANDROID_NDK_HOME:   ${ANDROID_HOME}/ndk-bundle
       ANDROID_NDK:        ${ANDROID_HOME}/ndk-bundle
     steps:
-    - name: set up JDK 1.8
+    - name: set up JDK 11
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
+        java-version: 11
     - name: install packages
       run: |
         sudo apt-get update || sudo apt-get update
@@ -39,7 +39,7 @@ jobs:
       run: |
          mkdir nova
          cd nova
-         repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v5.xml
+         repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v6.xml
          repo sync -j 4
          repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
     - name: build
