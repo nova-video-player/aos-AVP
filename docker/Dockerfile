@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 MAINTAINER Courville Software <software@courville.org>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -14,23 +14,25 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 RUN apt clean autoclean
 RUN pip3 install meson==0.53.2
 RUN apt install -y tig vim-tiny less screen 
-# install old java
+# install java11
 RUN apt install -y apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
 RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key --keyring /etc/apt/trusted.gpg.d/adoptopenjdk-apt-key.gpg add
 RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-RUN apt update && apt install -y adoptopenjdk-8-hotspot
+RUN apt update && apt install -y adoptopenjdk-11-hotspot
 
 # Download and install repo
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/local/bin/repo > /dev/null
 RUN chmod a+x /usr/local/bin/repo
 
-ENV ANDROID_SDK_TOOLS=6858069 \
+ENV ANDROID_SDK_TOOLS=7583922 \
     OS=linux \
-    ANDROID_SDK_TOOLS=6858069 \
     SDK_URL="https://dl.google.com/android/repository"
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
+
+ENV NDKVER=23
+ENV BUILDTOOLSVER=31
 
 ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
 
@@ -43,12 +45,13 @@ RUN echo "Install minimal Android SDK" && \
     mv /opt/cmdline-tools /opt/android-sdk/cmdline-tools/tools
 
 RUN echo "Install Android NDK" && \
-    yes | sdkmanager ndk-bundle > /dev/null
+    ndk=$(pkg="ndk;$NDKVER"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg\.[0-9\.]*\) .*$/\1/g" | tail -n 1) && \
+    yes | sdkmanager "${ndk}" > /dev/null
 
 RUN echo "Fetch nova source code" && \
     mkdir -p /nova && \
     cd /nova && \
-    repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v4.xml && \
+    repo init -u https://github.com/nova-video-player/aos-AVP -b nova -m v6.xml && \
     repo sync -j 4 && \
     repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV' 
 
