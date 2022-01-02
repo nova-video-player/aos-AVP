@@ -47,8 +47,8 @@ cd Video
 
 Note that build is performed on local git clone of ffmpeg and dav1d repos and in order to trigger full update rebuild, you need in case of version upstep to manually do:
 ```
-cd native/dav1d-android-builder; git clean -fdx; cd ..
-cd native/ffmpeg-android-builder; git clean -fdx; cd ..
+cd native/dav1d-android-builder; rm -rf build-*
+cd native/ffmpeg-android-builder; rm -rf dist-*
 ```
 
 Note that the following packages are required to build:
