@@ -14,10 +14,10 @@ RUN apt install -y nasm ninja-build maven build-essential \
         tig vim-tiny less screen
 
 # install openjdk-8-jdk
-RUN apt install -y software-properties-common
-RUN apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main'
-RUN apt update
-RUN apt install -y openjdk-8-jdk
+RUN apt install -y apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
+RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key --keyring /etc/apt/trusted.gpg.d/adoptopenjdk-apt-key.gpg add
+RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+RUN apt update && apt install -y adoptopenjdk-8-hotspot
 
 # use python3
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
