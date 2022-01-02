@@ -9,16 +9,13 @@ RUN echo "Install Linux build environment"
 RUN apt update && apt upgrade --yes --assume-yes
 RUN apt install -y nasm ninja-build maven build-essential \
         git wget curl unzip sudo pkg-config \
-        python3 python3-pip python3-setuptools python3-wheel
+        python3 python3-pip python3-setuptools python3-wheel \
+        openjdk-11-jdk openjdk-8-jdk
+
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 RUN apt clean autoclean
 RUN pip3 install meson==0.53.2
 RUN apt install -y tig vim-tiny less screen 
-# install java11
-RUN apt install -y apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
-RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key --keyring /etc/apt/trusted.gpg.d/adoptopenjdk-apt-key.gpg add
-RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-RUN apt update && apt install -y adoptopenjdk-11-hotspot
 
 # Download and install repo
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/local/bin/repo > /dev/null
