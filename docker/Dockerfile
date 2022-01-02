@@ -10,17 +10,25 @@ RUN apt update && apt upgrade --yes --assume-yes
 RUN apt install -y nasm ninja-build maven build-essential \
         git wget curl unzip sudo pkg-config \
         python3 python3-pip python3-setuptools python3-wheel \
-        openjdk-11-jdk openjdk-8-jdk
+        openjdk-11-jdk \
+        tig vim-tiny less screen
 
+# install openjdk-8-jdk
+RUN apt install -y software-properties-common
+RUN apt-add-repository 'deb http://security.debian.org/debian-security stretch/updates main'
+RUN apt update
+RUN apt install -y openjdk-8-jdk
+
+# use python3
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 RUN apt clean autoclean
 RUN pip3 install meson==0.53.2
-RUN apt install -y tig vim-tiny less screen 
 
-# Download and install repo
+# download and install repo
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/local/bin/repo > /dev/null
 RUN chmod a+x /usr/local/bin/repo
 
+# set proper env variables
 ENV ANDROID_SDK_TOOLS=7583922 \
     OS=linux \
     SDK_URL="https://dl.google.com/android/repository"
@@ -33,7 +41,7 @@ ENV BUILDTOOLSVER=31
 
 ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
 
-# Download minimal Android SDK/NDK
+# download minimal Android SDK/NDK
 
 RUN echo "Install minimal Android SDK" && \
     wget --quiet --output-document=/opt/android-cmdline.zip ${SDK_URL}/commandlinetools-${OS}-${ANDROID_SDK_TOOLS}_latest.zip && \
