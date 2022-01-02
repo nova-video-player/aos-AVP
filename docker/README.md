@@ -8,5 +8,5 @@ This Dockerfile provides a way to build nova in a linux debian docker.
 
 ```
 docker build -t nova .
-docker run --rm -ti --entrypoint=/bin/bash nova2
+docker run --rm -ti --entrypoint=/bin/bash nova
 ```
