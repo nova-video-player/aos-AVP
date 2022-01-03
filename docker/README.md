@@ -9,4 +9,8 @@ This Dockerfile provides a way to build nova in a linux debian docker.
 ```
 docker build -t nova .
 docker run --rm -ti --entrypoint=/bin/bash nova
+cd Video
+./gradlew aND
 ```
+
+Built apk are located in folder `/nova/Video/build/outputs/apk/noamazon/debug`.
