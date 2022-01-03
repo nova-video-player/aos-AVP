@@ -45,10 +45,11 @@ cd Video
 ./gradlew -Puniversal assembleNoamazonRelease
 ```
 
-Note that build is performed on local git clone of ffmpeg and dav1d repos and in order to trigger full update rebuild, you need in case of version upstep to manually do:
+In order to speed up the build, build is performed using dav1d, ffmpeg and other pre-built binaries and usgin local git clone of ffmpeg and dav1d repos. In order to trigger full update rebuild, you need in case of version upstep to manually do:
 ```
-cd native/dav1d-android-builder; rm -rf build-*
-cd native/ffmpeg-android-builder; rm -rf dist-*
+rm -rf native/torrentd/libs
+cd native/dav1d-android-builder; git clean -fdx; rm -rf built-*
+cd native/ffmpeg-android-builder; git clean -fdx; rm -rf dist-*
 ```
 
 Note that the following packages are required to build:
