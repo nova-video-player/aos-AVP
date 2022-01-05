@@ -8,7 +8,7 @@ ENV USER root
 RUN echo "Install Linux build environment"
 RUN apt update && apt upgrade --yes --assume-yes
 RUN apt install -y nasm ninja-build maven build-essential \
-        git wget curl unzip sudo pkg-config \
+        file git wget curl unzip sudo pkg-config \
         python3 python3-pip python3-setuptools python3-wheel \
         openjdk-11-jdk \
         tig vim-tiny less screen
