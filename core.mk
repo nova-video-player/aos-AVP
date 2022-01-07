@@ -44,11 +44,11 @@ android_sdk := $(ANDROID_SDK_ROOT)
 $(info android_sdk is $(android_sdk))
 endif
 
-ifneq ($(wildcard $(android_sdk)/ndk/.*),)
-android_ndk := $(shell ls -d $(android_sdk)/ndk/* | sort -V | tail -n 1)
-endif
 ifneq ($(wildcard $(android_sdk)/ndk-bundle/.*),)
 android_ndk := $(android_sdk)/ndk-bundle
+endif
+ifneq ($(wildcard $(android_sdk)/ndk/.*),)
+android_ndk := $(shell ls -d $(android_sdk)/ndk/* | sort -V | tail -n 1)
 endif
 $(info android_ndk is $(android_ndk))
 
