@@ -36,7 +36,7 @@ ENV ANDROID_SDK_TOOLS=7583922 \
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
 
-ENV NDKVER=21
+ENV NDKVER=23
 ENV BUILDTOOLSVER=31
 
 ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
