@@ -173,7 +173,7 @@ native_clean_$(1):
 endef
 
 all: AVP/android-ndk
-	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew aND
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew aNR
 
 AVP/android-ndk:
 	echo "installing android ndk..."
