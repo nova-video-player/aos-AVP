@@ -7,7 +7,7 @@ This git repo is part of NOVA opeN sOurce Video plAyer, a video player software 
 This Dockerfile provides a way to build nova in a linux debian docker.
 
 ```
-docker build -t nova .
+docker build -t nova --no-cache .
 mkdir shared
 docker run --rm -ti -v $PWD/shared:/shared --entrypoint=/bin/bash nova
 cd Video
