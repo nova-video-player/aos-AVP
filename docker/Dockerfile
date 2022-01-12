@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM ubuntu:latest
 MAINTAINER Courville Software <software@courville.org>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -10,14 +10,8 @@ RUN apt update && apt upgrade --yes --assume-yes
 RUN apt install -y nasm ninja-build maven build-essential \
         file git wget curl unzip sudo pkg-config \
         python3 python3-pip python3-setuptools python3-wheel \
-        openjdk-11-jdk \
+        openjdk-11-jdk-headless openjdk-8-jdk-headless \
         tig vim-tiny less screen
-
-# install openjdk-8-jdk
-RUN apt install -y apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
-RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key --keyring /etc/apt/trusted.gpg.d/adoptopenjdk-apt-key.gpg add
-RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-RUN apt update && apt install -y adoptopenjdk-8-hotspot
 
 # use python3
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
