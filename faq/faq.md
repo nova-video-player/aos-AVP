@@ -98,7 +98,8 @@ Alternatively you can expose in the same setting the local USB drive via SMB  (M
 
 ## Pre-releases and Nova v5.xx to v6.xx migration
 
-Nova v6.xx pre-release is available on [Github](https://github.com/nova-video-player/aos-AVP/releases)
+Nova v6.xx pre-release is available on [Github](https://github.com/nova-video-player/aos-AVP/releases):
+
 * This new version upgrades the internal nova media database to a new scheme and any downgrade to v5 version of nova will wipe out your entire video collection to prevent any incompatibility.
 * This version switches to theMovieDb for retrieving TV shows information instead of theTvDb. It is strongly recommended to rescrape all your TV shows or ***best to start from a fresh install***.
 * Instead of going through a fresh install for proper support for movie collections and animation movies/series on AndroidTV you can perform the following manual steps. Acquisition of the additional movie collection informations and movies/TV series genres realignment requires a full rescrape of your video without interference of existing .nfo files (that do not yet contain the required information). For that purpose the following steps should do the trick:
@@ -107,8 +108,8 @@ Nova v6.xx pre-release is available on [Github](https://github.com/nova-video-pl
     * in nova settings unselect "process '.nfo' files"
     * in nova settings launch a "rescrape all" and wait for completion
     * in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
-* versions later than v6.0.30 targets API31 and due to Android storage restrictions for API30, local NFO/JPG media information files for videos stored on local storage have been moved to nova public application folder located /sdcard/Android/data/org.courville.nova/files/nfoPoster 
- * If you ever want to get back to nova v5.xx, you will need to clean application data *and cache*
+* Versions later than v6.0.30 targets API31 and due to Android storage restrictions for API30, local NFO/JPG media information files for videos stored on local storage have been moved to nova public application folder located /sdcard/Android/data/org.courville.nova/files/nfoPoster 
+ * If you ever want to get back to nova v5.xx, you will need to clean application data ***and cache***
 
 ## I’d like to request a new feature.
 
