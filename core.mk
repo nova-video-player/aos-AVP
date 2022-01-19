@@ -290,10 +290,10 @@ native_build_native/opus-android-builder:
 	cd native/opus-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
 native_build_native/openssl-android-builder:
-	cd native/openssl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+	cd native/openssl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap.sh
 
 native_build_native/curl-android-builder:
-	cd native/curl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+	cd native/curl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
