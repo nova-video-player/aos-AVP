@@ -91,7 +91,6 @@ FFMPEG_DIR := native/ffmpeg-android-builder
 DAV1D_DIR := native/dav1d-android-builder
 OPUS_DIR := native/opus-android-builder
 OPENSSL_DIR := native/openssl-android-builder
-CURL_DIR := native/opus-android-builder
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
@@ -263,7 +262,6 @@ clean_prebuilt:
 	rm -rf $(DAV1D_DIR)/build-*
 	rm -rf $(OPUS_DIR)/lib/*
 	rm -rf $(OPENSSL_DIR)/dist-*
-	rm -rf $(CURL_DIR)/dist-*
 	rm -rf MediaLib/libs/trakt-java.jar
 	rm -rf MediaLib/libs/cling-*-2.1.2.jar
 	rm -rf MediaLib/libs/seamless-*-1.1.2.jar
@@ -280,7 +278,7 @@ native_avos_full: native_build_native/ffmpeg-android-builder
 	$(call cp_ffmpeg_libs,MediaLib,full)
 	$(call make_avos,MediaLib,full)
 
-native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder native_build_native/curl-android-builder
+native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder
 	cd native/ffmpeg-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
 
 native_build_native/dav1d-android-builder:
@@ -291,9 +289,6 @@ native_build_native/opus-android-builder:
 
 native_build_native/openssl-android-builder:
 	cd native/openssl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap.sh
-
-native_build_native/curl-android-builder:
-	cd native/curl-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 
