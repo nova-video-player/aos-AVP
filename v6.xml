@@ -18,7 +18,6 @@
   <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
   <project path="native/opus-android-builder" name="opus-android-builder" revision="main" />
   <project path="native/openssl-android-builder" name="openssl-android-builder" revision="main" />
-  <project path="native/curl-android-builder" name="curl-android-builder" revision="master" />
   <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
