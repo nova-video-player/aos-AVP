@@ -8,7 +8,7 @@
 [![Get it on Google Play](https://badgen.net/badge/Get%20it%20on/Google%20Play/689f38?icon=googleplay)](https://play.google.com/store/apps/details?id=org.courville.nova)
 [![Get it on Amazon Appstore](https://badgen.net/badge/Get%20it%20on/Amazon%20Appstore/689f38)](https://www.amazon.fr/dp/B07P1Q1DG9)
 [![Get it on F-Droid](https://img.shields.io/f-droid/v/org.courville.nova)](https://f-droid.org/packages/org.courville.nova)
-[![Chat on irc](https://img.shields.io/badge/irc.freenode.net-%23novavideoplayer-blue.svg)](https://webchat.freenode.net)
+[![Chat on irc](https://img.shields.io/badge/irc.libera.chat-%23novavideoplayer-blue.svg)](https://web.libera.chat/)
 [![Github Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
@@ -153,5 +153,5 @@ If need be, we might in the future introduce some extra bounty programs for spec
 #### Support community and chat room
 
 [NovaVideoPlayer reddit community](https://www.reddit.com/r/NovaVideoPlayer) community is used as the support community for the Nova Video Player application.
-It is possible to chat with Nova Video Player developers on #novavideoplayer freenode IRC channel (https://webchat.freenode.net).
+It is possible to chat with Nova Video Player developers on #novavideoplayer liberachat IRC channel (https://web.libera.chat/).
 
