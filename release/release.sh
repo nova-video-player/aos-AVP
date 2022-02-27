@@ -26,7 +26,7 @@ ret=0
 #launch build only if manifests are not the same
 #if [ `diff -q $bdir/manifest.xml $bdir/manifest-new.xml | grep -qE .` ]
 #then
-./gradlew -Poneapk -Psponsor -PadultScrape aNR || ret = 1
+./gradlew -Poneapk -Pacra -Psponsor -PadultScrape aNR || ret = 1
   [ -f $bdir/manifest.xml ] && mv $bdir/manifest.xml $bdir/manifest-old.xml
 #else
   ret=1
