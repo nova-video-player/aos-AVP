@@ -1,0 +1,54 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+License: Apache-2.0
+WebSite: https://www.reddit.com/r/NovaVideoPlayer
+SourceCode: https://github.com/nova-video-player/aos-AVP
+IssueTracker: https://github.com/nova-video-player/aos-AVP/issues
+Translation: https://crowdin.com/project/nova-video-player
+Changelog: https://github.com/nova-video-player/aos-AVP/raw/nova/CHANGELOG.md
+LiberapayID: '1566972'
+
+AutoName: Nova Video
+
+RepoType: git
+Repo: https://github.com/nova-video-player/aos-fdroid/
+
+Builds:
+  - versionName: 4.48.8
+    versionCode: 404808
+    commit: v4.48.8_c404808
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild:
+      - sed -i -e 's/^\(\s*versionName\).*/\1 "$$VERSION$$"/g' build.gradle
+      - sed -i -e 's/^\(\s*\)2108380 .*/\1$$VERCODE$$/g' build.gradle
+      - rm -f FileCoreLibrary/libs/*jar
+    ndk: r21b
+    gradleprops:
+      - universal
+
+MaintainerNotes: |-
+    aos-fdroid git is dedicated to F-Droid builds and is updated from upstream repos.
+    meson version is forced to 0.53.2 because 0.54.0 breaks dav1d's build.
+    MediaLibs/libs/*.jar and FileCoreLibrary/libs/*.jar are built in prebuild gradle phase, generating a warning about jar blobs at end of the build.
+
+AutoUpdateMode: Version v%v_c%c
+UpdateCheckMode: Tags
+CurrentVersion: 4.48.8
+CurrentVersionCode: 404808
