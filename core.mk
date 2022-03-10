@@ -321,19 +321,19 @@ cling: $(cling-objects)
 
 MediaLib/libs/cling-core-2.1.2.jar:
 MediaLib/libs/cling-support-2.1.2.jar:
-	cd external/cling; JAVA_HOME="$(JAVA18)" mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+	cd external/cling; JAVA_HOME="$(JAVA18)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
 	
 MediaLib/libs/seamless-util-1.1.2.jar:
 MediaLib/libs/seamless-http-1.1.2.jar:
 MediaLib/libs/seamless-xml-1.1.2.jar:
 MediaLib/libs/seamless-swing-1.1.2.jar:
-	cd external/seamless; JAVA_HOME="$(JAVA18)" mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
+	cd external/seamless; JAVA_HOME="$(JAVA18)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
-	cd external/jcifs-ng; mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
+	cd external/jcifs-ng; mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip --batch-mode -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
 
 MediaLib/libs/trakt-java.jar:
-	cd external/trakt-java; mvn install -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
+	cd external/trakt-java; mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv ./target/trakt-java-*.jar ../../MediaLib/libs/trakt-java.jar
 
 external_build: jcifs-ng seamless cling
 
