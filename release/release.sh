@@ -26,5 +26,5 @@ then
   cd $prefix/AVP/release
   ls $bdir
   echo uploading
-  #./push.py "v${version}" "v${version} release" $bdir
+  ./push.py "v${version}" "v${version} release" $bdir
 fi
