@@ -23,29 +23,35 @@ RUN curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/
 RUN chmod a+x /usr/local/bin/repo
 
 # set proper env variables
-ENV ANDROID_SDK_TOOLS=7583922 \
+ENV ANDROID_SDK_TOOLS=8092744 \
     OS=linux \
     SDK_URL="https://dl.google.com/android/repository"
 
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
-ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
+ENV SDKMANAGER="$ANDROID_SDK_ROOT/cmdline-tools/bin"
 
 ENV NDKVER=23
 ENV BUILDTOOLSVER=31
 
-ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin"
+ENV PATH="$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/bin"
 
 # download minimal Android SDK/NDK
 
 RUN echo "Install minimal Android SDK" && \
     wget --quiet --output-document=/opt/android-cmdline.zip ${SDK_URL}/commandlinetools-${OS}-${ANDROID_SDK_TOOLS}_latest.zip && \
     unzip -q /opt/android-cmdline.zip -d /opt && \
-    mkdir -p /opt/android-sdk/cmdline-tools && \
-    mv /opt/cmdline-tools /opt/android-sdk/cmdline-tools/tools
+    mv /opt/cmdline-tools /opt/android-sdk
+
+RUN echo "Install Android latest cmdline-tools" && \
+    yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} 'cmdline-tools;latest' > /dev/null
 
 RUN echo "Install Android NDK" && \
     ndk=$(pkg="ndk;$NDKVER"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg\.[0-9\.]*\) .*$/\1/g" | tail -n 1) && \
     yes | sdkmanager "${ndk}" > /dev/null
+
+RUN echo "Install Android cmake" && \
+    cmake=$(pkg="cmake"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg;[0-9\.]*\).*$/\1/g" | head -n 1)
+    yes | sdkmanager "${cmake}" > /dev/null
 
 RUN echo "Fetch nova source code" && \
     mkdir -p /nova && \
