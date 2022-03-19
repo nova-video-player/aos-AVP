@@ -190,21 +190,21 @@ ndk_ver := 23
 AVP/android-ndk:
 	echo "installing android ndk..."
 	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
-	yes | sdkmanager '$(shell sdkmanager --list | grep ndk\;$(ndk_ver) | sed 's/^.*\(ndk;$(ndk_ver)\.[0-9\.]*\) .*$$/\1/g' | tail -n 1)'
+	yes | sdkmanager '$(shell sdkmanager --list | grep ndk\;$(ndk_ver) | sed 's/^.*\(ndk;$(ndk_ver)\.[0-9\.]*\) .*$$/\1/g' | tail -n 1)' > /dev/null
 
 AVP/android-cmdline-tools:
 	echo "installing android cmdline-tools..."
 	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
-	$(SDKMANAGER) 'cmdline-tools;latest'
+	yes | $(SDKMANAGER) 'cmdline-tools;latest' > /dev/null
 
 AVP/android-cmake:
 	echo "installing android cmake..."
 	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
-	yes | sdkmanager '$(shell sdkmanager --list | grep cmake | sed "s/^.*\(cmake;[0-9\.]*\).*$$/\1/g" | head -n 1)'
+	yes | sdkmanager '$(shell sdkmanager --list | grep cmake | sed "s/^.*\(cmake;[0-9\.]*\).*$$/\1/g" | head -n 1)' > /dev/null
 
 AVP/android-others:
 	echo "installing android buildtools..."
-	yes | sdkmanager platform-tools 'build-tools;30.0.3'
+	yes | sdkmanager platform-tools 'build-tools;30.0.3' > /dev/null
 
 $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 
