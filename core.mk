@@ -14,22 +14,22 @@ os := $(shell echo $(shell uname -s) | tr '[:upper:]' '[:lower:]')
 
 ifeq ($(os), darwin)
 	readlink_prefix := g
-	# FIXME: current limitation of bigsur
-	#JAVA18 := $(shell /usr/libexec/java_home -v 1.8)
-	JAVA_VERSION := $(shell /usr/libexec/java_home -V 2>&1 | grep -v 'Internet Plug-Ins' | gsed -nE -e 's/^ *(1\.8[^ ]*).*$$/\1/p')
-	JAVA18 := $(shell unset JAVA_HOME; /usr/libexec/java_home -v $(JAVA_VERSION) )
+	JAVA8 := $(shell /usr/libexec/java_home -v 1.8)
+	JAVA11 := $(shell /usr/libexec/java_home -v 11)
 endif
 
 ifeq ($(os), linux)
-	JAVA18 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
-	ifeq (,$(JAVA18))
-            JAVA18 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-8[^/]*).*/\1/p')
+	JAVA8 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
+	JAVA11 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-11[^/]*).*/\1/p')
+	ifeq (,$(JAVA8))
+            JAVA8 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-8[^/]*).*/\1/p')
+        endif
+	ifeq (,$(JAVA11))
+            JAVA11 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-11[^/]*).*/\1/p')
         endif
 endif
 
 READLINK := $(readlink_prefix)readlink
-
-ndk_ver := 22
 
 ifneq (,$(ANDROID_SDK))
 android_sdk := $(ANDROID_SDK)
@@ -41,12 +41,21 @@ endif
 
 ifneq (,$(ANDROID_SDK_ROOT))
 android_sdk := $(ANDROID_SDK_ROOT)
-$(info android_sdk is $(android_sdk))
 endif
 
-ifneq ($(wildcard $(android_sdk)/ndk-bundle/.*),)
-android_ndk := $(android_sdk)/ndk-bundle
+$(info android_sdk is $(android_sdk))
+
+WHICHSDKMANAGER := $(shell PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH which sdkmanager)
+ifeq ($(WHICHSDKMANAGER), $(android_sdk)/tools/bin/sdkmanager)
+  SDKMANAGER := yes | JAVA_HOME=$(JAVA8) $(android_sdk)/tools/bin/sdkmanager
 endif
+ifeq ($(WHICHSDKMANAGER), $(android_sdk)/cmdline-tools/bin/sdkmanager)
+  SDKMANAGER := yes | JAVA_HOME=$(JAVA11) $(android_sdk)/cmdline-tools/bin/sdkmanager --sdk_root=$(android_sdk)
+endif
+ifeq ($(WHICHSDKMANAGER), $(android_sdk)/cmdline-tools/latest/bin/sdkmanager)
+  SDKMANAGER := yes | JAVA_HOME=$(JAVA11) $(android_sdk)/cmdline-tools/latest/bin/sdkmanager
+endif
+
 ifneq ($(wildcard $(android_sdk)/ndk/.*),)
 android_ndk := $(shell ls -d $(android_sdk)/ndk/* | sort -V | tail -n 1)
 endif
@@ -173,13 +182,29 @@ native_clean_$(1):
 	fi;
 endef
 
-all: AVP/android-ndk
-	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew aNR
+all: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew aNR
+
+ndk_ver := 23
 
 AVP/android-ndk:
 	echo "installing android ndk..."
-	PATH=$(android_sdk)/cmdline-tools/tools/bin:$(android_sdk)/tools/bin:$$PATH
-	if [ -z "$(android_sdk)" ]; then sdkmanager ndk-bundle; fi
+	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
+	yes | sdkmanager '$(shell sdkmanager --list | grep ndk\;$(ndk_ver) | sed 's/^.*\(ndk;$(ndk_ver)\.[0-9\.]*\) .*$$/\1/g' | tail -n 1)'
+
+AVP/android-cmdline-tools:
+	echo "installing android cmdline-tools..."
+	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
+	$(SDKMANAGER) 'cmdline-tools;latest'
+
+AVP/android-cmake:
+	echo "installing android cmake..."
+	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
+	yes | sdkmanager '$(shell sdkmanager --list | grep cmake | sed "s/^.*\(cmake;[0-9\.]*\).*$$/\1/g" | head -n 1)'
+
+AVP/android-others:
+	echo "installing android buildtools..."
+	yes | sdkmanager platform-tools 'build-tools;30.0.3'
 
 $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 
@@ -321,13 +346,13 @@ cling: $(cling-objects)
 
 MediaLib/libs/cling-core-2.1.2.jar:
 MediaLib/libs/cling-support-2.1.2.jar:
-	cd external/cling; JAVA_HOME="$(JAVA18)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
+	cd external/cling; JAVA_HOME="$(JAVA8)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/cling*2.1.2.jar ../../MediaLib/libs
 	
 MediaLib/libs/seamless-util-1.1.2.jar:
 MediaLib/libs/seamless-http-1.1.2.jar:
 MediaLib/libs/seamless-xml-1.1.2.jar:
 MediaLib/libs/seamless-swing-1.1.2.jar:
-	cd external/seamless; JAVA_HOME="$(JAVA18)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
+	cd external/seamless; JAVA_HOME="$(JAVA8)" mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip -DskipTests -Dmaven.javadoc.skip=true && mv */target/seamless*1.1.2.jar ../../MediaLib/libs
 
 FileCoreLibrary/libs/jcifs-ng.jar:
 	cd external/jcifs-ng; mvn install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dmaven.source.skip --batch-mode -DskipTests -Dmaven.javadoc.skip=true -Dgpg.skip=true && mv ./target/jcifs-ng-*.jar ../../FileCoreLibrary/libs/jcifs-ng.jar
