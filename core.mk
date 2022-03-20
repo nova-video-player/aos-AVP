@@ -185,6 +185,9 @@ endef
 all: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew aNR
 
+full: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) PATH="$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$(PATH)" ./gradlew -PadultScrape -Psponsor aMR
+
 ndk_ver := 23
 
 AVP/android-ndk:
