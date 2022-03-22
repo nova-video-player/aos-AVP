@@ -190,6 +190,11 @@ full: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-ot
 
 ndk_ver := 23
 
+AVP/android-setup:
+	echo "installing android sdk/ndk/etc... dependencies"
+	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
+	yes | sdkmanager 'cmdline-tools;latest' 'ndk;23.1.7779620' 'cmake;3.18.1' platform-tools 'build-tools;30.0.3' > /dev/null
+
 AVP/android-ndk:
 	echo "installing android ndk..."
 	PATH=$(android_sdk)/cmdline-tools/latest/bin:$(android_sdk)/cmdline-tools/bin:$(android_sdk)/tools/bin:$$PATH
