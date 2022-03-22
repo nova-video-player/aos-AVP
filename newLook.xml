@@ -8,8 +8,8 @@
     <copyfile src="Makefile" dest="Makefile" />
   </project>
 
-  <project path="Video" name="aos-Video" revision="newLook" />
-  <project path="MediaLib" name="aos-MediaLib" revision="newLook" />
+  <project path="Video" name="aos-Video" revision="v6NewLook" />
+  <project path="MediaLib" name="aos-MediaLib" revision="v6NewLook" />
   <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v6" />
 
   <project path="native/avos" name="aos-avos" revision="nova" />
