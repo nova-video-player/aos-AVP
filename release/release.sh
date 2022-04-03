@@ -18,7 +18,7 @@ bdir=$prefix/Video/build/outputs/apk/noamazon/release
 mkdir -p $bdir
 
 ret=0
-./gradlew -Poneapk -Pacra -Psponsor -PadultScrape aNR && ret=1
+./gradlew -Poneapk -PbugReport -Psponsor -PadultScrape aNR && ret=1
 echo "build result: $ret"
 if [ "$ret" == "1" ]
 then
