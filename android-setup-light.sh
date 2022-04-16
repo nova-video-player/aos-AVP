@@ -31,6 +31,8 @@ case `uname` in
 esac
 [ -n "$JAVA11" ] && export PATH=${JAVA11}/bin:$PATH
 
+export PATH=${androidSdk}/cmdline-tools/latest/bin:${androidSdk}/cmdline-tools/bin:${androidSdk}/tools/bin:$PATH
+
 # android tools
 yes | sdkmanager 'cmdline-tools;latest' \
   'ndk;23.1.7779620' \
