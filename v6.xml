@@ -14,7 +14,7 @@
 
   <project path="native/avos" name="aos-avos" revision="nova" />
   <project path="native/audiocompress" name="aos-audiocompress" />
-  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="v5" />
+  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="nova" />
   <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" />
   <project path="native/opus-android-builder" name="opus-android-builder" revision="main" />
   <project path="native/openssl-android-builder" name="openssl-android-builder" revision="main" />
