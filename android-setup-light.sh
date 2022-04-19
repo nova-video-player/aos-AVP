@@ -23,7 +23,7 @@ esac
 case `uname` in
   Linux)
     JAVA11=$(update-alternatives --list java | sed -nE -e 's/(.*java-11[^/]*).*/\1/p')
-    [ -z "$JAVA11" ] && JAVA8=$(update-alternatives --list java | sed -nE -e 's/(.*jdk-11[^/]*).*/\1/p')
+    [ -z "$JAVA11" ] && JAVA11=$(update-alternatives --list java | sed -nE -e 's/(.*jdk-11[^/]*).*/\1/p')
   ;;
   Darwin)
     JAVA11=$(/usr/libexec/java_home -v 11)
