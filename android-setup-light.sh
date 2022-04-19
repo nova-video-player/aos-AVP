@@ -34,11 +34,7 @@ esac
 export PATH=${androidSdk}/cmdline-tools/latest/bin:${androidSdk}/cmdline-tools/bin:${androidSdk}/tools/bin:$PATH
 
 # android tools
-yes | sdkmanager 'cmdline-tools;latest' \
-  'ndk;23.1.7779620' \
-  'cmake;3.18.1' \
-  platform-tools \
-  'build-tools;30.0.3' > /dev/null
+#yes | sdkmanager 'cmdline-tools;latest' 'ndk;23.1.7779620' 'cmake;3.18.1' 'build-tools;30.0.3' > /dev/null
 
 [ -d "${androidSdk}/ndk" ] && NDK_PATH=$(ls -d ${androidSdk}/ndk/* | sort -V | tail -n 1)
 echo NDK_PATH is ${NDK_PATH}
