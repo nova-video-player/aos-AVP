@@ -1,3 +1,4 @@
+# check what is installed in ubuntu-latest https://github.com/actions/virtual-environments
 name: NOVA CI
 on:
   push:
@@ -8,23 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      ANDROID_SDK_HOME:   ${ANDROID_HOME}/sdk
-      ANDROID_SDK:        ${ANDROID_HOME}/sdk
-      ANDROID_NDK_HOME:   ${ANDROID_HOME}/ndk-bundle
-      ANDROID_NDK:        ${ANDROID_HOME}/ndk-bundle
+      ANDROID_SDK_HOME:   ${ANDROID_HOME}
+      ANDROID_SDK:        ${ANDROID_HOME}
+      ANDROID_NDK_HOME:   ${ANDROID_NDK_LATEST_HOME}
+      ANDROID_NDK:        ${ANDROID_NDK_LATEST_HOME}
     steps:
-    - name: set up JDK 11
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
     - name: install packages
       run: |
         sudo apt-get update || sudo apt-get update
         sudo apt-get install -y ninja-build maven build-essential wget curl unzip python git pkg-config
     - name: install recent nasm for dav1d
       run: |
-        wget http://mirrors.kernel.org/ubuntu/pool/universe/n/nasm/nasm_2.14.02-1_amd64.deb
-        sudo dpkg -i ./nasm_2.14.02-1_amd64.deb
+        wget http://ftp.debian.org/debian/pool/main/n/nasm/nasm_2.15.05-1_amd64.deb
+        sudo dpkg -i ./nasm_2.15.05-1_amd64.deb
         nasm --version
     - name: install compatible meson with dav1d
       run: |
