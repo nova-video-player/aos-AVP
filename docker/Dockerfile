@@ -10,7 +10,7 @@ RUN apt update && apt upgrade --yes --assume-yes
 RUN apt install -y nasm ninja-build maven build-essential \
         file git wget curl unzip sudo pkg-config \
         python3 python3-pip python3-setuptools python3-wheel \
-        openjdk-11-jdk-headless openjdk-8-jdk-headless \
+        openjdk-8-jdk-headless openjdk-11-jdk-headless \
         tig vim-tiny less screen
 
 # use python3
@@ -52,6 +52,9 @@ RUN echo "Install Android NDK" && \
 RUN echo "Install Android cmake" && \
     cmake=$(pkg="cmake"; sdkmanager --list | grep ${pkg} | sed "s/^.*\($pkg;[0-9\.]*\).*$/\1/g" | head -n 1)
     yes | sdkmanager "${cmake}" > /dev/null
+
+RUN echo "Install Android build-tools" && \
+    yes | sdkmanager 'build-tools;30.0.3' > /dev/null
 
 RUN echo "Fetch nova source code" && \
     mkdir -p /nova && \
