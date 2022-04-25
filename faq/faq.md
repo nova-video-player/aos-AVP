@@ -90,6 +90,11 @@ Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI 
 
 Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
 
+## Adaptive refresh rate on fire tv stick
+
+In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings -> display & sounds -> Display, put video resolution to auto (up to 4k ultra hd); -> match original frame rate ON; -> dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
+Note that choosing adaptive for dynamic range setting, your UI will be 1080p, and disabled will enable a 4k UI.
+
 ## Visibility of external USB drive after Nvidia Shield Android 11+ update
 
 In order to identify multimedia files, Nova relies on Android media scanning for local storage and USB storage. On latest version of the OS, Nvidia shield disables external storage Android indexing for performance enhancements. In order to get back external storage video files visibility, you need to enter Android settings/Device Preferences/Storage and enable Scan for media automatically option.
