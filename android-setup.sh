@@ -60,3 +60,12 @@ fi
 # latest cmake
 [ -d "${androidSdk}/cmake" ] && CMAKE_PATH=$(ls -d ${androidSdk}/cmake/* | sort -V | tail -n 1)
 echo CMAKE_PATH is ${CMAKE_PATH}
+export PATH=$CMAKE_PATH/bin:$PATH
+
+# make sure we use first sdk/ndk and not host tools
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+PREBUILT=prebuilt/${OS}-$(uname -m)
+export PATH=${NDK_PATH}/$PREBUILT/bin:$PATH
+echo PREBUILT_PATH is ${NDK_PATH}/$PREBUILT
+export PATH=${NDK_PATH}/toolchains/llvm/$PREBUILT/bin:$PATH
+echo LLVM_PATH is ${NDK_PATH}/toolchains/llvm/$PREBUILT
