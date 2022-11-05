@@ -72,6 +72,10 @@ Note that:
 
 If you get an empty blue screen at application start, just reboot your device to get in a sane state.
 
+## Resume points not working
+
+Please check if you have enabled private mode which prevents resume points to be recorded.
+
 ## Trakt complains about no Internet connection
 
 Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
@@ -139,3 +143,4 @@ Nova application privacy policy can be found [here](https://home.courville.org/n
 ## I want to sponsor Nova.
 
 You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
+
