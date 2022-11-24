@@ -17,7 +17,7 @@ jobs:
     - name: install packages
       run: |
         sudo apt-get update || sudo apt-get update
-        sudo apt-get install -y ninja-build maven build-essential wget curl unzip python git pkg-config
+        sudo apt-get install -y ninja-build maven build-essential wget curl unzip git pkg-config
     - name: install recent nasm for dav1d
       run: |
         wget http://ftp.debian.org/debian/pool/main/n/nasm/nasm_2.15.05-1_amd64.deb
