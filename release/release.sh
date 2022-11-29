@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #version=$1
-version=$(grep " novaVersionName = '" ../../Video/build.gradle | sed "s/^ *novaVersionName = '\([0-9\.]*\)'.*$/\1/g")
+version=$(grep " novaVersionName = '" ../../Video/build.gradle | sed "s/^.*novaVersionName = '\([0-9\.]*\)'.*$/\1/g")
 major=$(echo $version | cut -d. -f1)
 minor=$(echo $version | cut -d. -f2)
 patch=$(echo $version | cut -d. -f3)
