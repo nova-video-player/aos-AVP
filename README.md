@@ -18,6 +18,8 @@
 
 NOVA is an open source video player for Android. It consists in a fork of the original Archos Video Player Community Edition that is hosted here: https://github.com/archos-sa/aos-AVP intended to support new features.
 
+Latest application FAQ can be found [here](https://github.com/nova-video-player/aos-AVP/blob/nova/faq/faq.md).
+
 This is the entry point repo. Its purpose is to provide the manifest to fetch all needed git repos with sources and then bootstrap the build environment.
 
 More interesting sources can be found there:
