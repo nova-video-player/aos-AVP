@@ -38,6 +38,21 @@ Nova Video Player relies on the hardware acceleration capabilities of the produc
 
 In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).
 
+## What is the best network protocol to play high bitrate video files?
+
+According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).
+
+Current SMB implementation is known to have difficulties to play 30Mbps videos.
+
+## I cannot connect to a webdav server
+
+When adding/browsing a webdav network shortcut, you need to fill the following dialog inputs:
+
+* dropdown menu: to select webdav or webdavs network protocol (i.e.: http or https)
+* server address: hostname/IP address (i.e. not an url) without specifying the path (e.g. [my.webdav.com](https://my.webdav.com))
+* port: usually 443 for webdavs and 80 for webdav (on Synology NAS it is 5006 or 5005)
+* path: url path for the server starting with a slash (e.g. `/dav`)
+
 ## How multimedia information is retrieved?
 
 Nova relies on external services to retrieve multimedia information (descriptions and posters/backdrops) based on your video collection:

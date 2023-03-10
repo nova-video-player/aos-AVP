@@ -76,6 +76,23 @@ On Nova Video Player, two experimental audio passthrough modes are supported:  <
 
 <p>In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).</p>
 
+<h2>What is the best network protocol to play high bitrate video files?</h2>
+
+<p>According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).</p>
+
+<p>Current SMB implementation is known to have difficulties to play 30Mbps videos.</p>
+
+<h2>I cannot connect to a webdav server</h2>
+
+<p>When adding/browsing a webdav network shortcut, you need to fill the following dialog inputs:</p>
+
+<ul>
+<li>dropdown menu: to select webdav or webdavs network protocol (i.e.: http or https)</li>
+<li>server address: hostname/IP address (i.e. not an url) without specifying the path (e.g. <a href="https://my.webdav.com">my.webdav.com</a>)</li>
+<li>port: usually 443 for webdavs and 80 for webdav (on Synology NAS it is 5006 or 5005)</li>
+<li>path: url path for the server starting with a slash (e.g. <code>/dav</code>)</li>
+</ul>
+
 <h2>How multimedia information is retrieved?</h2>
 
 <p>Nova relies on external services to retrieve multimedia information (descriptions and posters/backdrops) based on your video collection:</p>
