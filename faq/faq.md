@@ -38,11 +38,25 @@ Nova Video Player relies on the hardware acceleration capabilities of the produc
 
 In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).
 
+## What are the network share protocols supported by Nova?
+
+Several network share protocols are supported by Nova:
+
+* SMB: server message block version 1 to 3 usually on port 445. This is the recommended protocol to play videos;
+* UPnP: universal plug and play (some servers not supported, verified to work with synology and minidlna);
+* FTP: file transfer protocol on port 21 by default (some server types not supported);
+* FTPS: FTP secure on port 21 by default (some server types not supported);
+* SFTP: secure FTP on port 22 by default. This is the recommdended protocol to play videos when using remote access;
+* WEBDAV: web-based distributed authoring and versioning over http (port 80 or 5005 on a synology)
+* WEBDAVS: webdav over https (port 443 or 5006 on a synology)
+
 ## What is the best network protocol to play high bitrate video files?
 
 According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).
 
 Current SMB implementation is known to have difficulties to play 30Mbps videos.
+
+Since nova version 6.2.x, you can select in nova settings another SMB implementation that supports higher throughput. Note that this option limits SMB operation to SMB servers with protocol version higher than 2, i.e.: SMB1 will not work.
 
 ## I cannot connect to a webdav server
 
