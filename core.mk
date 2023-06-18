@@ -16,16 +16,21 @@ ifeq ($(os), darwin)
 	readlink_prefix := g
 	JAVA8 := $(shell /usr/libexec/java_home -v 1.8)
 	JAVA11 := $(shell /usr/libexec/java_home -v 11)
+	JAVA17 := $(shell /usr/libexec/java_home -v 17)
 endif
 
 ifeq ($(os), linux)
 	JAVA8 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
 	JAVA11 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-11[^/]*).*/\1/p')
+	JAVA17 := $(shell update-alternatives --list java | sed -nE -e 's/(.*java-17[^/]*).*/\1/p')
 	ifeq (,$(JAVA8))
             JAVA8 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-8[^/]*).*/\1/p')
         endif
 	ifeq (,$(JAVA11))
             JAVA11 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-11[^/]*).*/\1/p')
+        endif
+	ifeq (,$(JAVA17))
+            JAVA17 := $(shell update-alternatives --list java | sed -nE -e 's/(.*jdk-17[^/]*).*/\1/p')
         endif
 endif
 
