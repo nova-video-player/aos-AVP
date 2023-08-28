@@ -105,6 +105,16 @@ If you get an empty blue screen at application start, just reboot your device to
 
 Please check if you have enabled private mode which prevents resume points to be recorded.
 
+## What are the different play modes
+
+Nova is able to play video files sequentially by choosing a play mode. This option is selectable when playing the video in one of the accessible menus. The various available play modes are:
+
+* Single (default one): play a single video and then stop;
+* Folder: play all the files sequentially in the folder of the file that initiated the playback and stop at after the last one has been played;
+* Repeat single: repeat in loop the video played;
+* Repeat folder: play all the files sequentially in the folder of the file that initiated the playback, and repeat this process in loop;
+* Binge watching: play TV show episodes sequentially even if they are not located in the same folder and stop at the last one of the last season available.
+
 ## Trakt complains about no Internet connection
 
 Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
