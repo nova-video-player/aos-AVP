@@ -76,11 +76,27 @@ On Nova Video Player, two experimental audio passthrough modes are supported:  <
 
 <p>In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).</p>
 
+<h2>What are the network share protocols supported by Nova?</h2>
+
+<p>Several network share protocols are supported by Nova:</p>
+
+<ul>
+<li>SMB: server message block version 1 to 3 usually on port 445. This is the recommended protocol to play videos;</li>
+<li>UPnP: universal plug and play (some servers not supported, verified to work with synology and minidlna);</li>
+<li>FTP: file transfer protocol on port 21 by default (some server types not supported);</li>
+<li>FTPS: FTP secure on port 21 by default (some server types not supported);</li>
+<li>SFTP: secure FTP on port 22 by default. This is the recommdended protocol to play videos when using remote access;</li>
+<li>WEBDAV: web-based distributed authoring and versioning over http (port 80 or 5005 on a synology)</li>
+<li>WEBDAVS: webdav over https (port 443 or 5006 on a synology)</li>
+</ul>
+
 <h2>What is the best network protocol to play high bitrate video files?</h2>
 
 <p>According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).</p>
 
 <p>Current SMB implementation is known to have difficulties to play 30Mbps videos.</p>
+
+<p>Since nova version 6.2.x, you can select in nova settings another SMB implementation that supports higher throughput. Note that this option limits SMB operation to SMB servers with protocol version higher than 2, i.e.: SMB1 will not work.</p>
 
 <h2>I cannot connect to a webdav server</h2>
 
@@ -135,6 +151,18 @@ Note that:</p>
 
 <p>Please check if you have enabled private mode which prevents resume points to be recorded.</p>
 
+<h2>What are the different play modes</h2>
+
+<p>Nova is able to play video files sequentially by choosing a play mode. This option is selectable when playing the video in one of the accessible menus. The various available play modes are:</p>
+
+<ul>
+<li>Single (default one): play a single video and then stop;</li>
+<li>Folder: play all the files sequentially in the folder of the file that initiated the playback and stop at after the last one has been played;</li>
+<li>Repeat single: repeat in loop the video played;</li>
+<li>Repeat folder: play all the files sequentially in the folder of the file that initiated the playback, and repeat this process in loop;</li>
+<li>Binge watching: play TV show episodes sequentially even if they are not located in the same folder and stop at the last one of the last season available.</li>
+</ul>
+
 <h2>Trakt complains about no Internet connection</h2>
 
 <p>Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:</p>
@@ -163,6 +191,10 @@ Note that choosing adaptive for dynamic range setting, your UI will be 1080p, an
 <p>In order to identify multimedia files, Nova relies on Android media scanning for local storage and USB storage. On latest version of the OS, Nvidia shield disables external storage Android indexing for performance enhancements. In order to get back external storage video files visibility, you need to enter Android settings/Device Preferences/Storage and enable Scan for media automatically option.</p>
 
 <p>Alternatively you can expose in the same setting the local USB drive via SMB  (Mount network storage option) and then use Nova SMB network shares indexing.</p>
+
+<h2>Nova shuts down my Wi-Fi</h2>
+
+<p>On some devices due to Wi-Fi driver instability (e.g. Fire 10 HD), UDP SMB discovery from Nova causes Wi-Fi driver crashes and a switch off of Wi-Fi. To avoid this issue, disable SMB UDP discovery in Nova settings.</p>
 
 <h2>Pre-releases and Nova v5.xx to v6.xx migration</h2>
 
