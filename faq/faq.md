@@ -144,6 +144,10 @@ In order to identify multimedia files, Nova relies on Android media scanning for
 
 Alternatively you can expose in the same setting the local USB drive via SMB  (Mount network storage option) and then use Nova SMB network shares indexing.
 
+## Nova shuts down my Wi-Fi
+
+On some devices due to Wi-Fi driver instability (e.g. Fire 10 HD), UDP SMB discovery from Nova causes Wi-Fi driver crashes and a switch off of Wi-Fi. To avoid this issue, disable SMB UDP discovery in Nova settings.
+
 ## Pre-releases and Nova v5.xx to v6.xx migration
 
 Nova v6.xx pre-release is available on [Github](https://github.com/nova-video-player/aos-AVP/releases):
