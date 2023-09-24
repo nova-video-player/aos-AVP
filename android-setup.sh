@@ -23,10 +23,13 @@ case `uname` in
   Linux)
     JAVA8=$(update-alternatives --list java | sed -nE -e 's/(.*java-8[^/]*).*/\1/p')
     [ -z "$JAVA8" ] && JAVA8=$(update-alternatives --list java | sed -nE -e 's/(.*jdk-8[^/]*).*/\1/p')
+    [ -z "$JAVA8" ] && JAVA8=$(update-alternatives --list java | sed -nE -e 's/(.*-8-[^/]*).*/\1/p')
     JAVA11=$(update-alternatives --list java | sed -nE -e 's/(.*java-11[^/]*).*/\1/p')
     [ -z "$JAVA11" ] && JAVA11=$(update-alternatives --list java | sed -nE -e 's/(.*jdk-11[^/]*).*/\1/p')
+    [ -z "$JAVA11" ] && JAVA11=$(update-alternatives --list java | sed -nE -e 's/(.*-11-[^/]*).*/\1/p')
     JAVA17=$(update-alternatives --list java | sed -nE -e 's/(.*java-17[^/]*).*/\1/p')
     [ -z "$JAVA17" ] && JAVA17=$(update-alternatives --list java | sed -nE -e 's/(.*jdk-17[^/]*).*/\1/p')
+    [ -z "$JAVA17" ] && JAVA17=$(update-alternatives --list java | sed -nE -e 's/(.*-17-[^/]*).*/\1/p')
   ;;
   Darwin)
     JAVA8=$(/usr/libexec/java_home -v 1.8)
@@ -35,12 +38,14 @@ case `uname` in
   ;;
 esac
 [ -n "$JAVA17" ] && export PATH=${JAVA17}/bin:$PATH
+echo $PATH
 # multiple sdkmanager paths
 export PATH=${androidSdk}/cmdline-tools/latest/bin:${androidSdk}/cmdline-tools/bin:${androidSdk}/tools/bin:$PATH
 WHICHSDKMANAGER=`which sdkmanager`
 [ "$WHICHSDKMANAGER" == "${androidSdk}/tools/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA8} ${androidSdk}/tools/bin/sdkmanager"
-[ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA11} ${androidSdk}/cmdline-tools/bin/sdkmanager --sdk_root=${androidSdk}"
-[ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/latest/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA11} ${androidSdk}/cmdline-tools/latest/bin/sdkmanager"
+[ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA17} ${androidSdk}/cmdline-tools/bin/sdkmanager --sdk_root=${androidSdk}"
+[ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/latest/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA17} ${androidSdk}/cmdline-tools/latest/bin/sdkmanager"
+export JAVA_HOME=${JAVA17}
 NDKVER=23
 # retrieve first the java11 latest sdkmanager from cmdline-tools
 eval $SDKMANAGER \'cmdline-tools\;latest\'
