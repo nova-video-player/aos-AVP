@@ -146,8 +146,8 @@ Alternatively you can expose in the same setting the local USB drive via SMB  (M
 
 ## Nova shuts down my Wi-Fi
 
-On some devices due to some manufacturer Wi-Fi driver instability (e.g. Fire 10 HD), Nova's UDP/TCP SMB discovery process may cause Wi-Fi to switch off. 
-In order to avoid this issue, select "Limit SMB discovery to mDNS" in Nova settings.
+On some devices due to some manufacturer Wi-Fi driver instability (e.g. Fire 10 HD), Nova's UDP SMB discovery process may cause Wi-Fi to switch off. 
+In order to avoid this issue, select "Disable SMB UDP discovery" in Nova settings.
 
 ## Pre-releases and Nova v5.xx to v6.xx migration
 
