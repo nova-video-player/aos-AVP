@@ -46,7 +46,7 @@ WHICHSDKMANAGER=`which sdkmanager`
 [ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA17} ${androidSdk}/cmdline-tools/bin/sdkmanager --sdk_root=${androidSdk}"
 [ "$WHICHSDKMANAGER" == "${androidSdk}/cmdline-tools/latest/bin/sdkmanager" ] && SDKMANAGER="yes | JAVA_HOME=${JAVA17} ${androidSdk}/cmdline-tools/latest/bin/sdkmanager"
 export JAVA_HOME=${JAVA17}
-NDKVER=23
+NDKVER=26
 # retrieve first the java11 latest sdkmanager from cmdline-tools
 eval $SDKMANAGER \'cmdline-tools\;latest\'
 # install other necessary packages: ndk, cmake etc.
