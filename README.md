@@ -105,10 +105,6 @@ or on F-Droid https://f-droid.org/packages/org.courville.nova
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80" align="center">](https://f-droid.org/packages/org.courville.nova)
 
-or on Huawei AppGallery https://appgallery.huawei.com/#/app/C102811509
-
-[<img src="https://seeklogo.com/images/E/explore-it-on-huawei-appgallery-logo-64D5BB09B6-seeklogo.com.png" alt="Get it on Huawei AppGallery" height="80" align="center">](https://appgallery.huawei.com/#/app/C102811509)
-
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
 #### Scraping and Scrobbling
