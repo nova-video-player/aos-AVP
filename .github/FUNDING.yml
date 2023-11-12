@@ -1,7 +1,7 @@
 # These are supported funding model platforms
 
 github: [courville]
-custom: https://www.paypal.me/marcdecourville
+custom: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR
 patreon: NovaVideoPlayer
 open_collective: novavideoplayer
 #ko_fi: # Replace with a single Ko-fi username
