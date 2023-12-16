@@ -7,6 +7,16 @@ minor=$(echo $version | cut -d. -f2)
 patch=$(echo $version | cut -d. -f3)
 echo version ${major}.${minor}.${patch}
 
+case `uname` in
+  Linux)
+    export CORES=$((`nproc`+1))
+  ;;
+  Darwin)
+    # assumes brew install coreutils in order to support readlink -f on macOS
+    export CORES=$((`sysctl -n hw.logicalcpu`+1))
+  ;;
+esac
+
 cd ../..
 prefix=`pwd`
 avp=$prefix/AVP
@@ -19,7 +29,7 @@ bdir=$prefix/Video/build/outputs/apk/noamazon/release
 mkdir -p $bdir
 
 ret=0
-./gradlew -Poneapk -PbugReport -Psponsor -PadultScrape aNR && ret=1
+./gradlew -Poneapk -PbugReport -Psponsor -PadultScrape aNR --parallel --max-workers=${CORES} && ret=1
 echo "build result: $ret"
 if [ "$ret" == "1" ]
 then
