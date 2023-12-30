@@ -3,7 +3,7 @@
 NOVA is an opeN sOurce Video plAyer designed for Android devices (tablets, phones and TVs).  
 This application is based on a fork of Archos Video Player open-source release, intended to support new features with an enhanced stability.
 
-NOVA is published on [GooglePlay](https://play.google.com/store/apps/details?id=org.courville.nova) or on [Amazon Appstore](https://www.amazon.fr/dp/B07P1Q1DG9) or on [Huawei AppGallery](https://appgallery.huawei.com/#/app/C102811509) or on [F-Droid](https://f-droid.org/en/packages/org.courville.nova/) or directly on [github](https://github.com/nova-video-player/aos-AVP/releases). 
+NOVA is published on [GooglePlay](https://play.google.com/store/apps/details?id=org.courville.nova) or on [Amazon Appstore](https://www.amazon.fr/dp/B07P1Q1DG9) or on [F-Droid](https://f-droid.org/en/packages/org.courville.nova/) or directly on [github](https://github.com/nova-video-player/aos-AVP/releases). 
 Latest changes are tracked [here](https://github.com/nova-video-player/aos-AVP/blob/nova/CHANGELOG.md).
 
 Please note that NOVA is free and consists in a small community effort done on personal time.
