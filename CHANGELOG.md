@@ -1,5 +1,52 @@
 # Nova Video Player changelog
 
+## v6.2.41 pre-release 30/12/2023
+- Faster local/USB storage scan at application start
+
+## v6.2.40 release 22/12/2023
+- Enforce new opensubtitles REST-API with quotas becoming mandatory in in January
+- Disable gesture control when player screen is in locked mode
+- New nova icon
+- 2024 Android TV by year banners
+- Attempt to support WebDAV 302 redirects
+- Remember none subtitle track selection on resume
+- Update boost to 1.84.0, libtorrent to 2.9.0
+- Fix AV1 decoding regression
+- Stability enhancements
+
+## v6.2.38 release 27/11/2023
+- Gesture stability enhancements
+
+## v6.2.37 release 26/11/2023
+- Add player gesture control
+- Increase new opensubtitles REST-API downloader robustness
+
+Following gestures are now supported:
+- double tap on left/right regions of the screen for +-10s seek backward/forward
+- scroll on left/right regions of the screen for brightness/volume increase/decrease
+
+Two OSD regions have been added on top left/right screen part to display the fast rewind/forward icons and volume/brightness levels.
+
+## v6.2.36 release 21/11/2023
+- New nova icon
+- opensubtitles subtitles download based on REST-API stability enhancements
+- Update smbj to 0.13.0, ffmpeg to 6.1, dav1d to 1.3.0
+
+Please report any multimedia regression with ffmpeg 6.1 (e.g. AV1 is broken right now).
+
+## v6.2.35 release 14/11/2023
+- Stability enhancements (crash on multi-selection subtitles download)
+- Attempt to fix ftp on Android 7.1.2 devices cf. #829
+
+## v6.2.34 release 12/11/2023
+- New nova icon
+- Add possibility to use new opensubtitles REST-API instead of XML-RPC that will be enforced in January
+- Update jcifs-ng to 2.1.10, commons-net to 3.10.0, sshj to 0.37.0
+- Add missing anime shows by alpha on Android TV
+- Avoid top/bottom grey bars on chromebooks while playing videos
+
+/!\ Please check new OpenSubtitles REST-API by activating it in nova settings and report any issue. OpenSubtitles will enforce use of this new API starting January 2024 and imposes download quotas (20 subs per day for a registered user, 5 otherwise). Note that you will need an opensubtitles.com account (and not an opensubtitles.org one)!
+
 ## v6.2.33 release 29/10/2023
 - Fix F-Droid checkupdates bot release pickup
 
