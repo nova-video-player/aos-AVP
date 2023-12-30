@@ -38,7 +38,9 @@ Nova Video Player relies on the hardware acceleration capabilities of the produc
 
 In any case please make sure that you have not forced software decoding in the settings of Nova Video Player (Settings/Software decoding).
 
-## What are the network share protocols supported by Nova?
+On some devices (e.g. Chromecast with Google TV) trying to play dolby vision videos on a non dolby vision capable display/TV results in choppy video playback. If this happens try to "Disable dolby vision" in Nova settings (that forces to use non dolby vision codecs).
+
+## Which network shares are supported?
 
 Several network share protocols are supported by Nova:
 
@@ -50,13 +52,20 @@ Several network share protocols are supported by Nova:
 * WEBDAV: web-based distributed authoring and versioning over http (port 80 or 5005 on a synology)
 * WEBDAVS: webdav over https (port 443 or 5006 on a synology)
 
+Note that:
+
+* Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
+* Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server;
+* Two types of SMB protocols are supported: smbj and jcifs-ng (smb). smbj is known to provide higher throughput but only supports SMB2+ protocols (not SMB1), use this one to play high bitrate videos;
+* sshj seems to be a faster implementation for sftp 
+
 ## What is the best network protocol to play high bitrate video files?
 
 According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).
 
-Current SMB implementation is known to have difficulties to play 30Mbps videos.
+Current jcifs-ng SMB implementation is known to have difficulties to play 30Mbps videos, smbj one should perform better.
 
-Since nova version 6.2.x, you can select in nova settings another SMB implementation that supports higher throughput. Note that this option limits SMB operation to SMB servers with protocol version higher than 2, i.e.: SMB1 will not work.
+Since nova version 6.2.x, you can select in nova settings another SMB implementation that supports higher throughput: smbj. Note that smbj only supports SMB servers with protocol version higher than 2, i.e.: SMB1 will not work.
 
 ## I cannot connect to a webdav server
 
@@ -87,15 +96,6 @@ Nova Video Player supports NFO file description format that follows the [Kodi sp
 ## What type of subtitles are supported?
 
 SRT, SUB subtitles are supported. SSA support is rudimentary. PGS subs are not yet supported.
-
-## Which network shares are supported?
-
-Nova Video Player supports adding videos on network shares using SMB, SFTP, FTP and FTPS protocols.
-Note that:
-
-* Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
-* SMB1/2/3 are supported since v5.x version of Nova;
-* Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server.
 
 ## Blue screen starting nova
 
@@ -149,20 +149,34 @@ Alternatively you can expose in the same setting the local USB drive via SMB  (M
 On some devices due to some manufacturer Wi-Fi driver instability (e.g. Fire 10 HD), Nova's UDP SMB discovery process may cause Wi-Fi to switch off. 
 In order to avoid this issue, select "Disable SMB UDP discovery" in Nova settings.
 
-## Pre-releases and Nova v5.xx to v6.xx migration
+## opensubtitles login issues after v6.2.40
 
-Nova v6.xx pre-release is available on [Github](https://github.com/nova-video-player/aos-AVP/releases):
+Opensubtitles has announced to all app developers that starting January 2024, XML-RPC will not be supported anymore and that REST-API needs to be used (cf. https://github.com/nova-video-player/aos-AVP/issues/852).
 
-* This new version upgrades the internal nova media database to a new scheme and any downgrade to v5 version of nova will wipe out your entire video collection to prevent any incompatibility.
-* This version switches to theMovieDb for retrieving TV shows information instead of theTvDb. It is strongly recommended to rescrape all your TV shows or ***best to start from a fresh install***.
-* Instead of going through a fresh install for proper support for movie collections and animation movies/series on AndroidTV you can perform the following manual steps. Acquisition of the additional movie collection informations and movies/TV series genres realignment requires a full rescrape of your video without interference of existing .nfo files (that do not yet contain the required information). For that purpose the following steps should do the trick:
-    * backup all your customized handcrafted .nfo file (if you have any)
-    * install nova version 6.xx
-    * in nova settings unselect "process '.nfo' files"
-    * in nova settings launch a "rescrape all" and wait for completion
-    * in nova settings launch an "export already scraped videos" and wait for completion (**this step will override any existing .nfo file**)
-* Versions later than v6.0.30 targets API31 and due to Android storage restrictions for API30, local NFO/JPG media information files for videos stored on local storage have been moved to nova public application folder located /sdcard/Android/data/org.courville.nova/files/nfoPoster 
- * If you ever want to get back to nova v5.xx, you will need to clean application data ***and cache***
+As a consequence, old opensubtitles.org logins will not be supported anymore and users need to register an account at opensubtitles.com to continue to use the service with nova.
+
+Note that there is a download quota of 5 subs without inputing credentials and 10-20 with a registered account.
+
+The remaining quota will be reported when downloading subs by nova.
+
+I managed to get 20 subs quota (instead of the 10 I had initially) by clicking on the "IF YOUR DOWNLOAD LIMIT IS WRONG, CLICK HERE TO FIX IT" found at https://www.opensubtitles.com/fr/users/profile. It might work for you too if you are in this situation (could be a sign-in before 2024 boost).
+
+## Some files located on local/USB storage are not seen by nova a.k.a. API31 debacle
+
+For good reasons Google restricts `MANAGE_EXTERNAL_STORAGE` permission since API31.
+Nova thus switched to MediaStore API.
+As a consequence nova is only able to see files registered as Media files by Google (missing video/subtitles formats such as ASS, NFO, torrent files).
+These files are not modifiable nor visible from nova when using local storage (incl. USB HDDs).
+This creates loss of functionality & incomprehension from nova users.
+Numerous appeals were issued & proper request filed for being granted the permission with explanation video.
+Only got default "no answers"/"not compliant" without having a Google support taking time to understand/review the case properly.
+Note that many other video players have the wanted `MANAGE_EXTERNAL_STORAGE` permission: e.g. VLC, mx player, video player all format, Video Player KMP, kodi...
+I consider this as unfair treatment and discrimination.
+Sad that an app that has more than 500k active users and 2M downloads on Google Play cannot get proper attention from Google.
+
+## Where NFO files, posters/banners are located
+
+Due to Android storage restrictions for API31, local NFO/JPG media information files for videos stored on local/HDD storage have been moved to nova public application folder located `/sdcard/Android/data/org.courville.nova/files/nfoPoster` 
 
 ## I’d like to request a new feature.
 
@@ -187,4 +201,3 @@ Nova application privacy policy can be found [here](https://home.courville.org/n
 ## I want to sponsor Nova.
 
 You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
-
