@@ -1,5 +1,13 @@
 # Nova Video Player changelog
 
+## v6.2.43 release 3/1/2024
+- Handle properly gesture navigation screen layout in player UI
+
+## v6.2.42 pre-release 1/1/2023
+- Thinner player controller volume/seek bars
+- Fix ftp not working due to time dependency
+- Stability enhancements
+
 ## v6.2.41 pre-release 30/12/2023
 - Faster local/USB storage scan at application start
 
