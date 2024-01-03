@@ -76,14 +76,7 @@ When adding/browsing a webdav network shortcut, you need to fill the following d
 
 ## How multimedia information is retrieved?
 
-Nova relies on external services to retrieve multimedia information (descriptions and posters/backdrops) based on your video collection:
-
-* [TheTVDB](https://www.thetvdb.com/) is used for TV shows
-* [The Movie Database TMDB](https://www.themoviedb.org/) is used for movies
-
-If you experience issues in the automatic scrape process, please check that it is not a backend service issue by directly seaching your movie/show on the [TheTVDB](https://thetvdb.com/search?query=) or [TMDB](https://www.themoviedb.org/).
-
-More details are availble [here](https://github.com/nova-video-player/aos-AVP/wiki/Scrape:-retrieve-video-meta-data) and [here](https://github.com/nova-video-player/aos-AVP/wiki/Indexing).
+Nova relies on [The Movie Database TMDB](https://www.themoviedb.org/) external services to retrieve multimedia information (descriptions and posters/backdrops) based on your video collection both for movies and TV shows.
 
 Note that on Sony Android TVs, a rescan of USB disk is triggered at each power up/return from suspend and it is a Sony bug (cf. [here](https://github.com/nova-video-player/aos-AVP/issues/354)).
 
