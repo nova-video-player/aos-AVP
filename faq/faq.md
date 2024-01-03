@@ -63,9 +63,7 @@ Note that:
 
 According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).
 
-Current jcifs-ng SMB implementation is known to have difficulties to play 30Mbps videos, smbj one should perform better.
-
-Since nova version 6.2.x, you can select in nova settings another SMB implementation that supports higher throughput: smbj. Note that smbj only supports SMB servers with protocol version higher than 2, i.e.: SMB1 will not work.
+Current default SMB implementation based on jcifs-ng is known to have difficulties to play high bitrate videos. smbj is an alternate SMB implementation pwhich erforms better but only supports SMB servers with protocol version higher than 2, i.e.: SMB1 will not work with smbj.
 
 ## I cannot connect to a webdav server
 
@@ -138,7 +136,7 @@ Dolby Vision requires specific HW support and TV box constructor in certain case
 In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings -> display & sounds -> Display, put video resolution to auto (up to 4k ultra hd); -> match original frame rate ON; -> dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
 Note that choosing adaptive for dynamic range setting, your UI will be 1080p, and disabled will enable a 4k UI.
 
-## Visibility of external USB drive after Nvidia Shield Android 11+ update
+## Visibility of external USB drive on Nvidia Shield
 
 In order to identify multimedia files, Nova relies on Android media scanning for local storage and USB storage. On latest version of the OS, Nvidia shield disables external storage Android indexing for performance enhancements. In order to get back external storage video files visibility, you need to enter Android settings/Device Preferences/Storage and enable Scan for media automatically option.
 
@@ -149,7 +147,7 @@ Alternatively you can expose in the same setting the local USB drive via SMB  (M
 On some devices due to some manufacturer Wi-Fi driver instability (e.g. Fire 10 HD), Nova's UDP SMB discovery process may cause Wi-Fi to switch off. 
 In order to avoid this issue, select "Disable SMB UDP discovery" in Nova settings.
 
-## opensubtitles login issues after v6.2.40
+## Opensubtitles login issues after v6.2.40
 
 Opensubtitles has announced to all app developers that starting January 2024, XML-RPC will not be supported anymore and that REST-API needs to be used (cf. https://github.com/nova-video-player/aos-AVP/issues/852).
 
