@@ -250,21 +250,6 @@ define cp_ffmpeg_libs
 	fi
 endef
 
-define make_hacks
-	@if [ "$(ASAN)" != "1" ] && [ "$(NDK_CPU_X86)" = "1" ]; then \
-		echo -----------------------------------------; \
-		echo -----------------------------------------; \
-		echo create fake _no_neon libs in $(1)/libs/x86 because Intel wants to see the exact same number of ARM and x86 libs otherwise it will Houdini us; \
-		echo -----------------------------------------; \
-		echo -----------------------------------------; \
-		rm -f $(1)/libs/x86/*no_neon*;\
-		for i in $(1)/libs/armeabi-v7a/*;do \
-			touch $(1)/libs/x86/$$(basename $$i) ;\
-		done ;\
-		if [ "$$(ls $(1)/libs/x86 |wc -l)" != "$$(ls $(1)/libs/armeabi-v7a |wc -l)" ];then echo "Mismatching x86/armeabi-v7a libs"; 1;fi ;\
-	fi
-endef
-
 define make_avos
 	MAKE_JOBS=$(MAKE_JOBS) BUILD=$(BUILD) $(ndk_debug) NDK_APP_ABI="$(NDK_APP_ABI)" LIBAV_CONFIG=$(2) make native_build_native/avos
 
@@ -289,7 +274,6 @@ define make_avos
 		mkdir -p $(1)/libs/x86_64; \
 		cp -r $(AVOS_DIR)/libs/x86_64/*so $(1)/libs/x86_64; \
 	fi
-	$(call make_hacks,$(1),$(2))
 endef
 
 native_avos: native_build_native/avos
