@@ -251,7 +251,7 @@ define cp_ffmpeg_libs
 endef
 
 define make_hacks
-	@if [ "$(ASAN)" != 1 && "$(NDK_CPU_X86)" = "1" ];then \
+	@if [ "$(ASAN)" != "1" ] && [ "$(NDK_CPU_X86)" = "1" ]; then \
 		echo -----------------------------------------; \
 		echo -----------------------------------------; \
 		echo create fake _no_neon libs in $(1)/libs/x86 because Intel wants to see the exact same number of ARM and x86 libs otherwise it will Houdini us; \
