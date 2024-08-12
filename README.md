@@ -1,20 +1,20 @@
-### NOVA: opeN sOurce Video plAyer
+# NOVA: opeN sOurce Video plAyer
 
-[![Reddit Nova Community](https://img.shields.io/reddit/subreddit-subscribers/novavideoplayer?style=social)](https://www.reddit.com/r/NovaVideoPlayer/)
-[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/nova-video-player/aos-AVP/blob/nova/LICENSE.txt)
-[![Crowdin](https://badges.crowdin.net/nova-video-player/localized.svg)](https://crowdin.com/project/nova-video-player)
-[![Get it on Google Play](https://badgen.net/badge/Get%20it%20on/Google%20Play/689f38?icon=googleplay)](https://play.google.com/store/apps/details?id=org.courville.nova)
+[![GitHub release](https://img.shields.io/github/v/release/nova-video-player/aos-AVP.svg?logo=github&label=GitHub&cacheSeconds=3600)](https://github.com/moneytoo/Player/releases/latest)
+[![GitHub downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total?logo=github&cacheSeconds=3600)](https://github.com/nova-video-player/aos-AVP/releases/latest)
+[![Google Play version](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=white&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dorg.courville.nova%26gl%3DUS%26hl%3Den%26l%3DGoogle%2520Play%26m%3D%24version)](https://play.google.com/store/apps/details?id=org.courville.nova)
+[![Google Play rating](https://img.shields.io/endpoint?color=green&logo=google-play&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dorg.courville.nova%26l%3Drating%26m%3D%25E2%2598%2585%2520%24rating)](https://play.google.com/store/apps/details?id=org.courville.nova)
+[![Google Play downloads](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=white&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dorg.courville.nova%26gl%3DUS%26hl%3Den%26l%3Ddownloads%26m%3D%24totalinstalls)](https://play.google.com/store/apps/details?id=org.courville.nova)
 [![Get it on Amazon Appstore](https://badgen.net/badge/Get%20it%20on/Amazon%20Appstore/689f38)](https://www.amazon.fr/dp/B07P1Q1DG9)
-[![Get it on F-Droid](https://img.shields.io/f-droid/v/org.courville.nova)](https://f-droid.org/packages/org.courville.nova)
+[![Get it on F-Droid](https://img.shields.io/f-droid/v/org.courville.nova?logo=f-droid&label=F-Droid&cacheSeconds=3600)](https://f-droid.org/packages/org.courville.nova)
+[![Crowdin](https://badges.crowdin.net/nova-video-player/localized.svg)](https://crowdin.com/project/nova-video-player)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/nova-video-player/aos-AVP/blob/nova/LICENSE.txt)
+[![Reddit Nova Community](https://img.shields.io/reddit/subreddit-subscribers/novavideoplayer?style=social)](https://www.reddit.com/r/NovaVideoPlayer/)
 [![Chat on irc](https://img.shields.io/badge/irc.libera.chat-%23novavideoplayer-blue.svg)](https://web.libera.chat/)
-[![Github Downloads](https://img.shields.io/github/downloads/nova-video-player/aos-AVP/total.svg)](https://github.com/nova-video-player/aos-AVP/releases)
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
 
-
-#### Overview
+## Overview
 
 NOVA is an open source video player for Android. It consists in a fork of the original Archos Video Player Community Edition that is hosted here: https://github.com/archos-sa/aos-AVP intended to support new features.
 
@@ -30,7 +30,7 @@ More interesting sources can be found there:
 
 For the full list, please look at this manifest https://github.com/nova-video-player/aos-AVP/default.xml
 
-#### Building
+## Building
 
 Get the repo tool (https://source.android.com/source/downloading), then type:
 ```
@@ -91,7 +91,7 @@ Travis-ci build configuration file is also provided here: https://github.com/nov
 
 Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to reduce compilation time and remove nasm, meson dependencies. If you need to regenerate torrentd, ffmpeg and dav1d libs, please run `make clean_prebuilt`.
 
-#### Latest stable apk
+## Latest stable apk
 
 The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
 
@@ -107,7 +107,7 @@ or on F-Droid https://f-droid.org/packages/org.courville.nova
 
 Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
 
-#### Scraping and Scrobbling
+## Scraping and Scrobbling
 
 Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/), **TheTVDB** (http://thetvdb.com/) and **Trakt** (https://trakt.tv).
 
@@ -133,11 +133,11 @@ Redirect URI should be
 http://localhost
 and be aware to grant all permissions.
 
-#### Localization
+## Localization
 
 You are welcome to contribute to the translation of the application at https://crowdin.com/project/nova-video-player
 
-#### Donate
+## Donate
 
 Any contribution to show your gratitude and appreciation is always welcome, keeping the small team of developers working on their personal time motivated and aware that their dedication means something.
 
@@ -148,7 +148,7 @@ Funds collected are essentially used to buy devices on which problems are report
 Please bear in mind that the work carried out here results from a small community effort done with good will on scarce personal time.
 If need be, we might in the future introduce some extra bounty programs for specific feature development requests.
 
-#### Support community and chat room
+## Support community and chat room
 
 [NovaVideoPlayer reddit community](https://www.reddit.com/r/NovaVideoPlayer) community is used as the support community for the Nova Video Player application.
 It is possible to chat with Nova Video Player developers on #novavideoplayer liberachat IRC channel (https://web.libera.chat/).
