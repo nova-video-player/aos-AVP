@@ -12,7 +12,7 @@
 [![Crowdin](https://badges.crowdin.net/nova-video-player/localized.svg)](https://crowdin.com/project/nova-video-player)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/nova-video-player/aos-AVP/blob/nova/LICENSE.txt)
 [![Reddit Nova Community](https://img.shields.io/reddit/subreddit-subscribers/novavideoplayer?style=social)](https://www.reddit.com/r/NovaVideoPlayer/)
-[![Chat on irc](https://img.shields.io/badge/irc.libera.chat-%23novavideoplayer-blue.svg)](https://web.libera.chat/)
+[![Chat on irc](https://img.shields.io/badge/irc-%23novavideoplayer%20on%20libera.chat-FF55DD?style=flat&logo=liberadotchat&logoColor=FF55DD)](https://web.libera.chat/#novavideoplayer)
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate paypal](https://img.shields.io/badge/donate_on-Paypal-blue?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR)
 [![Donate paypal](https://img.shields.io/badge/paypal-donate-yello.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR)
