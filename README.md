@@ -132,7 +132,7 @@ You are welcome to contribute to the translation of the application using crowdi
 
 Any contribution to show your gratitude and appreciation is always welcome, keeping the small team of developers working on their personal time motivated and aware that their dedication means something.
 
-Three main platforms are proposed for that purpose: [paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR) [liberapay](https://liberapay.com/NovaVideoPlayer/donate), [github sponsor](https://github.com/sponsors/courville) and [opencollective](https://opencollective.com/novavideoplayer).
+If you are up for it, please use any of the following links to make a donation: [paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR), [liberapay](https://liberapay.com/NovaVideoPlayer/donate), [github sponsor](https://github.com/sponsors/courville) and [opencollective](https://opencollective.com/novavideoplayer).
 
 Funds collected are essentially used to buy devices on which problems are reported for analysis and fix in order to cope with Android fragmentation.
 
