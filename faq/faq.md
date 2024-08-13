@@ -65,14 +65,14 @@ According to benchmarks, sftp and webdav are the best network protocols to play 
 
 Current default SMB implementation based on jcifs-ng is known to have difficulties to play high bitrate videos. smbj is an alternate SMB implementation pwhich erforms better but only supports SMB servers with protocol version higher than 2, i.e.: SMB1 will not work with smbj.
 
-## I cannot connect to a webdav server
+## I cannot connect to a webdav server.
 
 When adding/browsing a webdav network shortcut, you need to fill the following dialog inputs:
 
-* dropdown menu: to select webdav or webdavs network protocol (i.e.: http or https)
-* server address: hostname/IP address (i.e. not an url) without specifying the path (e.g. [my.webdav.com](https://my.webdav.com))
-* port: usually 443 for webdavs and 80 for webdav (on Synology NAS it is 5006 or 5005)
-* path: url path for the server starting with a slash (e.g. `/dav`)
+* dropdown menu: to select webdav or webdavs network protocol (i.e.: http or https);
+* server address: hostname/IP address (i.e. not an url) without specifying the path (e.g. [my.webdav.com](https://my.webdav.com));
+* port: usually 443 for webdavs and 80 for webdav (on Synology NAS it is 5006 or 5005);
+* path: url path for the server starting with a slash (e.g. `/dav`).
 
 ## How multimedia information is retrieved?
 
@@ -88,15 +88,15 @@ Nova Video Player supports NFO file description format that follows the [Kodi sp
 
 SRT, SUB subtitles are supported. SSA support is rudimentary. PGS subs are not yet supported.
 
-## Blue screen starting nova
+## Blue screen starting nova.
 
 If you get an empty blue screen at application start, just reboot your device to get in a sane state.
 
-## Resume points not working
+## Resume points not working.
 
 Please check if you have enabled private mode which prevents resume points to be recorded.
 
-## What are the different play modes
+## What are the different play modes.
 
 Nova is able to play video files sequentially by choosing a play mode. This option is selectable when playing the video in one of the accessible menus. The various available play modes are:
 
@@ -106,7 +106,7 @@ Nova is able to play video files sequentially by choosing a play mode. This opti
 * Repeat folder: play all the files sequentially in the folder of the file that initiated the playback, and repeat this process in loop;
 * Binge watching: play TV show episodes sequentially even if they are not located in the same folder and stop at the last one of the last season available.
 
-## Trakt complains about no Internet connection
+## Trakt complains about no Internet connection.
 
 Trakt can report that there is no Internet connection when you use specific adblocking or a Pi-hole. In order to overcome this issue you need to whitelist these domains:
 
@@ -116,7 +116,7 @@ www.google-analytics.com
 stats.g.doubleclick.net
 ```
 
-## Dolby Vision and HDR
+## Dolby Vision and HDR.
 
 Dolby Vision and HDR support on AndroidTV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. 
 
@@ -124,7 +124,7 @@ Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI 
 
 Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
 
-## Washy colors on the TV
+## Washy colors on the TV.
 
 It can happen that the bottom and top bars instead of being black are with a greyish color and that video seems to have a kind a veil that makes the image washy.
 
@@ -138,23 +138,23 @@ One can check the compatible display modes of your device through `adb shell dum
 
 Best is to use HDMI 2.1 compativle devices and be aware that you can deteriorate the experience if you have a sound bar that would be only HDMI 1.4 capable between your Android TV box and your TV.
 
-## Adaptive refresh rate on fire tv stick
+## Adaptive refresh rate on fire tv stick.
 
 In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings -> display & sounds -> Display, put video resolution to auto (up to 4k ultra hd); -> match original frame rate ON; -> dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
 Note that choosing adaptive for dynamic range setting, your UI will be 1080p, and disabled will enable a 4k UI.
 
-## Visibility of external USB drive on Nvidia Shield
+## Visibility of external USB drive on Nvidia Shield.
 
 In order to identify multimedia files, Nova relies on Android media scanning for local storage and USB storage. On latest version of the OS, Nvidia shield disables external storage Android indexing for performance enhancements. In order to get back external storage video files visibility, you need to enter Android settings/Device Preferences/Storage and enable Scan for media automatically option.
 
 Alternatively you can expose in the same setting the local USB drive via SMB  (Mount network storage option) and then use Nova SMB network shares indexing.
 
-## Nova shuts down my Wi-Fi
+## Nova shuts down my Wi-Fi.
 
 On some devices due to some manufacturer Wi-Fi driver instability (e.g. Fire 10 HD), Nova's UDP SMB discovery process may cause Wi-Fi to switch off. 
 In order to avoid this issue, select "Disable SMB UDP discovery" in Nova settings.
 
-## Opensubtitles login issues after v6.2.40
+## Opensubtitles login issues after v6.2.40.
 
 Opensubtitles has announced to all app developers that starting January 2024, XML-RPC will not be supported anymore and that REST-API needs to be used (cf. https://github.com/nova-video-player/aos-AVP/issues/852).
 
@@ -166,7 +166,7 @@ The remaining quota will be reported when downloading subs by nova.
 
 I managed to get 20 subs quota per day (instead of the 10 I had initially) by clicking on the "IF YOUR DOWNLOAD LIMIT IS WRONG, CLICK HERE TO FIX IT" found at https://www.opensubtitles.com/fr/users/profile. It might work for you too if you are in this situation (could be a sign-in before 2024 boost).
 
-## Some files located on local/USB storage are not seen by nova a.k.a. API31 debacle
+## Some files located on local/USB storage are not seen by nova a.k.a. API31 debacle.
 
 For good reasons Google restricts `MANAGE_EXTERNAL_STORAGE` permission since API31.
 Nova thus switched to MediaStore API.
@@ -179,7 +179,7 @@ Note that many other video players have the wanted `MANAGE_EXTERNAL_STORAGE` per
 I consider this as unfair treatment and discrimination.
 Sad that an app that has more than 500k active users and 2M downloads on Google Play cannot get proper attention from Google.
 
-## Where NFO files, posters/banners are located
+## Where NFO files, posters/banners are located.
 
 Due to Android storage restrictions for API31, local NFO/JPG media information files for videos stored on local/HDD storage have been moved to nova public application folder located `/sdcard/Android/data/org.courville.nova/files/nfoPoster`.
 
@@ -187,9 +187,9 @@ Note that due to API31 restrictions, NFO files co-located with videos on local s
 
 ## I’d like to request a new feature.
 
-Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer) or open a feature request on [github project issue](https://github.com/nova-video-player/aos-AVP/issues) .
+Feel free to join our [Reddit community](https://www.reddit.com/r/NovaVideoPlayer) or open a feature request on [github project issue](https://github.com/nova-video-player/aos-AVP/issues).
 
-## I'd like to report a bug
+## I'd like to report a bug.
 
 When discussing an issue on reddit, it is best also to report it on [github project issue](https://github.com/nova-video-player/aos-AVP/issues) with details about your specific configuration/setup/hardware/Android version and if possible a way or link or sample to reproduce the problem. It is also best to include logs to help figuring out the problem ([debugging procedure](https://github.com/nova-video-player/aos-AVP/wiki/Debugging)).
 
@@ -199,7 +199,7 @@ Source code is available on [github](https://github.com/nova-video-player/aos-AV
 
 ## The application does not support my language, how can I help?
 
-You are welcome to contribute to the translation of the application via [crowdin platform](https://crowdin.com/project/nova-video-player)
+You are welcome to contribute to the translation of the application via [crowdin platform](https://crowdin.com/project/nova-video-player).
 
 ## Where to find Nova Video Player application privacy policy?
 
