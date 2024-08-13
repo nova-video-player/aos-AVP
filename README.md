@@ -91,7 +91,7 @@ docker run --rm -ti --entrypoint=/bin/bash nova
 make
 ```
 
-Travis-ci build configuration file is also provided here: https://github.com/nova-video-player/aos-Fdroid/blob/master/.travis.yml
+Github workflow build configuration file is also provided [here](https://github.com/nova-video-player/aos-Video/blob/v6.2/.github/workflows/nova.yml)
 
 Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to reduce compilation time and remove nasm, meson dependencies. If you need to regenerate torrentd, ffmpeg and dav1d libs, please run `make clean_prebuilt`.
 
