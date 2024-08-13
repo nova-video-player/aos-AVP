@@ -101,22 +101,20 @@ But for me the best way to get the latest nova video player apk is through [obta
 
 ## Scraping and Scrobbling
 
-Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/), **TheTVDB** (http://thetvdb.com/) and **Trakt** (https://trakt.tv).
+Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/) and **Trakt** (https://trakt.tv).
 
 In order to enable NOVA video player to perform these tasks, you need to register to this services and enable the API and inject the corresponding keys inside the following files: *MediaLib/src/community/res/values/donottranslate.xml*
 replacing the fake values below:
 ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources xmlns:android="http://schemas.android.com/apk/res/android">
-        <string name="tvdb_api_key">0123456789ABCDEF</string>
         <string name="tmdb_api_key">0123456789abcdef0123456789abcdef</string>
         <string name="trakt_api_key">0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef</string>
         <string name="trakt_api_secret">0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef</string>
     </resources>
 ```
 
-Please note that enabling **TheTVDB** API registration can be completed following this link: https://www.thetvdb.com/?tab=apiregister
-
+Please note that enabling **TMDB** API registration can be completed following this [link](https://www.themoviedb.org/settings/api).
 
 To create a **Trakt** api, first register to trakt then add a new app
 https://trakt.tv/oauth/applications
