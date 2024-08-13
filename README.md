@@ -39,7 +39,7 @@ For the full list, please look at this manifest https://github.com/nova-video-pl
 Get the repo tool (https://source.android.com/source/downloading), then type:
 ```
 mkdir aos; cd aos
-repo init -u https://github.com/nova-video-player/aos-AVP -b nova
+repo init -u https://github.com/nova-video-player/aos-AVP -b v6_2
 repo sync -j4
 repo forall -c 'git checkout -t $REPO_REMOTE/$REPO_RREV'
 make
@@ -62,25 +62,7 @@ Note that the following packages are required to build:
 ```
 sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 sudo chmod a+x /usr/local/bin/repo
-sudo apt install build-essential wget curl unzip openjdk-8-jdk python git pkg-config meson nasm
-```
-
-Recent versions of nasm (≥2.13) and meson (≥0.47) are now required for building ffmpeg/dav1d.
-Nasm can be installed with:
-```
-wget http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2
-tar xjvf nasm-2.14.02.tar.bz2
-cd nasm-2.14.02
-./autogen.sh
-PATH="$HOME/bin:$PATH" ./configure
-PATH="$HOME/bin:$PATH" make
-sudo make install
-```
-Latest meson can be installed via:
-```
-sudo apt install -y pkg-config python3 python3-pip python3-setuptools ninja-build
-sudo pip3 install --upgrade pip
-pip3 install --user meson==0.53.2
+sudo apt install build-essential python3 python3-pip python3-setuptools ninja-build maven file wget curl unzip git pkg-config meson nasm openjdk-17-jdk-headless openjdk-8-jdk-headless
 ```
 
 Alternatively, you can use the provided docker image to build nova:
