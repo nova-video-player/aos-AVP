@@ -16,6 +16,8 @@
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
 [![Donate](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
 
+But for me the best way to have latest nova video player apk is to use [obtainium](https://github.com/ImranR98/Obtainium) 
+
 ## Overview
 
 NOVA is an open source video player for Android. It consists in a fork of the original Archos Video Player Community Edition that is hosted here: https://github.com/archos-sa/aos-AVP intended to support new features.
@@ -95,23 +97,25 @@ Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to red
 
 ## Latest stable apk
 
-The compiled application is available for installation on Google Play: https://play.google.com/store/apps/details?id=org.courville.nova
+The compiled application is available for installation on:
 
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="80" align="center">](https://play.google.com/store/apps/details?id=org.courville.nova)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+    alt="Get it on Google Play"
+    height="80">](https://play.google.com/store/apps/details?id=org.courville.nova)
+[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png"
+    alt="Get it on Amazon Appstore"
+    height="80" width="240">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png"
+    alt="Get it on GitHub"
+    height="80">](https://github.com/nova-video-player/aos-AVP/releases)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+     alt="Get it on IzzyOnDroid"
+     height="80">](https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+    alt="Get it on F-Droid"
+    height="80">](https://f-droid.org/packages/org.courville.nova/)
 
-or on Amazon Appstore: https://www.amazon.fr/dp/B07P1Q1DG9 
-
-[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" alt="Get it on Amazon Appstore" height="50" align="center">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
-
-or on F-Droid https://f-droid.org/packages/org.courville.nova
-
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80" align="center">](https://f-droid.org/packages/org.courville.nova)
-
-or on IzzyOnDroid https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova
-
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80" align="center">](https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova)
-
-Releases are also published on github: https://github.com/nova-video-player/aos-AVP/releases
+But for me the best way to get the latest nova video player apk is through [obtainium](https://github.com/ImranR98/Obtainium) which I recommend to use.
 
 ## Scraping and Scrobbling
 
