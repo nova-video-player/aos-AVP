@@ -14,29 +14,31 @@
 [![Reddit Nova Community](https://img.shields.io/reddit/subreddit-subscribers/novavideoplayer?style=social)](https://www.reddit.com/r/NovaVideoPlayer/)
 [![Chat on irc](https://img.shields.io/badge/irc.libera.chat-%23novavideoplayer-blue.svg)](https://web.libera.chat/)
 ![Build status](https://github.com/nova-video-player/aos-Video/workflows/NOVA%20CI/badge.svg)
-[![Donate](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
-
-But for me the best way to have latest nova video player apk is to use [obtainium](https://github.com/ImranR98/Obtainium) 
+[![Donate paypal](https://img.shields.io/badge/donate_on-Paypal-blue?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR)
+[![Donate paypal](https://img.shields.io/badge/paypal-donate-yello.svg?logo=paypal)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR)
+[![Donate liberapay](https://img.shields.io/badge/liberapay-donate-yellow.svg?logo=liberapay)](https://liberapay.com/NovaVideoPlayer/donate)
+[![Donate github sponsor](https://img.shields.io/badge/github-donate-yellow.svg?logo=github)](https://github.com/sponsors/courville)
+[![Donate opencollective](https://img.shields.io/badge/opencollective-donate-yellow.svg?logo=opencollective)](https://liberapay.com/NovaVideoPlayer/donate)
 
 ## Overview
 
 NOVA is an open source video player for Android. It consists in a fork of the original Archos Video Player Community Edition that is hosted here: https://github.com/archos-sa/aos-AVP intended to support new features.
 
-Latest application FAQ can be found [here](https://github.com/nova-video-player/aos-AVP/blob/nova/faq/faq.md).
+Before asking any question please be sure that you have read the latest application [FAQ](https://github.com/nova-video-player/aos-AVP/blob/nova/faq/faq.md).
 
 This is the entry point repo. Its purpose is to provide the manifest to fetch all needed git repos with sources and then bootstrap the build environment.
 
 More interesting sources can be found there:
-- Video https://github.com/nova-video-player/aos-Video
-- MediaLib https://github.com/nova-video-player/aos-MediaLib
-- FileCoreLibrary  https://github.com/nova-video-player/aos-FileCoreLibrary
-- avos https://github.com/nova-video-player/aos-avos
+- [Video](https://github.com/nova-video-player/aos-Video): nova's Video UI code
+- [MediaLib](https://github.com/nova-video-player/aos-MediaLib): nova's media library management code
+- [FileCoreLibrary](https://github.com/nova-video-player/aos-FileCoreLibrary): nova's file management code
+- [avos](https://github.com/nova-video-player/aos-avos): C core multimedia engine using ffmpeg
 
 For the full list, please look at this manifest https://github.com/nova-video-player/aos-AVP/default.xml
 
 ## Building
 
-Get the repo tool (https://source.android.com/source/downloading), then type:
+Get the [repo tool](https://source.android.com/source/downloading), then type:
 ```
 mkdir aos; cd aos
 repo init -u https://github.com/nova-video-player/aos-AVP -b nova
@@ -101,7 +103,7 @@ But for me the best way to get the latest nova video player apk is through [obta
 
 ## Scraping and Scrobbling
 
-Scraping and scrobbling features rely on external services such as **TMDb** (https://www.themoviedb.org/) and **Trakt** (https://trakt.tv).
+Scraping and scrobbling features rely on external services such as [**TMDb**](https://www.themoviedb.org/) and [**Trakt**](https://trakt.tv).
 
 In order to enable NOVA video player to perform these tasks, you need to register to this services and enable the API and inject the corresponding keys inside the following files: *MediaLib/src/community/res/values/donottranslate.xml*
 replacing the fake values below:
@@ -116,8 +118,7 @@ replacing the fake values below:
 
 Please note that enabling **TMDB** API registration can be completed following this [link](https://www.themoviedb.org/settings/api).
 
-To create a **Trakt** api, first register to trakt then add a new app
-https://trakt.tv/oauth/applications
+To create a **Trakt** api, first register to trakt then add a new app [here](https://trakt.tv/oauth/applications).
 
 Redirect URI should be
 http://localhost
@@ -125,13 +126,13 @@ and be aware to grant all permissions.
 
 ## Localization
 
-You are welcome to contribute to the translation of the application at https://crowdin.com/project/nova-video-player
+You are welcome to contribute to the translation of the application using crowdin platform [here](https://crowdin.com/project/nova-video-player).
 
 ## Donate
 
 Any contribution to show your gratitude and appreciation is always welcome, keeping the small team of developers working on their personal time motivated and aware that their dedication means something.
 
-Three main platforms are proposed for that purpose: [liberapay](https://liberapay.com/NovaVideoPlayer/donate), [github sponsor](https://github.com/sponsors/courville) and [opencollective](https://opencollective.com/novavideoplayer).
+Three main platforms are proposed for that purpose: [paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR) [liberapay](https://liberapay.com/NovaVideoPlayer/donate), [github sponsor](https://github.com/sponsors/courville) and [opencollective](https://opencollective.com/novavideoplayer).
 
 Funds collected are essentially used to buy devices on which problems are reported for analysis and fix in order to cope with Android fragmentation.
 
@@ -141,5 +142,5 @@ If need be, we might in the future introduce some extra bounty programs for spec
 ## Support community and chat room
 
 [NovaVideoPlayer reddit community](https://www.reddit.com/r/NovaVideoPlayer) community is used as the support community for the Nova Video Player application.
-It is possible to chat with Nova Video Player developers on #novavideoplayer liberachat IRC channel (https://web.libera.chat/).
+It is possible to chat with Nova Video Player developers on [#novavideoplayer liberachat IRC channel](https://web.libera.chat/).
 
