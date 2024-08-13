@@ -124,6 +124,20 @@ Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI 
 
 Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
 
+## Washy colors on the TV
+
+It can happen that the bottom and top bars instead of being black are with a greyish color and that video seems to have a kind a veil that makes the image washy.
+
+This is due to a wrong HDMI display mode selected that has a color space not compatible with the video color format.
+
+In order to overcome the issue, on some hardware (e.g. nvidia shield), you can disable the adaptive refresh rate on nova and force the display mode to be used going through Android setting in display/audio->advanced to match color space to content color format one.
+
+Most often the washy colors happen using RGB8 and not with YUV420 (RGB/8/Rec.709 NOK, YUV420/8/Rec.709 OK, YUV422/12/Rec.2020/hdr OK, YUV422/10/Rec.2020/hdr OK).
+
+One can check the compatible display modes of your device through `adb shell dumpsys SurfaceFlinger`. The video color format used can be checked with FFMpeg `ffprobe` command.
+
+Best is to use HDMI 2.1 compativle devices and be aware that you can deteriorate the experience if you have a sound bar that would be only HDMI 1.4 capable between your Android TV box and your TV.
+
 ## Adaptive refresh rate on fire tv stick
 
 In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings -> display & sounds -> Display, put video resolution to auto (up to 4k ultra hd); -> match original frame rate ON; -> dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
