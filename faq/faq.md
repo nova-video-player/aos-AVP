@@ -3,7 +3,7 @@
 NOVA is an opeN sOurce Video plAyer designed for Android devices (tablets, phones and TVs).  
 This application is based on a fork of Archos Video Player open-source release, intended to support new features with an enhanced stability.
 
-NOVA is published on [GooglePlay](https://play.google.com/store/apps/details?id=org.courville.nova) or on [Amazon Appstore](https://www.amazon.fr/dp/B07P1Q1DG9) or on [F-Droid](https://f-droid.org/en/packages/org.courville.nova/) or directly on [github](https://github.com/nova-video-player/aos-AVP/releases). 
+NOVA is published on [GooglePlay](https://play.google.com/store/apps/details?id=org.courville.nova) or on [Amazon Appstore](https://www.amazon.fr/dp/B07P1Q1DG9) or on [F-Droid](https://f-droid.org/en/packages/org.courville.nova/) or on [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova) or directly on [github](https://github.com/nova-video-player/aos-AVP/releases). 
 Latest changes are tracked [here](https://github.com/nova-video-player/aos-AVP/blob/nova/CHANGELOG.md).
 
 Please note that NOVA is free and consists in a small community effort done on personal time.
@@ -57,7 +57,7 @@ Note that:
 * Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
 * Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server;
 * Two types of SMB protocols are supported: smbj and jcifs-ng (smb). smbj is known to provide higher throughput but only supports SMB2+ protocols (not SMB1), use this one to play high bitrate videos;
-* sshj seems to be a faster implementation for sftp 
+* sshj seems to be a faster implementation for sftp.
 
 ## What is the best network protocol to play high bitrate video files?
 
@@ -167,7 +167,9 @@ Sad that an app that has more than 500k active users and 2M downloads on Google 
 
 ## Where NFO files, posters/banners are located
 
-Due to Android storage restrictions for API31, local NFO/JPG media information files for videos stored on local/HDD storage have been moved to nova public application folder located `/sdcard/Android/data/org.courville.nova/files/nfoPoster` 
+Due to Android storage restrictions for API31, local NFO/JPG media information files for videos stored on local/HDD storage have been moved to nova public application folder located `/sdcard/Android/data/org.courville.nova/files/nfoPoster`.
+
+Note that due to API31 restrictions, NFO files co-located with videos on local storage are invisible to nova since Google refuses to grant `MANAGE_EXTERNAL_STORAGE` permission to nova (cf. section above).
 
 ## I’d like to request a new feature.
 
@@ -179,11 +181,11 @@ When discussing an issue on reddit, it is best also to report it on [github proj
 
 ## How can I contribute in the development?
 
-Source code is available on [github](https://github.com/nova-video-player/aos-AVP) and pull requests are welcome.
+Source code is available on [github](https://github.com/nova-video-player/aos-AVP) and associated repositories and pull requests are welcome.
 
 ## The application does not support my language, how can I help?
 
-You are welcome to contribute to the translation of the application via [crowdin service](https://crowdin.com/project/nova-video-player)
+You are welcome to contribute to the translation of the application via [crowdin platform](https://crowdin.com/project/nova-video-player)
 
 ## Where to find Nova Video Player application privacy policy?
 
@@ -191,4 +193,5 @@ Nova application privacy policy can be found [here](https://home.courville.org/n
 
 ## I want to sponsor Nova.
 
-You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
+You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR), or [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
+
