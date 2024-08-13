@@ -83,21 +83,11 @@ Binaries prebuilt of torrentd, ffmpeg, dav1d have been committed in order to red
 
 The compiled application is available for installation on:
 
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
-    alt="Get it on Google Play"
-    height="80">](https://play.google.com/store/apps/details?id=org.courville.nova)
-[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png"
-    alt="Get it on Amazon Appstore"
-    height="80" width="240">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
-[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png"
-    alt="Get it on GitHub"
-    height="80">](https://github.com/nova-video-player/aos-AVP/releases)
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
-     alt="Get it on IzzyOnDroid"
-     height="80">](https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova)
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/org.courville.nova/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play" height="60">](https://play.google.com/store/apps/details?id=org.courville.nova)
+[<img src="https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-appstore-badge-english-black.png" alt="Get it on Amazon Appstore" height="60">](http://www.amazon.com/gp/mas/dl/android?p=org.courville.nova)
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="60">](https://github.com/nova-video-player/aos-AVP/releases)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="60">](https://apt.izzysoft.de/fdroid/index/apk/org.courville.nova)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="60">](https://f-droid.org/packages/org.courville.nova/)
 
 But for me the best way to get the latest nova video player apk is through [obtainium](https://github.com/ImranR98/Obtainium) which I recommend to use.
 
@@ -120,9 +110,7 @@ Please note that enabling **TMDB** API registration can be completed following t
 
 To create a **Trakt** api, first register to trakt then add a new app [here](https://trakt.tv/oauth/applications).
 
-Redirect URI should be
-http://localhost
-and be aware to grant all permissions.
+Redirect URI should be http://localhost and be aware to grant all permissions.
 
 ## Localization
 
