@@ -1,8 +1,8 @@
-certifi==2023.07.22
+certifi>=2024.07.04
 chardet==3.0.4
-idna==2.7
+idna>=3.7
 PyGithub==1.40
 PyJWT==2.4.0
-requests==2.20.0
-urllib3==1.24.2
+requests>=2.32.0
+urllib3>=1.26.19
 configparser==3.5.0
