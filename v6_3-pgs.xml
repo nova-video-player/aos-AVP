@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="." />
+
+  <default revision="master" remote="github" />
+
+  <project path="AVP" name="aos-AVP" revision="nova" >
+    <copyfile src="Makefile" dest="Makefile" />
+  </project>
+
+  <project path="Video" name="aos-Video" revision="v6.3" />
+  <project path="MediaLib" name="aos-MediaLib" revision="v6.3" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v6.3" />
+
+  <project path="native/avos" name="aos-avos" revision="dev/pgs" />
+  <project path="native/audiocompress" name="aos-audiocompress" />
+  <project path="native/ffmpeg-android-builder" name="aos-ffmpeg-android-builder" revision="v7_1" />
+  <project path="native/dav1d-android-builder" name="aos-dav1d-android-builder" revision="v1_4" />
+  <project path="native/opus-android-builder" name="opus-android-builder" revision="20241012" />
+  <project path="native/openssl-android-builder" name="openssl-android-builder" revision="v3_3" />
+  <project path="native/libyuv" name="aos-libyuv" />
+  <project path="native/libnativehelper" name="aos-libnativehelper" />
+  <project path="native/boost" name="aos-boost-android-builder" />
+  <project path="native/libtorrent-android-builder" name="aos-libtorrent-android-builder" revision="main" />
+  <project path="native/torrentd" name="aos-torrentd" />
+</manifest>
