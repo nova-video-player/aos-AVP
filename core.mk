@@ -105,6 +105,8 @@ FFMPEG_DIR := native/ffmpeg-android-builder
 DAV1D_DIR := native/dav1d-android-builder
 OPUS_DIR := native/opus-android-builder
 OPENSSL_DIR := native/openssl-android-builder
+ONNXRUNTIME_DIR := native/onnxruntime-android-builder
+FFTW3_DIR := native/fftw3-android-builder
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
@@ -240,6 +242,8 @@ define cp_ffmpeg_libs
 		mkdir -p $(1)/libs/arm64-v8a; \
 		cp $(DAV1D_DIR)/build-arm64-v8a/src/libdav1d.so $(1)/libs/arm64-v8a/libdav1d.so; \
 		cp $(OPUS_DIR)/lib/arm64-v8a/libopus.so $(1)/libs/arm64-v8a/libopus.so; \
+		cp $(ONNXRUNTIME_DIR)/lib/arm64-v8a/libonnxruntime.so $(1)/libs/arm64-v8a/libonnxruntime.so; \
+		cp $(FFTW3_DIR)/build/arm64-v8a/install/lib/libfftw3.so $(1)/libs/arm64-v8a/libfftw3.so; \
 		cp -r $(FFMPEG_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
 	fi
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
