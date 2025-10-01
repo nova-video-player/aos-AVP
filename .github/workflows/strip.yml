@@ -1,0 +1,46 @@
+name: Strip Legacy Features
+on:
+  push:
+    branches: ["chore/strip-net-and-online-features*"]
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: read
+  checks: write
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Ensure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Run strip script
+        run: |
+          chmod +x tools/strip_features.sh
+          bash tools/strip_features.sh || (echo "STRIP_FAILED=1" >> $GITHUB_ENV)
+      - name: Push changes (if any)
+        if: always()
+        run: |
+          if ! git diff --quiet; then
+            git add -A && git commit -m "chore: apply strip changes (CI)" || true
+          fi
+          git push || true
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strip-logs
+          path: logs/strip.log
+      - name: Fail if script failed
+        if: env.STRIP_FAILED == '1'
+        run: exit 1

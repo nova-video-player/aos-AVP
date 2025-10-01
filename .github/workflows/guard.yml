@@ -1,0 +1,26 @@
+name: Guard Removed Features
+on:
+  pull_request:
+    branches: ["**"]
+permissions:
+  contents: read
+  checks: write
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Dep/Keyword audit
+        run: |
+          set -e
+          BLACK_RE='commons-?net|jsch|sshj|sardine|webdav|cling|upnp|androidx\.leanback|libtorrent|\btorrent\b|opensubtitles|tmdb|trakt|exoplayer-okhttp|exoplayer-rtmp'
+          rg -nEi "$BLACK_RE" gradle/ **/build.gradle **/build.gradle.kts && { echo "::error::Blacklisted dependency detected"; exit 1; } || true
+          SCAN_RE='FTP|FTPS|SFTP|WebDAV|UPnP|DLNA|\bHTTP\b|\bHTTPS\b|\btorrent\b|libtorrent|Trakt|TMDB|OpenSubtitles|Leanback'
+          rg -nEI --glob '!build' --glob '!third_party' --glob '!.git' "$SCAN_RE" . || true
+      - name: Build
+        run: ./gradlew --no-daemon :aos-Video:assembleDebug -x test
