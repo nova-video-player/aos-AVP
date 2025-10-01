@@ -295,5 +295,8 @@ Removed FTP/FTPS, SFTP, WebDAV, UPnP/DLNA, HTTP(S) direct streaming, torrent/lib
 EOF
 commit_step "docs: add changelog entry and PR template"
 
+# Remove .repo to avoid pushing large files
+rm -rf .repo
+
 info "== All steps completed successfully =="
 exit 0
