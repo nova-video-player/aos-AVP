@@ -1,0 +1,4 @@
+[INFO] == Preflight ==
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Removed <project name="aos-torrentd">
+[INFO] Removed <project name="aos-libtorrent-android-builder">
