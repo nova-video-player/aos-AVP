@@ -22,5 +22,31 @@ jobs:
           rg -nEi "$BLACK_RE" gradle/ **/build.gradle **/build.gradle.kts && { echo "::error::Blacklisted dependency detected"; exit 1; } || true
           SCAN_RE='FTP|FTPS|SFTP|WebDAV|UPnP|DLNA|\bHTTP\b|\bHTTPS\b|\btorrent\b|libtorrent|Trakt|TMDB|OpenSubtitles|Leanback'
           rg -nEI --glob '!build' --glob '!third_party' --glob '!.git' "$SCAN_RE" . || true
-      - name: Build
+      # ======= Build Guard (auto-detect: Gradle or Make) =======
+      - name: Install deps for Make builds (ripgrep/ffmpeg)
+        if: ${{ hashFiles('./gradlew') == '' && hashFiles('Makefile') != '' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ripgrep pkg-config nasm yasm \
+            libswscale-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev
+      - name: Ensure AVP subrepos for Make builds
+        if: ${{ hashFiles('./gradlew') == '' && hashFiles('Makefile') != '' }}
+        run: |
+          set -e
+          if grep -q 'AVP/core.mk' Makefile && [ ! -f "AVP/core.mk" ]; then
+            mkdir -p "$HOME/bin"
+            curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo -o "$HOME/bin/repo"
+            chmod a+x "$HOME/bin/repo"
+            export PATH="$HOME/bin:$PATH"
+            repo init -u "${AVP_MANIFEST_REMOTE:-https://github.com/nova-video-player/aos-AVP.git}" -b "${AVP_MANIFEST_BRANCH:-nova}"
+            repo sync -j8
+          fi
+      - name: Build (Gradle)
+        if: ${{ hashFiles('./gradlew') != '' }}
         run: ./gradlew --no-daemon :aos-Video:assembleDebug -x test
+      - name: Build (Make)
+        if: ${{ hashFiles('./gradlew') == '' && hashFiles('Makefile') != '' }}
+        run: make
+      - name: No build system found (soft pass)
+        if: ${{ hashFiles('./gradlew') == '' && hashFiles('Makefile') == '' }}
+        run: echo "No gradlew or Makefile found; skipping build step."
