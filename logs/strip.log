@@ -19,3 +19,6 @@
 [INFO] == Preflight ==
 [WARN] Working tree not clean -> creating checkpoint commit
 [INFO] == Step1: manifest/settings clean ==
+[INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
+[INFO] == Step2: dependencies blacklist ==
+[WARN] No libs.versions.toml found
