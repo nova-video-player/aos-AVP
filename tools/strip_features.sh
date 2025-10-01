@@ -185,7 +185,7 @@ commit_step "feat(video): remove Leanback/torrent/open-url/online-subtitles sour
 info "== Step6: build & residual scan =="
 
 function try_build_once(){
-  ./gradlew --no-daemon clean :aos-Video:assembleDebug -x test | tee -a "$LOG_FILE"
+  make | tee -a "$LOG_FILE"
 }
 ATTEMPT=0
 MAX_FIX=2
