@@ -227,6 +227,19 @@ until try_build_once; do
     exit 1
   fi
   warn "Build failed. Attempting minimal auto-fix #$ATTEMPT"
+
+  # --- Auto-fix A: FFmpeg headers missing (e.g., swscale.h) ---
+  if grep -Ei "swscale\.h'? file not found|fatal error: .*swscale\.h" "$LOG_FILE" >/dev/null 2>&1; then
+    info "Detected missing FFmpeg headers (swscale.h). Trying to install dev packages…"
+    if command -v apt-get >/dev/null 2>&1; then
+      sudo apt-get update
+      sudo apt-get install -y pkg-config nasm yasm \
+        libswscale-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev || true
+      info "FFmpeg dev packages installed (if available). Will retry build after other fixes."
+    else
+      warn "apt-get not available on this runner; please ensure FFmpeg headers are present in include path."
+    fi
+  fi
   rg -n "import .*(Ftp|Sftp|Webdav|Upnp|Dlna|Trakt|Tmdb|OpenSubtitles|Torrent|Leanback)" --glob '!build' \
     | cut -d: -f1 | sort -u | while read -r f; do
         sed -i -E '/import .*Ftp|import .*Sftp|import .*Webdav|import .*WebDav|import .*Upnp|import .*Dlna|import .*Trakt|import .*Tmdb|import .*OpenSubtitles|import .*Torrent|import .*Leanback/d' "$f"
