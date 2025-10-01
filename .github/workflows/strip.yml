@@ -20,6 +20,11 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Install deps for Make builds (ripgrep/ffmpeg)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ripgrep pkg-config nasm yasm \
+            libswscale-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev
       - name: Ensure git identity
         run: |
           git config user.name  "github-actions[bot]"
