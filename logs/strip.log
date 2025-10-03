@@ -68,3 +68,5 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [WARN] No libs.versions.toml found
 [INFO] Committed: build: remove blacklisted deps/plugins across modules
 [INFO] == Step3: AndroidManifest cleanup ==
+[INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
+[INFO] == Step4: docs prune (gentle) ==
