@@ -66,3 +66,5 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
 [INFO] == Step2: dependencies blacklist ==
 [WARN] No libs.versions.toml found
+[INFO] Committed: build: remove blacklisted deps/plugins across modules
+[INFO] == Step3: AndroidManifest cleanup ==
