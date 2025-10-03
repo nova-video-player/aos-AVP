@@ -60,3 +60,5 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [INFO] repo forall checkout manifest rev
 [ERROR] AVP/core.mk still missing after repo sync
 [ERROR] Script failed at line 223
+[INFO] == Preflight ==
+[WARN] Working tree not clean -> checkpoint commit
