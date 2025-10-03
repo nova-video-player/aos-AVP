@@ -62,3 +62,4 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [ERROR] Script failed at line 223
 [INFO] == Preflight ==
 [WARN] Working tree not clean -> checkpoint commit
+[INFO] == Step1: manifest/settings clean ==
