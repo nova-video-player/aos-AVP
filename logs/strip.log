@@ -74,3 +74,12 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [INFO] == Step5: source removal & API shrink ==
 [INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
 [INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
+[INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
+[INFO] == Step6: build & residual scan ==
+[INFO] Detected build system: make
+[INFO] Makefile expects AVP/core.mk; syncing sub-repos…
+[INFO] Installed repo tool into $HOME/bin
+[INFO] repo sync -j8
+[INFO] repo forall checkout manifest rev
+[ERROR] AVP/core.mk still missing after repo sync
+[ERROR] Script failed at line 223
