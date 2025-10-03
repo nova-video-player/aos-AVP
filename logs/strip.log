@@ -73,3 +73,4 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [INFO] Committed: docs: prune references to removed features (targeted sections)
 [INFO] == Step5: source removal & API shrink ==
 [INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
+[INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
