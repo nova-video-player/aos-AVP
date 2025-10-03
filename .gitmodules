@@ -1,0 +1,3 @@
+[submodule ".repo/manifests"]
+path = .repo/manifests
+url = https://github.com/nova-video-player/aos-AVP.git
