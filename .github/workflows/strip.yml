@@ -31,8 +31,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Run strip script
         run: |
-          chmod +x tools/strip_features.sh
-          bash tools/strip_features.sh || (echo "STRIP_FAILED=1" >> $GITHUB_ENV)
+          set -e
+          mkdir -p "$HOME/bin"
+          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo -o "$HOME/bin/repo"
+          chmod a+x "$HOME/bin/repo"
+          export PATH="$HOME/bin:$PATH"
+          repo init -u https://github.com/nova-video-player/aos-AVP.git -b nova
+          ./tools/strip_features.sh
       - name: Push changes (if any)
         if: always()
         run: |

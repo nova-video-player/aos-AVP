@@ -189,7 +189,7 @@ ensure_avp_core(){
     repo init -u "$remote" -b "$branch" | tee -a "$LOG_FILE"
   fi
   info "repo sync -j8"
-  repo sync -j8 AVP Video MediaLib FileCoreLibrary native/avos native/audiocompress native/boost native/dav1d-android-builder native/libnativehelper native/libyuv native/opus-android-builder native/torrentd | tee -a "$LOG_FILE"
+  repo sync -j8 AVP Video MediaLib FileCoreLibrary native/avos native/audiocompress native/boost native/dav1d-android-builder native/libnativehelper native/libyuv native/opus-android-builder native/torrentd native/ffmpeg-android-builder native/openssl-android-builder | tee -a "$LOG_FILE"
   info "repo forall checkout manifest rev"
   repo forall -c 'git checkout -B $REPO_RREV || true' | tee -a "$LOG_FILE"
   [[ -f "AVP/core.mk" ]] || { err "AVP/core.mk still missing after repo sync"; return 1; }
