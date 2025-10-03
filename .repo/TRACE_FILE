@@ -252,3 +252,107 @@ PID: 3942 END: 1759492290551953408 :git command /home/runner/work/aos-AVP/aos-AV
 
 PID: 3942 END: 1759492290552015104 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init, -u, https://github.com/nova-video-player/aos-AVP.git, -b, nova [sid=repo-20251003T115128Z-P00000f66/repo-20251003T115130Z-P00000f66]
 
+PID: 3949 START: 1759494569624576256 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init, -u, https://github.com/nova-video-player/aos-AVP.git, -b, nova [sid=repo-20251003T122928Z-P00000f6d/repo-20251003T122929Z-P00000f6d]
+
+PID: 3949 START: 1759494569626153984 :git command None ['git', 'config', '--file', '/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/config', '--includes', '--null', '--list'] with debug: : git config --file /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/config --includes --null --list 1>| 2>|
+
+PID: 3949 END: 1759494569627559424 :git command None ['git', 'config', '--file', '/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/config', '--includes', '--null', '--list'] with debug: : git config --file /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/config --includes --null --list 1>| 2>|
+
+PID: 3949 START: 1759494569677752576 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/nova:refs/remotes/origin/nova', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_DIR=/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+: export GIT_OBJECT_DIRECTORY=/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/nova:refs/remotes/origin/nova +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 3949 END: 1759494569869618688 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'fetch', '--quiet', 'origin', '--recurse-submodules=no', '--tags', '+refs/heads/nova:refs/remotes/origin/nova', '+refs/tags/*:refs/tags/*'] with debug: : export GIT_DIR=/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+: export GIT_OBJECT_DIRECTORY=/home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git/objects
+: git fetch --quiet origin --recurse-submodules=no --tags +refs/heads/nova:refs/remotes/origin/nova +refs/tags/*:refs/tags/* 1>| 2>&1
+
+PID: 3949 START: 1759494569870020864 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--verify', 'refs/remotes/origin/nova^0'] with debug: : git rev-parse --verify refs/remotes/origin/nova^0 1>| 2>|
+
+PID: 3949 END: 1759494569871713536 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--verify', 'refs/remotes/origin/nova^0'] with debug: : git rev-parse --verify refs/remotes/origin/nova^0 1>| 2>|
+
+PID: 3949 START: 1759494569871863552 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', '--no-deref', 'HEAD', 'ca46b68832e2f79014b22041166b873a6ab73338'] with debug: 
+: cd /home/runner/work/aos-AVP/aos-AVP/.repo/manifests
+: git update-ref --no-deref HEAD ca46b68832e2f79014b22041166b873a6ab73338 1>| 2>|
+
+PID: 3949 END: 1759494569873821952 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', '--no-deref', 'HEAD', 'ca46b68832e2f79014b22041166b873a6ab73338'] with debug: 
+: cd /home/runner/work/aos-AVP/aos-AVP/.repo/manifests
+: git update-ref --no-deref HEAD ca46b68832e2f79014b22041166b873a6ab73338 1>| 2>|
+
+PID: 3949 START: 1759494569873970432 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'read-tree', '--reset', '-u', '-v', 'HEAD'] with debug: : git read-tree --reset -u -v HEAD 2>|
+
+PID: 3949 END: 1759494569881818624 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'read-tree', '--reset', '-u', '-v', 'HEAD'] with debug: : git read-tree --reset -u -v HEAD 2>|
+
+PID: 3949 START: 1759494569881886976 :: load refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 END: 1759494569882214912 :: load refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 START: 1759494569882416640 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569883895296 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569884036352 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569885441280 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569885674496 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'checkout', '-q', 'ca46b68832e2f79014b22041166b873a6ab73338', '--'] with debug: : git checkout -q ca46b68832e2f79014b22041166b873a6ab73338 -- 2>|
+
+PID: 3949 END: 1759494569890442496 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'checkout', '-q', 'ca46b68832e2f79014b22041166b873a6ab73338', '--'] with debug: : git checkout -q ca46b68832e2f79014b22041166b873a6ab73338 -- 2>|
+
+PID: 3949 START: 1759494569890623232 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', '-d', 'refs/heads/default'] with debug: : git update-ref -d refs/heads/default 1>| 2>|
+
+PID: 3949 END: 1759494569892234752 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', '-d', 'refs/heads/default'] with debug: : git update-ref -d refs/heads/default 1>| 2>|
+
+PID: 3949 START: 1759494569892397824 :: scan refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 END: 1759494569892441856 :: scan refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 START: 1759494569892496384 :: load refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 END: 1759494569892764160 :: load refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 START: 1759494569892948736 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569894371840 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569894539776 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569895948800 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569896132864 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569897550336 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569897692928 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569899083264 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569899219200 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569900641024 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569900775936 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569902156800 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', 'HEAD'] with debug: : git rev-parse HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569902202624 :: scan refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 END: 1759494569902242048 :: scan refs /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git
+
+PID: 3949 START: 1759494569902374400 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', 'refs/heads/default', 'ca46b68832e2f79014b22041166b873a6ab73338'] with debug: : git update-ref refs/heads/default ca46b68832e2f79014b22041166b873a6ab73338 1>| 2>|
+
+PID: 3949 END: 1759494569904221184 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'update-ref', 'refs/heads/default', 'ca46b68832e2f79014b22041166b873a6ab73338'] with debug: : git update-ref refs/heads/default ca46b68832e2f79014b22041166b873a6ab73338 1>| 2>|
+
+PID: 3949 START: 1759494569904357888 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'symbolic-ref', 'HEAD', 'refs/heads/default'] with debug: : git symbolic-ref HEAD refs/heads/default 1>| 2>|
+
+PID: 3949 END: 1759494569906103040 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'symbolic-ref', 'HEAD', 'refs/heads/default'] with debug: : git symbolic-ref HEAD refs/heads/default 1>| 2>|
+
+PID: 3949 START: 1759494569906291200 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 END: 1759494569907757056 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'rev-parse', '--symbolic-full-name', 'HEAD'] with debug: : git rev-parse --symbolic-full-name HEAD 1>| 2>|
+
+PID: 3949 START: 1759494569910162432 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 3949 END: 1759494569911496704 :git command /home/runner/work/aos-AVP/aos-AVP/.repo/manifests.git ['git', 'config', '--get', 'trace2.eventtarget'] with debug: : git config --get trace2.eventtarget 1>| 2>|
+
+PID: 3949 END: 1759494569911560960 :+++++++++++++++NEW COMMAND+++++++++++++++++++ starting new command: init, -u, https://github.com/nova-video-player/aos-AVP.git, -b, nova [sid=repo-20251003T122928Z-P00000f6d/repo-20251003T122929Z-P00000f6d]
+
