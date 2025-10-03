@@ -46,3 +46,4 @@
 [INFO] == Step4: docs prune (gentle) ==
 [INFO] Committed: docs: prune references to removed features (targeted sections)
 [INFO] == Step5: source removal & API shrink ==
+[INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
