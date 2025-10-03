@@ -65,7 +65,7 @@ for f in "${MANIFEST_CANDS[@]}"; do [[ -f "$f" ]] && { MANIFEST="$f"; break; }; 
 info "== Step1: manifest/settings clean =="
 if [[ -n "$MANIFEST" ]]; then
   cp "$MANIFEST" "$MANIFEST.bak"
-  for name in aos-torrentd aos-libtorrent-android-builder aos-SubtitleParser; do
+  for name in aos-torrentd aos-libtorrent-android-builder aos-SubtitleParser aos-ffmpeg-android-builder aos-openssl-android-builder; do
     if grep -q "name=\"$name\"" "$MANIFEST"; then
       sed -i "/<project[^>]*name=\"$name\"[^>]*\/>/d" "$MANIFEST"
       info "Removed <project name=\"$name\">"
@@ -76,7 +76,7 @@ fi
 for s in "${SETTINGS_CANDS[@]}"; do
   [[ -f "$s" ]] || continue
   cp "$s" "$s.bak"
-  sed -i -E '\#(aos-SubtitleParser|aos-torrentd|aos-libtorrent-android-builder)#d' "$s"
+  sed -i -E '\#(aos-SubtitleParser|aos-torrentd|aos-libtorrent-android-builder|aos-ffmpeg-android-builder|aos-openssl-android-builder)#d' "$s"
   commit_step "build(settings): remove removed modules from includes ($s)"
 done
 
@@ -189,7 +189,7 @@ ensure_avp_core(){
     repo init -u "$remote" -b "$branch" | tee -a "$LOG_FILE"
   fi
   info "repo sync -j8"
-  repo sync -j8 | tee -a "$LOG_FILE"
+  # repo sync -j8 | tee -a "$LOG_FILE"
   info "repo forall checkout manifest rev"
   repo forall -c 'git checkout -B $REPO_RREV || true' | tee -a "$LOG_FILE"
   [[ -f "AVP/core.mk" ]] || { err "AVP/core.mk still missing after repo sync"; return 1; }
