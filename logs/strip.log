@@ -33,3 +33,5 @@
 [INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
 [INFO] == Step6: build & residual scan ==
 [ERROR] Script failed at line 193
+[INFO] == Preflight ==
+[WARN] Working tree not clean -> checkpoint commit
