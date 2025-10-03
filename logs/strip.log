@@ -35,3 +35,5 @@
 [ERROR] Script failed at line 193
 [INFO] == Preflight ==
 [WARN] Working tree not clean -> checkpoint commit
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Removed <project name="aos-ffmpeg-android-builder">
