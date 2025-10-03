@@ -70,3 +70,5 @@ repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
 [INFO] == Step3: AndroidManifest cleanup ==
 [INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
 [INFO] == Step4: docs prune (gentle) ==
+[INFO] Committed: docs: prune references to removed features (targeted sections)
+[INFO] == Step5: source removal & API shrink ==
