@@ -1,0 +1,54 @@
+name: Strip Legacy Features
+on:
+  push:
+    branches: ["chore/strip-net-and-online-features*"]
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: read
+  checks: write
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Install deps for Make builds (ripgrep/ffmpeg)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ripgrep pkg-config nasm yasm \
+            libswscale-dev libavutil-dev libavcodec-dev libavformat-dev libavfilter-dev
+      - name: Ensure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Set up repo tool
+        run: |
+          mkdir -p "$HOME/bin"
+          curl -fsSL https://storage.googleapis.com/git-repo-downloads/repo -o "$HOME/bin/repo"
+          chmod a+x "$HOME/bin/repo"
+          export PATH="$HOME/bin:$PATH"
+          repo init -u https://github.com/nova-video-player/aos-AVP.git -b nova
+      - name: Push changes (if any)
+        if: always()
+        run: |
+          if ! git diff --quiet; then
+            git add -A && git commit -m "chore: apply strip changes (CI)" || true
+          fi
+          git push || true
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strip-logs
+          path: logs/strip.log
+      - name: Fail if script failed
+        if: env.STRIP_FAILED == '1'
+        run: exit 1

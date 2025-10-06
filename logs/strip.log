@@ -1,0 +1,85 @@
+[INFO] == Preflight ==
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Removed <project name="aos-torrentd">
+[INFO] Removed <project name="aos-libtorrent-android-builder">
+[INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
+[INFO] == Step2: dependencies blacklist ==
+[WARN] No libs.versions.toml found
+[INFO] Committed: build: remove blacklisted deps/plugins across modules
+[INFO] == Step3: AndroidManifest cleanup ==
+[INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
+[INFO] == Step4: docs prune (gentle) ==
+[INFO] Committed: docs: prune references to removed features (targeted sections)
+[INFO] == Step5: source removal & API shrink ==
+[INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
+[INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
+[INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
+[INFO] == Step6: build & residual scan ==
+[ERROR] Script failed at line 193
+[INFO] == Preflight ==
+[WARN] Working tree not clean -> creating checkpoint commit
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
+[INFO] == Step2: dependencies blacklist ==
+[WARN] No libs.versions.toml found
+[INFO] Committed: build: remove blacklisted deps/plugins across modules
+[INFO] == Step3: AndroidManifest cleanup ==
+[INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
+[INFO] == Step4: docs prune (gentle) ==
+[INFO] Committed: docs: prune references to removed features (targeted sections)
+[INFO] == Step5: source removal & API shrink ==
+[INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
+[INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
+[INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
+[INFO] == Step6: build & residual scan ==
+[ERROR] Script failed at line 193
+[INFO] == Preflight ==
+[WARN] Working tree not clean -> checkpoint commit
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Removed <project name="aos-ffmpeg-android-builder">
+[INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
+[INFO] == Step2: dependencies blacklist ==
+[WARN] No libs.versions.toml found
+[INFO] Committed: build: remove blacklisted deps/plugins across modules
+[INFO] == Step3: AndroidManifest cleanup ==
+[INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
+[INFO] == Step4: docs prune (gentle) ==
+[INFO] Committed: docs: prune references to removed features (targeted sections)
+[INFO] == Step5: source removal & API shrink ==
+[INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
+[INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
+[INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
+[INFO] == Step6: build & residual scan ==
+[INFO] Detected build system: make
+[INFO] Makefile expects AVP/core.mk; syncing sub-repos…
+[INFO] Installed repo tool into $HOME/bin
+[INFO] repo init -u https://github.com/nova-video-player/aos-AVP.git -b nova
+
+repo has been initialized in /home/runner/work/aos-AVP/aos-AVP
+[INFO] repo sync -j8
+[INFO] repo forall checkout manifest rev
+[ERROR] AVP/core.mk still missing after repo sync
+[ERROR] Script failed at line 223
+[INFO] == Preflight ==
+[WARN] Working tree not clean -> checkpoint commit
+[INFO] == Step1: manifest/settings clean ==
+[INFO] Committed: feat(manifest): drop torrentd/libtorrent builder/subtitleparser
+[INFO] == Step2: dependencies blacklist ==
+[WARN] No libs.versions.toml found
+[INFO] Committed: build: remove blacklisted deps/plugins across modules
+[INFO] == Step3: AndroidManifest cleanup ==
+[INFO] Committed: feat(video): remove Leanback/TV categories and features from manifests
+[INFO] == Step4: docs prune (gentle) ==
+[INFO] Committed: docs: prune references to removed features (targeted sections)
+[INFO] == Step5: source removal & API shrink ==
+[INFO] Committed: feat(filecore): drop FTP/FTPS/SFTP/WebDAV/UPnP/DLNA implementations
+[INFO] Committed: feat(medialib): remove TMDB/UPnP/Trakt related sources
+[INFO] Committed: feat(video): remove Leanback/torrent/open-url/online-subtitles sources
+[INFO] == Step6: build & residual scan ==
+[INFO] Detected build system: make
+[INFO] Makefile expects AVP/core.mk; syncing sub-repos…
+[INFO] Installed repo tool into $HOME/bin
+[INFO] repo sync -j8
+[INFO] repo forall checkout manifest rev
+[ERROR] AVP/core.mk still missing after repo sync
+[ERROR] Script failed at line 223
