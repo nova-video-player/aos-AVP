@@ -139,6 +139,16 @@ HARFBUZZ_DIR := native/harfbuzz-android-builder
 HARFBUZZ_PREBUILT_DIR := native/prebuilt/harfbuzz
 LIBASS_DIR := native/libass-android-builder
 LIBASS_PREBUILT_DIR := native/prebuilt/libass
+ZLIB_DIR := native/zlib-android-builder
+ZLIB_PREBUILT_DIR := native/prebuilt/zlib
+LIBPNG_DIR := native/libpng-android-builder
+LIBPNG_PREBUILT_DIR := native/prebuilt/libpng
+LIBXML2_DIR := native/libxml2-android-builder
+LIBXML2_PREBUILT_DIR := native/prebuilt/libxml2
+LIBUNIBREAK_DIR := native/libunibreak-android-builder
+LIBUNIBREAK_PREBUILT_DIR := native/prebuilt/libunibreak
+FONTCONFIG_DIR := native/fontconfig-android-builder
+FONTCONFIG_PREBUILT_DIR := native/prebuilt/fontconfig
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
@@ -332,6 +342,11 @@ clean_native_build:
 	rm -rf $(FRIBIDI_DIR)/fribidi $(FRIBIDI_DIR)/build-* $(FRIBIDI_DIR)/meson-cross-*
 	rm -rf $(HARFBUZZ_DIR)/harfbuzz $(HARFBUZZ_DIR)/build-* $(HARFBUZZ_DIR)/meson-cross-*
 	rm -rf $(LIBASS_DIR)/libass
+	rm -rf $(ZLIB_DIR)/zlib
+	rm -rf $(LIBPNG_DIR)/libpng
+	rm -rf $(LIBXML2_DIR)/libxml2
+	rm -rf $(LIBUNIBREAK_DIR)/libunibreak
+	rm -rf $(FONTCONFIG_DIR)/fontconfig
 
 clean_prebuilt:
 	rm -rf native/torrentd/obj
@@ -349,6 +364,11 @@ clean_prebuilt:
 	rm -rf $(FRIBIDI_PREBUILT_DIR)/*
 	rm -rf $(HARFBUZZ_PREBUILT_DIR)/*
 	rm -rf $(LIBASS_PREBUILT_DIR)/*
+	rm -rf $(ZLIB_PREBUILT_DIR)/*
+	rm -rf $(LIBPNG_PREBUILT_DIR)/*
+	rm -rf $(LIBXML2_PREBUILT_DIR)/*
+	rm -rf $(LIBUNIBREAK_PREBUILT_DIR)/*
+	rm -rf $(FONTCONFIG_PREBUILT_DIR)/*
 	rm -rf MediaLib/libs/trakt-java.jar
 	rm -rf MediaLib/libs/cling-*-2.1.2.jar
 	rm -rf MediaLib/libs/seamless-*-1.1.2.jar
@@ -380,7 +400,16 @@ native_build_native/openssl-android-builder:
 native_build_native/libmysofa-android-builder:
 	cd native/libmysofa-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
-native_build_native/libfreetype-android-builder:
+native_build_native/zlib-android-builder:
+	cd native/zlib-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libpng-android-builder: native_build_native/zlib-android-builder
+	cd native/libpng-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libxml2-android-builder: native_build_native/zlib-android-builder
+	cd native/libxml2-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libfreetype-android-builder: native_build_native/zlib-android-builder native_build_native/libpng-android-builder
 	cd native/libfreetype-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
 native_build_native/libfribidi-android-builder:
@@ -389,7 +418,13 @@ native_build_native/libfribidi-android-builder:
 native_build_native/harfbuzz-android-builder: native_build_native/libfreetype-android-builder
 	cd native/harfbuzz-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
-native_build_native/libass-android-builder: native_build_native/libfreetype-android-builder native_build_native/libfribidi-android-builder native_build_native/harfbuzz-android-builder
+native_build_native/libunibreak-android-builder:
+	cd native/libunibreak-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/fontconfig-android-builder: native_build_native/libfreetype-android-builder native_build_native/libxml2-android-builder
+	cd native/fontconfig-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libass-android-builder: native_build_native/libfreetype-android-builder native_build_native/libfribidi-android-builder native_build_native/harfbuzz-android-builder native_build_native/fontconfig-android-builder native_build_native/libunibreak-android-builder
 	cd native/libass-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
