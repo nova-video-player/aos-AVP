@@ -59,3 +59,8 @@ export PATH=${NDK_PATH}/$PREBUILT/bin:$PATH
 echo PREBUILT_PATH is ${NDK_PATH}/$PREBUILT
 export PATH=${NDK_PATH}/toolchains/llvm/$PREBUILT/bin:$PATH
 echo LLVM_PATH is ${NDK_PATH}/toolchains/llvm/$PREBUILT
+
+if [ "$(uname)" = "Darwin" ]; then
+  export LIBTOOLIZE=glibtoolize
+fi
+
