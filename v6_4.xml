@@ -12,7 +12,7 @@
   <project path="MediaLib" name="aos-MediaLib" revision="v6.4" />
   <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="v6.4" />
 
-  <project path="native/avos" name="aos-avos" revision="audio-b2-architecture-rebuild" />
+  <project path="native/avos" name="aos-avos" revision="android_sync_back" />
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="ffmpeg-android-builder-nobin" revision="v8_0" />
   <project path="native/dav1d-android-builder" name="dav1d-android-builder-nobin" revision="v1_4" />
