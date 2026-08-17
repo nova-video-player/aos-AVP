@@ -33,6 +33,8 @@ Note that:
 
 Force Audio passthrough nova option disables AV receiver capability check to always use passthrough. This could result in streams not being properly decoded. This mode is enabled by default because some AV receivers were found capable of decoding more than what they were advertizing. For safer playback, consider disabling this option.
 
+The audio capabilities visible to Nova are reported by the Android TV, TV box, or other Android playback device, not queried directly from the AV receiver or soundbar. In some configurations, Android can omit a format that the connected receiver actually supports. Nova may then avoid that format or use a compatible lower-quality fallback (for example, DTS-HD or DTS:X may be sent as legacy DTS). Enabling **Force Audio passthrough** overrides the capabilities reported by Android and can restore the original format when the receiver genuinely supports it. This option cannot add support to the hardware: forcing a format that the receiver does not support can result in silence, noise, failed playback, or an incorrectly decoded stream. It should therefore only be enabled when the capabilities of the complete HDMI/ARC/eARC chain are known.
+
 Note that playback speed is not supported when using audio passthrough.
 
 ## Some videos play really slowly on my device.
@@ -51,7 +53,7 @@ Several network share protocols are supported by Nova:
 * UPnP: universal plug and play (some servers not supported, verified to work with synology and minidlna);
 * FTP: file transfer protocol on port 21 by default (some server types not supported);
 * FTPS: FTP secure on port 21 by default (some server types not supported);
-* SFTP: secure FTP on port 22 by default. This is the recommdended protocol to play videos when using remote access;
+* SFTP: secure FTP on port 22 by default. This is the recommended protocol to play videos when using remote access;
 * WEBDAV: web-based distributed authoring and versioning over http (port 80 or 5005 on a synology)
 * WEBDAVS: webdav over https (port 443 or 5006 on a synology)
 
@@ -59,21 +61,21 @@ Note that:
 
 * Nova is only compatible with ftp(s) servers supporting "recent" 2007 MLST command ([RFC3659](https://tools.ietf.org/html/rfc3659)), e.g. with proftpd but NOT with vsftpd;
 * Nova has UPnP support but issues can be experienced with remote subtitles support (UPnP has no native support for srt files). Nova is reported not to be compatible with Serviio media server;
-* Two types of SMB protocols are supported: smbj and jcifs-ng (smb). smbj is known to provide higher throughput but only supports SMB2+ protocols (not SMB1), use this one to play high bitrate videos;
+* Two types of SMB protocol clients are supported: jcifs-ng (default) and smbj. jcifs-ng is the preferred and most robust mode, featuring automatic SMB protocol level negotiations (SMB1 to SMB3); on Nova releases higher than 6.4.45, a custom jcifs-ng release is used to support higher throughput. smbj is an alternate, more experimental SMB implementation supporting SMB2+ protocols;
 * sshj seems to be a faster implementation for sftp.
 
 ## What is the best network protocol to play high bitrate video files?
 
 According to benchmarks, sftp and webdav are the best network protocols to play high bitrate video files (e.g. large 4k).
 
-Current default SMB implementation based on jcifs-ng is known to have difficulties to play high bitrate videos. smbj is an alternate SMB implementation pwhich erforms better but only supports SMB servers with protocol version higher than 2, i.e.: SMB1 will not work with smbj.
+Current default SMB implementation based on jcifs-ng is the preferred and most robust mode, automatically negotiating SMB protocol levels per server (SMB1 to SMB3); on Nova releases higher than 6.4.45, a custom jcifs-ng release is included that supports higher throughput. smbj is an alternate, more experimental SMB implementation which supports SMB servers with protocol version higher than 2 (SMB1 will not work with smbj).
 
 ## I cannot connect to a webdav server.
 
 When adding/browsing a webdav network shortcut, you need to fill the following dialog inputs:
 
 * dropdown menu: to select webdav or webdavs network protocol (i.e.: http or https);
-* server address: hostname/IP address (i.e. not an url) without specifying the path (e.g. [my.webdav.com](https://my.webdav.com));
+* server address: hostname/IP address (i.e. not a URL) without specifying the path (e.g. [my.webdav.com](https://my.webdav.com));
 * port: usually 443 for webdavs and 80 for webdav (on Synology NAS it is 5006 or 5005);
 * path: url path for the server starting with a slash (e.g. `/dav`).
 
@@ -85,12 +87,15 @@ Note that on Sony Android TVs, a rescan of USB disk is triggered at each power u
 
 ## Nova Video Player can’t find information on some of my videos, I’d like to add them manually.
 
-Nova Video Player supports NFO file description format that follows the [Kodi specification](https://kodi.wiki/view/NFO_files/Movies).Advanced users can manually create them or use a dedicated tool for this task. More details are available [here](https://github.com/nova-video-player/aos-AVP/wiki/NFO-files).
+Nova Video Player supports NFO file description format that follows the [Kodi specification](https://kodi.wiki/view/NFO_files/Movies). Advanced users can manually create them or use a dedicated tool for this task. More details are available [here](https://github.com/nova-video-player/aos-AVP/wiki/NFO-files).
 Note that Nova only supports The Movie Database identifiers (tmdbid).
+
+Nova also supports local artwork files placed alongside video files or in show/season folders (`poster.jpg`, `fanart.jpg`, `seasonNN-poster.jpg`, `season-all-poster.jpg`).
 
 ## What type of subtitles are supported?
 
 SRT, SUB, VOBSUB, PGS subtitles are supported. SSA support is rudimentary.
+Nova supports up to 128 subtitle tracks and 32 audio tracks per video file.
 
 ## Blue screen starting nova.
 
@@ -131,22 +136,28 @@ With AdGuard you need to add the following corresponding personalized filtering 
 Nova is able to play video files sequentially by choosing a play mode. This option is selectable when playing the video in one of the accessible menus. The various available play modes are:
 
 * Single (default one): play a single video and then stop;
-* Folder: play all the files sequentially in the folder of the file that initiated the playback and stop at after the last one has been played;
+* Folder: play all the files sequentially in the folder of the file that initiated the playback and stop after the last one has been played;
 * Repeat single: repeat in loop the video played;
 * Repeat folder: play all the files sequentially in the folder of the file that initiated the playback, and repeat this process in loop;
 * Binge watching: play TV show episodes sequentially even if they are not located in the same folder and stop at the last one of the last season available.
 
 ## How does automatic intro/outro skipping work?
 
-When enabled (off by default, toggled in the Play mode menu/tile), Nova fetches crowd-sourced intro/recap/credits/outro/preview timestamps for the playing episode from the theintrodb.org and introdb.app community databases and automatically seeks past them during playback. Intro, credits, outro and preview are skipped whenever the option is on; the recap is only skipped while binge watching (Binge watching play mode, on an episode auto-played after the previous one), so the first episode you start keeps its recap. A short toast confirms each skip.
+When enabled (off by default, toggle **"Skip intro/outro"** in the Play mode menu/tile, accessible via the playback menu on Phone/Tablet UI or via D-Pad Up/Menu on TV UI), Nova fetches crowd-sourced intro/recap/credits/outro/preview timestamps for the playing episode from the theintrodb.org and introdb.app community databases and automatically seeks past them during playback. Intro, credits, outro and preview are skipped whenever the option is on; the recap is only skipped while binge watching (Binge watching play mode, on an episode auto-played after the previous one), so the first episode you start keeps its recap. A short toast confirms each skip.
+
+## What are home screen categories and smart category decluttering?
+
+Home screen categories can be customized under **Settings → User interface**: **Hide watched videos** hides completed videos from home and category views; **Smart home rows decluttering** (Phone/Tablet & TV) turns the standard rows into decluttered smart rows, i.e. **New to watch** (replaces *Recently added*, showing only unwatched content grouped by show/movie) and **Keep watching** (replaces *Recently played*, grouping episodes by show and keeping only the most recently played one per show).
+
+On TV (Leanback), **Settings → Leanback user interface** additionally allows separating Anime into its own home row, and toggling visibility/sort order of each row (Recently added, Recently played, Movies, TV Shows, Anime).
 
 ## Dolby Vision and HDR.
 
-Dolby Vision and HDR support on AndroidTV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. 
+Dolby Vision and HDR support on Android TV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. 
 
 Note that specific patches have been integrated in Nova v6.0.33 to improve DOVI support.
 
-Dolby Vision requires specific HW support and TV box constructor in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
+Dolby Vision requires specific HW support and TV box manufacturers in certain cases have to pay a specific license to benefit from this feature. This is the case for Amlogic S905Xx based hardware. Cheap chinese non certified hardware might not fullfil this requirement.
 
 ## Washy colors on the TV.
 
@@ -154,27 +165,48 @@ It can happen that the bottom and top bars instead of being black are with a gre
 
 This is due to a wrong HDMI display mode selected that has a color space not compatible with the video color format.
 
-In order to overcome the issue, on some hardware (e.g. nvidia shield), you can disable the adaptive refresh rate on nova and force the display mode to be used going through Android setting in display/audio->advanced to match color space to content color format one.
+In order to overcome the issue, on some hardware (e.g. nvidia shield), you can disable the adaptive refresh rate on nova and force the display mode to be used going through Android setting in display/audio → advanced to match color space to content color format one.
 
 Most often the washy colors happen using RGB8 and not with YUV420 (RGB/8/Rec.709 NOK, YUV420/8/Rec.709 OK, YUV422/12/Rec.2020/hdr OK, YUV422/10/Rec.2020/hdr OK).
 
 One can check the compatible display modes of your device through `adb shell dumpsys SurfaceFlinger`. The video color format used can be checked with FFMpeg `ffprobe` command.
 
-Best is to use HDMI 2.1 compativle devices and be aware that you can deteriorate the experience if you have a sound bar that would be only HDMI 1.4 capable between your Android TV box and your TV.
+Best is to use HDMI 2.1 compatible devices and be aware that you can deteriorate the experience if you have a sound bar that would be only HDMI 1.4 capable between your Android TV box and your TV.
 
 ## Adaptive refresh rate on fire tv stick.
 
-In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings -> display & sounds -> Display, put video resolution to auto (up to 4k ultra hd); -> match original frame rate ON; -> dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
+In order to get adaptive refresh rate on Amazon fire tv stick you need to enable it in fireOS settings → display & sounds → Display, put video resolution to auto (up to 4k ultra hd); → match original frame rate ON; → dynamic range settings disable HDR or set it to adaptive. If you do not do this you will only have a restrictive set of refresh rates available.
 Note that choosing adaptive for dynamic range setting, your UI will be 1080p, and disabled will enable a 4k UI.
+
+## How to adjust video aspect ratio and enable projector mode?
+
+Nova Video Player provides options to adapt video playback to your display or projector setup:
+
+**Aspect Ratio Modes:**
+While playing a video, you can cycle through aspect ratio modes via the video player menu or by pressing the **`F`** key shortcut. Supported modes include:
+* **Original**: Preserves the original video aspect ratio;
+* **Full Screen**: Scales the video to fill the display while minimizing cropping;
+* **Stretch**: Stretches the video to match display bounds;
+* **Force 4:3 / 16:9 / 1.85:1 / 2.39:1**: Forces specific aspect ratios;
+* **Auto**: Automatically detects and trims black borders when applicable.
+
+Note that Nova prioritizes container-level sample aspect ratio metadata (such as Matroska DisplayWidth/DisplayHeight) over stream codec headers to properly render anamorphic videos. Be aware that video files encoded with hardcoded black bars directly inside the video stream can interfere with automatic aspect ratio scaling and display bounds; in such cases, selecting **Auto** or a specific forced aspect ratio mode helps crop or scale the active picture correctly.
+
+**Projector Mode:**
+Enabled via Nova Settings ("Enable projector mode"). This mode aligns widescreen videos to the top of the screen (concentrating black bars at the bottom) rather than centering them vertically. This is particularly useful for projector setups to align the image frame with screen borders.
 
 ## How to use playback speed.
 
 First you need to enable it in nova settings ("Enable playback speed").
-This option is not available when using audio passthrough.
+Note that playback speed is not available when using audio passthrough.
 
-This feature enables various playback speed from 0.05x to 2.00x. Though accessible through menu/tile while playing, various shortcuts (cf dedicated section) are available. Control is also mapped to next/prev track available on some remotes (e.g. Ugoos UR02 BT remote).
+This feature enables various playback speeds from 0.05x to 2.00x. Two audio speed modes are available in settings:
+* AudioTrack mode: based on the Android framework implementation;
+* FFmpeg atempo mode: a more universal, platform-independent implementation.
 
-It might not work when you are using a AV receiver (e.g. nvidia shield with samsung soundbar).
+Though accessible through menu/tile while playing, various shortcuts (cf dedicated section) are available. Control is also mapped to next/prev track available on some remotes (e.g. Ugoos UR02 BT remote).
+
+It might not work when you are using an AV receiver (e.g. nvidia shield with samsung soundbar).
 It might cause choppy video playback on some hardware due to funky audiotrack implementation (e.g. Mediatek based Google streamer).
 
 ## Visibility of external USB drive on Nvidia Shield.
@@ -196,7 +228,7 @@ Opensubtitles has announced to all app developers that starting January 2024, XM
 
 As a consequence, old opensubtitles.org logins will not be supported anymore and users need to register an account at opensubtitles.com to continue to use the service with nova.
 
-Note that there is a download quota of 5 subs per IP and per 24 hours without inputing credentials and 10-20 with a registered account.
+Note that there is a download quota of 5 subs per IP and per 24 hours without inputting credentials and 10-20 with a registered account.
 
 The remaining quota will be reported when downloading subs by nova.
 
@@ -228,7 +260,7 @@ Note that this is a global Android practice and since nova is relying on Android
 
 ## Audio boost effect acts temporarily
 
-This can be avoided by selecting PCM instead of Automatic in Android All settings -> Display & Sound -> Advanced sound settings -> Select formats.
+This can be avoided by selecting PCM instead of Automatic in Android All settings → Display & Sound → Advanced sound settings → Select formats.
 This option removes the adaptive normalization of the sound that seems to be Android TV default behavior canceling nova's boost mode after a while.
 
 ## What are the touch zones and gestures in the video player?
@@ -380,4 +412,3 @@ Nova application privacy policy can be found [here](https://home.courville.org/n
 ## I want to sponsor Nova.
 
 You are always welcome to show your gratitude and appreciation to the developers of this application through a donation via [paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=software%40courville.org&lc=US&item_name=Nova+Video+Player+Donation&no_note=0&no_shipping=1&currency_code=EUR), or [liberapay](https://liberapay.com/NovaVideoPlayer/donate) or [github sponsor](https://github.com/sponsors/courville) or [opencollective](https://opencollective.com/novavideoplayer).
-
