@@ -218,6 +218,12 @@ all:
 full:
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew -PadultScrape -Psponsor aND
 
+publish:
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew publishNoamazonReleaseBundle
+
+release:
+	cd AVP/release; ./release.sh
+
 AVP/android-setup: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
 
 AVP/android-ndk:
