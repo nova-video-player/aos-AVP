@@ -253,6 +253,8 @@ AVP/android-others:
 
 $(foreach PKG,$(NATIVE_LIST),$(eval $(call gen_native_build,$(PKG))))
 
+phony_rules += all full publish release clean native native_clean external_build external_clean clean_native_build clean_prebuilt $(native_rules) $(native_clean_rules)
+
 .PHONY: $(phony_rules)
 
 define cp_ffmpeg_libs
