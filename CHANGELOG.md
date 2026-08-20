@@ -1,5 +1,464 @@
 # Nova Video Player changelog
 
+<a id="v6.4.51"></a>
+## [v6.4.51 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.51) - 2026-08-20
+
+- Fix false seek-back detection triggering on initial video seek
+- Fix audio going permanently silent after seeking
+- Fix ANR caused by lock-order inversion in the video sink thread
+- Fix potential crash under memory pressure when creating bitmaps
+- Fix audio pitch drift accumulating across playback speed changes
+- Improve audio playback smoothness when audio buffering is starved during demuxing
+- Perform following upsteps: FFmpeg 8.0.3, dav1d 1.5.4, boost 1.92.0, libtorrent 2.0.14, OpenSSL 3.5.7 and Opus 03647f5
+
+[Changes][v6.4.51]
+
+
+<a id="v6.4.50"></a>
+## [v6.4.50 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.50) - 2026-08-19
+
+- Fix missing video title on TV UI
+- Fix "Show all animations row" not matching localized anime genre
+
+[Changes][v6.4.50]
+
+
+<a id="v6.4.49"></a>
+## [v6.4.49 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.49) - 2026-08-19
+
+- Fix autoscrape incorrectly aborting local file scans when off WiFi/Ethernet (e.g. on cellular network)
+- Improve scraper matching for movie titles with trailing roman numerals
+- Add file count tracking and display during network scans, shown on TV overlay
+- Fix artwork fallback when artwork data is missing
+- Fix a security issue with an unsafe broadcast intent
+- Scop internal broadcasts to the app to improve security
+- Limit background thread pool usage to reduce resource consumption
+- Fix "Show all animations row" setting not persisting correctly
+- Fix phone controls overlay incorrectly appearing on TV interface
+- Fix a backdrop image loading race condition on the TV shows screen
+
+[Changes][v6.4.49]
+
+
+<a id="v6.4.48"></a>
+## [v6.4.48 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.48) - 2026-08-18
+
+- Improved automatic TV show scraping accuracy for series sharing identical titles, such as reboots and classic shows.
+- Fixed episode metadata matching for TV shows using absolute episode numbering (such as anime) or non-standard file names.
+- Improved metadata lookup for TV specials and episodes listed in Season 0 on TMDb.
+- Enhanced search result ranking for show titles containing acronyms and subtitles.
+- Added a count of non-scraped videos in the dedicated unidentified videos view.
+- Adjusted Android TV interface layout and font scaling to prevent title text overlap.
+- Fixed crashes when browsing or scanning SMB network shares.
+- Fixed an app crash when loading video trailers.
+- Fixed stability issues and crashes on certain Android devices with incomplete framework definitions.
+
+[Changes][v6.4.48]
+
+
+<a id="v6.4.47"></a>
+## [v6.4.47 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.47) - 2026-08-17
+
+- Fixed video resume position accuracy and persistence across app switches, screensavers, and external players.
+- Fixed an issue where starting a video over from the beginning restored a previous saved position.
+- Improved player responsiveness when seeking, pausing, or switching playback speed, audio tracks, and subtitles.
+- Resolved app freezes during startup and when deleting files or folders.
+- Fixed auto-authentication failures for saved network shares (SMB, SFTP, FTP).
+- Fixed crashes and instability when discovering or searching UPnP network devices.
+- Improved TV show scraping accuracy for folder names containing release years.
+- Fixed Android TV interface crashes when updating home screen rows, viewing season details, or sorting video sources.
+- Fixed player crashes during touch gestures, subtitle changes, video decoder recovery, and playback stream handling.
+- Fixed app crashes during background transitions, file deletion navigation, and external player launches.
+
+[Changes][v6.4.47]
+
+
+<a id="v6.4.46"></a>
+## [v6.4.46 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.46) - 2026-08-15
+
+- Add a "Next Episode" button to the details screen on phones and tablets (feature parity with TV UI).
+- Improve automatic subtitle selection to correctly choose preferred Chinese language variants (Simplified vs. Traditional).
+- Fix video distortion and incorrect aspect ratios on anamorphic videos and Matroska files with custom display dimensions.
+- Fix video scaling and aspect ratio distortion when mirroring playback over HDMI to an external display.
+- Improve audio and video synchronization when starting playback over Bluetooth audio devices.
+- Improve audio timing and synchronization stability when using AC3 audio recoding on TV under Android OS connected to AVR.
+- Improve SMB network share connections by automatically detecting the supported protocol for each server (please report any regression).
+- Fix playback failures for long streaming URLs and added support for custom HTTP headers.
+- Fix scheduled background network rescans running in an endless loop.
+- Improve TV show library scanning to reliably import missing episode details, artwork, and local NFO file updates over network shares.
+- Automatically clean up unused network server entries when removing indexed folders.
+- Fix a potential app crash when loading artwork images with extreme aspect ratios.
+
+[Changes][v6.4.46]
+
+
+<a id="v6.4.45"></a>
+## [v6.4.45 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.45) - 2026-07-29
+
+- Fix D-pad navigation regression on TV UI when scrolling through video file information
+
+[Changes][v6.4.45]
+
+
+<a id="v6.4.44"></a>
+## [v6.4.44 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.44) - 2026-07-28
+
+- Support videos with up to 32 audio tracks and 128 subtitle tracks
+- Preserve file selection in the browser after returning from details or refreshing folders
+- Make video details screen scrollable when many audio tracks are present
+- Fix TV back button navigation in preference submenus, subtitle wizard, and long-press shortcuts
+- Fix settings icon rendering on TV devices with MediaTek GPUs
+
+[Changes][v6.4.44]
+
+
+<a id="v6.4.43"></a>
+## [v6.4.43 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.43) - 2026-07-27
+
+- Improved preferred audio track auto-selection, ensuring your chosen language is correctly picked for tracks with custom titles or regional variants (such as Chinese)
+- Fixed an issue on Android TV where pressing the Back key could not dismiss subtitle controls
+
+[Changes][v6.4.43]
+
+
+<a id="v6.4.42"></a>
+## [v6.4.42 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.42) - 2026-07-24
+
+- Android target API 36 upstep
+- Translations sync with crowdin
+- Trakt: Fixed Trakt sign-in dialog unexpectedly closing on web loading errors and improved feedback for third-party logins.
+- Library: Retained metadata and scraper info when moving videos between folders or storage volumes.
+- Library: Resolved missing backdrops and posters when multiple videos or shows share artwork.
+- Scraper: Improved TV show lookup accuracy when directory names contain season years or title variants with "and" / "&".
+- Audio: Added lossless multichannel audio passthrough support for DTS:X tracks.
+- Audio: Disabled playback speed adjustments when using MediaCodec audio decoding to prevent playback stalls.
+- Audio: Improved MediaCodec audio decoding stability, preventing audio drops and playback failures near the end of files.
+- Video: Fixed video micro-stuttering and skipped or duplicated frames during playback, seeking, and speed changes.
+- Subtitles: Fixed a crash that could occur while parsing external subtitles.
+- Library: Added support for local Kodi and Jellyfin NFO season poster artwork (`seasonNN-poster.jpg`).
+
+[Changes][v6.4.42]
+
+
+<a id="v6.4.41"></a>
+## [v6.4.41 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.41) - 2026-07-22
+
+- Android frame sync is back as sole scheduler
+- Improved lipsync based on new occupancy based audio pipeline latency estimator taking into account also compressed packet size for audio passthrough
+- Improved NFO metadata parsing to support Kodi/Jellyfin format tags, local backdrop images, release year fallbacks, and prevented auto-scraping from overwriting custom local NFO info
+- Preserved media metadata, artwork, and playback progress when moving video files across internal storage, SD cards, or USB drives
+- Consolidated recap skipping into a single "Skip intro/outro" toggle for binge-watching TV shows
+- Fixed Trakt playback resume progress synchronization across multiple devices
+- Fixed an issue with matching preferred default audio track languages
+- Stability enhancements
+
+[Changes][v6.4.41]
+
+
+<a id="v6.4.40"></a>
+## [v6.4.40 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.40) - 2026-06-29
+
+- Added support for automatically skipping video intros, recaps, and outros/credits (powered by a fusion of theintro.db and introdb.app providers).
+- Fixed Dolby Atmos (E-AC3 JOC) audio lagging behind video during passthrough.
+- Fixed audio synchronization issues when using AC3 audio transcoding over eARC/HDMI passthrough connections.
+- Fixed scraped posters and background art being deleted when moving video files on internal storage.
+- Improved movie search scraping by retrying without the release year if the year is incorrect.
+- Fixed various database migration and startup crashes, especially on older Android versions.
+- Fixed native player crashes related to subtitle handling, video frame teardown, and audio dynamic range compression.
+
+[Changes][v6.4.40]
+
+
+<a id="v6.4.39"></a>
+## [v6.4.39 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.39) - 2026-06-23
+
+- Improved subtitle and audio track names with disposition-aware labels
+- Movie scraper now retries searches without diacritics for better matches (german)
+- Improved scraper accuracy for TV and movie detection from messy filenames
+- Better handling of remakes, numeric titles, and country hints when scraping
+- Audio delay preference is saved immediately when toggled or changed
+- Disabled unsupported positive audio delay in passthrough modes
+- Improved audio/video sync handling for manual A/V delay and AC3 recoding passthrough
+- Address one source of sound gaps with AC3 recoding passthrough
+- Fix media database crash when connection gets closed
+
+[Changes][v6.4.39]
+
+
+<a id="v6.4.38"></a>
+## [v6.4.38 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.38) - 2026-06-14
+
+As you may now, I have been working a lot on reworking nova multimedia engine (avos) audio pipeline architecture to get better lipsync. This has led me to try many different architectures that were not really converging.
+This release takes yet another path: instead of trying to correct A/V drift after it appears, Nova now anchors video timing directly to the audio position that is actually reaching the speakers.
+The audio engine now handles AudioTrack and software tempo changes with separate backend-specific clocks, making speed changes, seeks, pauses, and resumes much less prone to accumulated lipsync errors.
+
+- Improve audio/video sync, including passthrough (DTS-HD, TrueHD), playback speed changes, and resume/seek scenarios
+- Fixed A/V desync during playback speed adjustments and after seeking
+- Improved Trakt sync: minimum resume threshold to avoid recording accidental short plays, plus reliable resume saving on pause/stop
+- Added Trakt sync status and skip reason visibility in settings
+- Fixed OpenSubtitles login errors and added OpenSubtitles status display in settings
+- Skip subtitle fetch timeout for local files to prevent double external player launch
+- Fixed unintended subtitle background rendering and synced subtitle position with the player action bar
+- Fixed TV player overlay visibility and TV channels not refreshing after creation
+- Prevented metadata loss and unscraped files when moving files
+- Improved scraper robustness for long titles, ambiguous names, and localized queries (german tranliteration)
+
+[Changes][v6.4.38]
+
+
+<a id="v6.4.37"></a>
+## [v6.4.37 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.37) - 2026-05-22
+
+- Add dynamic subtitle background and opacity control (thanks @pratikpatel8982)
+- Implement adaptive resolution scaling to fix high-resolution poster downscaling artifacts
+- Fix backdrop and poster deletion when moving or replacing video files
+- Recognize 4-digit episode format (e.g. 0208 → S02E08) in scraper
+- Significantly rework (again) passthrough audio: fix TrueHD/DTS-HD/DTS fallback, AV desync, and PCM lipsync after pause/resume
+- Only list matching subtitle files from Subtitles/ subdirectory
+- WIP: huge deprecated API refactoring (e.g. AsyncTask) that could lead to some regressions
+
+[Changes][v6.4.37]
+
+
+<a id="v6.4.36"></a>
+## [v6.4.36 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.36) - 2026-05-02
+
+New release (former one had issues):
+
+- Fix crash caused by a race condition during version initialization
+- Switch default SMB implementation back to jcifs-ng (smbj is now slower)
+- Smooth sink-driven AV sync for PCM and passthrough mode 2
+- Fix filename displayed as title not updating when the next file starts playing in repeat folder mode
+- Harden passthrough mode 2 resume timing
+- Update jsch to 2.28.2
+
+I have been working on better lipsync in recent releases. This is especially difficult for passthrough because Android/vendor audio stacks do not always report the full latency of system encapsulation, notably on newer MS12-based devices such as Google Streamer 4K.
+
+Some important remarks:
+- If you use audio passthrough, prefer Nova encapsulation mode when available.
+- System encapsulation depends heavily on Android/vendor audio timing; on some devices, especially MS12-based ones, reported latency can be incomplete.
+- Soundbars, AVRs, ARC/eARC, and Dolby/DTS processing can add delay that Android does not expose to applications.
+- PCM decoding generally gives Nova better timing information and may be the most reliable option when passthrough lipsync is device-dependent.
+- If passthrough lipsync is still off on a specific setup, try the alternate passthrough mode, PCM decoding, or the manual A/V delay setting.
+- Nvidia Shield and Google Streamer 4K can behave differently even with the same soundbar because their Android audio stacks are different.
+
+[Changes][v6.4.36]
+
+
+<a id="v6.4.35"></a>
+## [v6.4.35 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.35) - 2026-04-24
+
+- Improved SMB streaming performance and throughput for 4K content via native pre-fetching
+- Optimized jcifs-ng throughput and metadata caching for faster network file browsing
+- Avoid forcing Dolby Vison without a matching decoder profile, prefer HEVC fallback for Profile 7 streams, and retry HEVC when DV decoder init fails
+- Improved lipsync accuracy both with PCM decoding and passthrough modes (nova encapsulation or Android system encapsulation)
+- Refocus on one scheduler algorithm for nova multimedia engine (no more Android frame sync)
+- Fixed media library import state getting stuck during Android scanning
+
+[Changes][v6.4.35]
+
+
+<a id="v6.4.34"></a>
+## [v6.4.34 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.34) - 2026-04-04
+
+- Fix foreground lifecycle race in VideoStoreImportService that prevented local storage rescan on launch
+- Fix network auto-scrape not triggering after multi-folder scan completion
+- Fix TV episode/show database lookup crashes during scraping
+- Add technical playback information panel in video info screen (phones/tablets)
+- Fix audio passthrough crash during AudioTrack teardown
+- Fix incorrect audio delay reporting when dynamic delay is disabled
+- Add technical information during playback in VideoInfoActivityFragment for phones/tablets
+
+[Changes][v6.4.34]
+
+
+<a id="v6.4.33"></a>
+## [v6.4.33 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.33) - 2026-04-03
+
+- Add spatial audio on platforms that supports it with reporting
+- Add MediaCodec audio decoder support option with capabilities reporting with fallback to FFmpeg when audio track codec is not supported
+- Fix multiple remaining audio sync issues
+- Improve app startup time by deferring heavy initialization
+- Update SSH library (jsch 2.28.0)
+
+[Changes][v6.4.33]
+
+
+<a id="v6.4.32"></a>
+## [v6.4.32 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.32) - 2026-03-29
+
+- Upgrade TMDb poster and backdrop image quality (requires a full rescrape of the video collection)
+- Refresh remaining scrape count when new items arrive during an ongoing auto-scrape
+- Fix potential deadlock and harden burst writes in audio passthrough mode
+- Fix audio/video sync issues in passthrough mode and with PCM decoding
+- Remove redundant poster downscaling and clear image cache on upgrade to use higher-quality images (saves storage space)
+- Fix Jetty log flooding caused by repeated ServerConnector accept() errors on Android
+- Add audio decoder preference to choose between software (FFmpeg) and hardware (MediaCodec) audio decoding
+- Display MediaCodec audio capabilities in the leanback information tile while playing
+
+[Changes][v6.4.32]
+
+
+<a id="v6.4.31"></a>
+## [v6.4.31 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.31) - 2026-03-23
+
+- Fix WebDAV range request handling to prevent premature stream end
+- Restore saved WebDAV/SFTP password and preserve custom port
+- Fix movie scrape regression for filenames with year and trailing tags
+- Harden Trakt device auth against malformed code responses
+- Stop Trakt 401 error storm by aborting sync on authentication failure
+- Always pass through hardware volume keys to framework on Android TV
+- Fix seek playback recovery on timeout
+- Add post-seek output watchdog with codec restart for hardware decoder
+- Fix audio/video sync issues in passthrough mode
+- Fix TrueHD passthrough mute and drift issues
+- Stabilize TrueHD tiny-frame PCM path with accumulation batching
+- Improve audio tempo quality with float processing and larger PCM batches
+- Fix fast video sync with AudioTrack delay warmup
+- Fix video thread stall on shutdown and clean up audio filter resources
+- Safely detach JVM threads on audio close
+- Relax Hi10 decoder pre-rejection
+- Bump libtorrent to v2.0.12
+
+[Changes][v6.4.31]
+
+
+<a id="v6.4.30"></a>
+## [v6.4.30 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.30) - 2026-03-15
+
+This release enables a faster SMB jcifs-ng implementatio (not the SMB+ based on smbj), please try it and report findings.  
+
+Some heads up that you could have missed in the recent releases: check out
+* the new dark mode (@leeroy's contribution);
+* the projector mode to shift up the video surface to top of the screen (@leeroy's contribution);
+* the smart categories to regroup/declutter the "New to watch" and "Keep watching"
+
+Note that android frame time, dynamic delay and audio speed are now enabled by default.
+
+- Boost SMB read/write performance with jcifs-ng 1MB multicredit support
+- Fix stale SMBJ file handles after mid-stream read failure
+- Fix A/V sync drift after seek
+- Unify render offset anchoring with audio timeline
+- Handle NV12 correctly in FFmpeg pixel conversion
+- Avoid abort on oversized multipart path formatting
+- Prevent double-free on release/reset in native player
+- Fix requestFeature() crash on startup (this should fix Android 6.0 version incompatibility)
+- Fix several null pointer crashes in player controller, subtitle manager, and metadata track access
+- Fix null pointer crashes in show scraper when tags cannot be rebuilt
+- Fix InterruptedException crashes during auto-scrape
+- Enable android frame timing, dynamic delay, and audio speed by default
+
+[Changes][v6.4.30]
+
+
+<a id="v6.4.29"></a>
+## [v6.4.29 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.29) - 2026-03-14
+
+- Fix subtitle URL construction for HTTP streaming URLs (e.g. Stremio)
+- Add HTTP streaming support for URLs without file extensions
+- Fix HDMI volume increasing by +1 on each playback start
+- Pass through hardware volume keys to framework on Android TV for proper CEC/ARC control
+- Fix audio passthrough options greyed out on Android TVs without soundbars
+- Improve SPDIF capability handling and prevent cross-route capability leakage between SPDIF and HDMI ARC/eARC
+- Fix static noise during AC3 recoding on eARC hardware
+- Fix AC3 recoding to avoid IEC-wrapped noise
+- Fix TrueHD PCM sync drift and desync on sample rate transitions
+- Fix atempo filter not being closed on audio track switch, preventing heap corruption
+- Fix manual A/V delay for both android_sync modes
+- Add color metadata plumbing and improve software colorspace handling (BT.709/BT.2020)
+- Preserve NTSC VobSub frame height
+- Fix inverted/gray DVD bitmap subtitle colors
+- Fix MediaSession reporting wrong playback states to Android
+- Remember last aspect ratio across sessions
+- Fix external player not initializing progress bar on video thumbnails
+- Fix external display rendering regression and cutout metric typo
+- Add Nova UPnP user agent for DLNA requests
+- Add preemptive authentication to WebDAV to avoid 401 round-trips
+- Respect SMBj preference for smb:// URIs
+- Improve SMBj robustness with retry logic for transport errors
+- Use multicredit jcifs-ng for SMB2 speed enhancements
+- Use positional SMBJ reads for ranged media streams
+- Cancel superseded localhost proxy sessions safely
+- Check .nomedia even on slow remotes
+- Fix Trakt authentication error handling with specific error messages
+- Fix Trakt token renewal and retry logic
+- Fix multiple NPEs in Trakt sync
+- Fix manual scraping failing on second episode of same season
+- Fix TV show search failing when TMDB lacks native language title
+- Fix special episode (SxxE00) scraping via season 0 title matching
+- Fall back to year-less TMDB search when year-constrained query returns no results
+- Improve movie filename year extraction and title matching for titles containing years
+- Support `<plot>` and plain-text `<set>` in movie NFO parser
+- Add releasedate, trailer, director and writer NFO import/export support
+- Harden AutoScrapeService against CursorWindow overflow
+- Add rescan icon and revamp phone/tablet navigation layout
+- Unify cast actor/character display across TV and phone interfaces
+- Use filename/path on two lines for phone interface video info
+- Compact resume view with rounded corners
+- Fix SuperNotCalledException crash in MainActivityLeanback
+- Fix cursor-backed loader leaks in leanback interface
+- Defer leanback row loaders during scraping to avoid UI stalls
+- Fix SIGSEGV race in video sink on close
+- Add NULL guards to prevent SIGSEGV on surface teardown
+- Fix resume deadlock and skipped-frame buffer leak
+- ffmpeg 8.0.1 upstep
+- dav1d 1.5.3 upstep
+- libtorrent 2.0.11 upstep
+- openssl 3.5.5 upstep
+- boost 1.90.0 upstep
+- jsch 2.27.9 upstep
+- trakt 6.17.0 upstep
+- jupnp 3.0.4 upstep
+
+This release contains contributions from @leeroy.
+
+[Changes][v6.4.29]
+
+
+<a id="v6.4.28"></a>
+## [v6.4.28 release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.28) - 2026-02-16
+
+- Add theme selection with new dark theme
+- Fix video tile background color visibility on dark background
+- Fix theming updates, private mode indicator, and leanback background refresh
+- Fix episode key mismatch in manual TV show scraping
+- Add poster fallback for single-episode manual scraping
+- Optimize manual scraping to fetch single episode instead of entire season
+- Fix crashes in episodes browser
+- Improve TV show episode browsing UI and thumbnail handling
+- Fix PCM 6.1 playback on HDMI ARC/eARC setups
+- Fallback 6.1 PCM to 5.1 when channel masks are unknown
+- Fix 6.1 AAC downmix and sink channel alignment
+- Improve SPDIF detection on Android TV
+- Relax IEC61937 passthrough gating on pre-API 23 TVs
+- Fix E-AC3 passthrough sync issues
+- Fix passthrough startup sync
+- Disable dynamic delay by default and in UI when passthrough is selected
+- Improve audio delay smoothing for more robust playback
+- Forward HTTP headers from external player intent to player and metadata retriever
+
+This release contains contributions from @leeroy.
+
+[Changes][v6.4.28]
+
+
+<a id="v6.4.27"></a>
+## [v6.4.27 /!\ pre-release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.27) - 2026-02-08
+
+- HDMI audio improvements with channel mask support and PCM capability checks
+- External player enhancements: attempt to fix resume position for Stremio
+- UI fix: resolved Full Screen Cutouts button overlaying Aspect Ratio in Portrait Mode
+- Performance: optimized TV show scraping with lazy loading of season images
+- Stability: prevented infinite indexing loops in AutoScrapeService
+- Audio: fixed E-AC3 passthrough timing for IEC and system modes
+- Audio: fall back to 5.1 when 6.1 PCM mask is unsupported
+- Frame sync: improved android_sync=1 post-seek re-anchoring
+- Database: ensured proper SQLite cursor cleanup to prevent leaks
+
+This release contains contributions from @leeroy.
+
+[Changes][v6.4.27]
+
 <a id="v6.4.26"></a>
 ## [v6.4.26 /!\ pre-release](https://github.com/nova-video-player/aos-AVP/releases/tag/v6.4.26) - 2026-02-01
 
