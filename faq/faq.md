@@ -17,23 +17,22 @@ Network shares can also be added as video sources.
 
 ## What are the differences between the audio passthrough modes?
 
-Audio passthrough amounts to transmit through HDMI interface compressed sound channels directly to your AV receiver that will perform the decoding and rendering. It is thus a feature targeted for Android TV or TV boxes.  
-On Nova Video Player, three audio passthrough modes are supported:  
+Audio passthrough transmits compressed multi-channel audio directly over HDMI or S/PDIF to your AV receiver or soundbar for decoding. It is a feature targeted for Android TV or TV boxes connected to an external audio system.  
+On Nova Video Player, three audio passthrough modes are supported (disabled by default in **Settings → Audio**):  
 
-* Nova encapsulation (experimental): spdif/IEC61937 encapsulation is done by nova opening directly an IEC61937 audio track;
-* System encapsulation: Android performs the encapsulation;
-* Universal (AC3 recode): targets AndroidTV TVs linked to AV receiver through ARC that cannot sustain multichannel PCM payload (i.e. ARC non eARC), to recode original sound track to AC3 5.1 and use system encapsulation passthrough.
+* **Nova encapsulation** (experimental): spdif/IEC61937 encapsulation is done by Nova opening directly an IEC61937 audio track;
+* **System encapsulation**: Android performs the encapsulation;
+* **Universal (AC3 recode)**: targets TV setups linked to an AV receiver through ARC that cannot sustain multi-channel PCM payload (i.e. ARC non eARC), recoding the original sound track to AC3 5.1 and dynamically selecting Nova encapsulation (Mode 1) or System encapsulation (Mode 2) depending on route IEC capability.
 
 You might have to try the various modes and figure out what suits you best depending on the multi-channel audio codec used in your video files.
 
 Note that:
 
 * when using an Android TV box (not an Android TV TV) directly connected via HDMI to your AV multichannel receiver and thus not through ARC, multichannel support can be achieved through multichannel PCM which is natively supported by Nova without the need to activate passthrough;
-* multichannel PCM or AAC is not supported via ARC (eARC is required) resulting in stereo output
+* multichannel PCM or AAC is not supported via ARC (eARC is required) resulting in stereo output;
+* positive A/V delay (delaying video) is supported during passthrough to align video with receiver audio latency, whereas negative A/V delay (delaying audio) is not supported on compressed bitstreams.
 
-Force Audio passthrough nova option disables AV receiver capability check to always use passthrough. This could result in streams not being properly decoded. This mode is enabled by default because some AV receivers were found capable of decoding more than what they were advertizing. For safer playback, consider disabling this option.
-
-The audio capabilities visible to Nova are reported by the Android TV, TV box, or other Android playback device, not queried directly from the AV receiver or soundbar. In some configurations, Android can omit a format that the connected receiver actually supports. Nova may then avoid that format or use a compatible lower-quality fallback (for example, DTS-HD or DTS:X may be sent as legacy DTS). Enabling **Force Audio passthrough** overrides the capabilities reported by Android and can restore the original format when the receiver genuinely supports it. This option cannot add support to the hardware: forcing a format that the receiver does not support can result in silence, noise, failed playback, or an incorrectly decoded stream. It should therefore only be enabled when the capabilities of the complete HDMI/ARC/eARC chain are known.
+The audio capabilities visible to Nova are reported by the Android TV, TV box, or other Android playback device, not queried directly from the AV receiver or soundbar. In some configurations, Android can omit a format that the connected receiver actually supports. Nova may then avoid that format or use a compatible lower-quality fallback (for example, DTS-HD or DTS:X may be sent as legacy DTS). Enabling **Force Audio passthrough** (disabled by default) overrides the capabilities reported by Android and can restore the original format when the receiver genuinely supports it. This option cannot add support to the hardware: forcing a format that the receiver does not support can result in silence, noise, failed playback, or an incorrectly decoded stream. It should therefore only be enabled when the capabilities of the complete HDMI/ARC/eARC chain are known.
 
 Note that playback speed is not supported when using audio passthrough.
 
