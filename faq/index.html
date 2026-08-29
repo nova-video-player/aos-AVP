@@ -128,6 +128,20 @@ On Nova Video Player, three audio passthrough modes are supported (disabled by d
 
 <p>Note that on Sony Android TVs, a rescan of USB disk is triggered at each power up/return from suspend and it is a Sony bug (cf. <a href="https://github.com/nova-video-player/aos-AVP/issues/354">here</a>).</p>
 
+<h2>What does the badge/counter next to the clock mean on Android TV?</h2>
+
+<p>On the TV UI (Leanback), a small badge and counter enclosed in a spinner can appear in the top-right corner, next to the clock, to report background library activity that used to spin silently with no feedback. The badge is <code>&lt;domain&gt;:&lt;phase&gt;</code>:</p>
+
+<ul>
+<li><strong><code>L</code></strong>/<strong><code>N</code></strong>: Local storage or Network share is being processed;</li>
+<li><strong><code>S</code></strong>/<strong><code>D</code></strong>: Scan (indexing new files) or Delete (cleanup) phase;</li>
+<li><strong><code>I</code></strong>: Identify phase, i.e. metadata/artwork scraping (no domain prefix, applies globally).</li>
+</ul>
+
+<p>During the Scan phase, the counter (shown in a dimmer color) reflects the number of files being scanned/considered. During the Delete phase (<code>L:D</code>/<code>N:D</code>), Nova is only removing the database/library entries and metadata of files it has detected as removed or deleted by the user (from local storage or network shares) — the actual video files are never deleted by Nova.</p>
+
+<p>For example <code>L:S</code> means local storage is being scanned, <code>N:D</code> means stale network library entries are being pruned. The counter counts down remaining items for Delete/Identify, and counts up/down discovered/considered items while scanning.</p>
+
 <h2>Nova Video Player can’t find information on some of my videos, I’d like to add them manually.</h2>
 
 <p>Nova Video Player supports NFO file description format that follows the <a href="https://kodi.wiki/view/NFO_files/Movies">Kodi specification</a>. Advanced users can manually create them or use a dedicated tool for this task. More details are available <a href="https://github.com/nova-video-player/aos-AVP/wiki/NFO-files">here</a>.
@@ -186,34 +200,15 @@ stats.g.doubleclick.net
 <li>Binge watching: play TV show episodes sequentially even if they are not located in the same folder and stop at the last one of the last season available.</li>
 </ul>
 
-<h2>How to use intro/outro auto-skip and how does recap skipping work?</h2>
+<h2>How does automatic intro/outro skipping work?</h2>
 
-<p>Nova Video Player supports automatic skipping of video intro, outro, credits, and preview segments based on online database metadata (retrieved via TMDb and TV show IMDb identifiers).</p>
-
-<p><strong>Where to find the setting:</strong>
-* <strong>Phone / Tablet UI</strong>: During video playback, open the playback menu → select <strong>Play mode</strong> → toggle <strong>"Skip intro/outro"</strong>;
-* <strong>TV UI (Leanback)</strong>: Press D-Pad Up or Menu during playback → navigate to the <strong>Play mode</strong> tile → toggle <strong>"Skip intro/outro"</strong>.</p>
-
-<p><strong>Recap Skipping Logic in Binge Mode:</strong>
-* Recaps (previous episode summaries) do not require a separate toggle.
-* When <strong>"Skip intro/outro"</strong> is enabled, recaps are automatically skipped <strong>only during binge-watching</strong> when advancing automatically from one episode to the next (in <strong>Binge watching</strong> play mode).
-* The first episode manually started in a session retains its recap so you don't lose context.</p>
+<p>When enabled (off by default, toggle <strong>"Skip intro/outro"</strong> in the Play mode menu/tile, accessible via the playback menu on Phone/Tablet UI or via D-Pad Up/Menu on TV UI), Nova fetches crowd-sourced intro/recap/credits/outro/preview timestamps for the playing episode from the theintrodb.org and introdb.app community databases and automatically seeks past them during playback. Intro, credits, outro and preview are skipped whenever the option is on; the recap is only skipped while binge watching (Binge watching play mode, on an episode auto-played after the previous one), so the first episode you start keeps its recap. A short toast confirms each skip.</p>
 
 <h2>What are home screen categories and smart category decluttering?</h2>
 
-<p>Nova Video Player allows customizing home screen categories in Nova Settings:</p>
+<p>Home screen categories can be customized under <strong>Settings → User interface</strong>: <strong>Hide watched videos</strong> hides completed videos from home and category views; <strong>Smart home rows decluttering</strong> (Phone/Tablet &amp; TV) turns the standard rows into decluttered smart rows, i.e. <strong>New to watch</strong> (replaces <em>Recently added</em>, showing only unwatched content grouped by show/movie) and <strong>Keep watching</strong> (replaces <em>Recently played</em>, grouping episodes by show and keeping only the most recently played one per show).</p>
 
-<p><strong>General UI Options (Phone/Tablet &amp; TV):</strong>
-Available under <strong>Settings → User interface</strong>:
-* <strong>Hide watched videos</strong>: Hides completed videos from home and category views;
-* <strong>Smart home rows decluttering</strong>: Applies to both Phone/Tablet and TV interfaces, transforming standard categories into decluttered smart rows:
-  * <strong>New to watch</strong> (replaces <em>Recently added</em>): Displays only completely unwatched content and groups items by show/movie to prevent multiple episode additions from crowding the row;
-  * <strong>Keep watching</strong> (replaces <em>Recently played</em>): Displays played content, grouping episodes by TV show and keeping only the single most recently played episode per show to prevent series duplication.</p>
-
-<p><strong>TV UI (Leanback) Specific Options:</strong>
-Available on TV devices under <strong>Settings → Leanback user interface</strong>:
-* <strong>Separate Anime from Movies/TV Shows</strong>: Isolates animated content into a dedicated <strong>Anime</strong> category row on the TV home screen;
-* <strong>Row Customization</strong>: Toggle visibility of individual rows (<em>Recently added</em>, <em>Recently played</em>, <em>Movies</em>, <em>TV Shows</em>, <em>Anime</em>) and configure custom sort orders for each row on the TV main screen.</p>
+<p>On TV (Leanback), <strong>Settings → Leanback user interface</strong> additionally allows separating Anime into its own home row, and toggling visibility/sort order of each row (Recently added, Recently played, Movies, TV Shows, Anime).</p>
 
 <h2>Dolby Vision and HDR.</h2>
 

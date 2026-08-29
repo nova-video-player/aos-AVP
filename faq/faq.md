@@ -84,6 +84,18 @@ Nova relies on [The Movie Database TMDB](https://www.themoviedb.org/) external s
 
 Note that on Sony Android TVs, a rescan of USB disk is triggered at each power up/return from suspend and it is a Sony bug (cf. [here](https://github.com/nova-video-player/aos-AVP/issues/354)).
 
+## What does the badge/counter next to the clock mean on Android TV?
+
+On the TV UI (Leanback), a small badge and counter enclosed in a spinner can appear in the top-right corner, next to the clock, to report background library activity that used to spin silently with no feedback. The badge is `<domain>:<phase>`:
+
+* **`L`**/**`N`**: Local storage or Network share is being processed;
+* **`S`**/**`D`**: Scan (indexing new files) or Delete (cleanup) phase;
+* **`I`**: Identify phase, i.e. metadata/artwork scraping (no domain prefix, applies globally).
+
+During the Scan phase, the counter (shown in a dimmer color) reflects the number of files being scanned/considered. During the Delete phase (`L:D`/`N:D`), Nova is only removing the database/library entries and metadata of files it has detected as removed or deleted by the user (from local storage or network shares) — the actual video files are never deleted by Nova.
+
+For example `L:S` means local storage is being scanned, `N:D` means stale network library entries are being pruned. The counter counts down remaining items for Delete/Identify, and counts up/down discovered/considered items while scanning.
+
 ## Nova Video Player can’t find information on some of my videos, I’d like to add them manually.
 
 Nova Video Player supports NFO file description format that follows the [Kodi specification](https://kodi.wiki/view/NFO_files/Movies). Advanced users can manually create them or use a dedicated tool for this task. More details are available [here](https://github.com/nova-video-player/aos-AVP/wiki/NFO-files).
