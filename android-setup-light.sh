@@ -31,7 +31,6 @@ case `uname` in
   ;;
 esac
 [ -n "$JAVA17" ] && export PATH=${JAVA17}/bin:$PATH
-echo PATH=${PATH}
 
 export PATH=${androidSdk}/cmdline-tools/latest/bin:${androidSdk}/cmdline-tools/bin:${androidSdk}/tools/bin:$PATH
 
