@@ -162,6 +162,16 @@ Home screen categories can be customized under **Settings → User interface**: 
 
 On TV (Leanback), **Settings → Leanback user interface** additionally allows separating Anime into its own home row, and toggling visibility/sort order of each row (Recently added, Recently played, Movies, TV Shows, Anime).
 
+## How does alphabetical sorting work and how are initial articles handled?
+
+Nova Video Player (v6.4.59+) supports ignoring leading grammatical articles (e.g., *"The"*, *"A"*, *"An"*, *"Le"*, *"La"*, *"Der"*, *"Die"*, *"El"*, etc.) across 20+ supported languages when sorting movies, TV shows, and collections alphabetically. This option is configurable under **Settings → User interface → Ignore initial articles when sorting** (disabled by default).
+
+* **How it works:** When content is scraped, Nova detects the title language and strips leading articles to build a normalized sort key (e.g., *"The Matrix"* sorts under **M** as *"Matrix, The"*).
+* **Migrating from older versions:** For libraries scraped prior to v6.4.59, Nova applies a fallback heuristic using your device's system language and English rules.
+* **Getting the most accurate sorting:** Newly scraped items benefit from richer TMDb metadata (original language, localized translations, and franchise prefix matching). For optimal sorting accuracy across an existing library, you can:
+  * Trigger **"Recreate sort titles"** in **Settings → Advanced** to recompute sort keys instantly without re-downloading artwork/metadata, or
+  * Trigger **"Rescrape all"** in **Settings** to update the full metadata with the latest TMDb language tags.
+
 ## Dolby Vision and HDR.
 
 Dolby Vision and HDR support on Android TV depends on your TV capabilities, AV receiver passthrough compatibility and TV box hardware specification. This multifactor dependency is prone for confusion. 
