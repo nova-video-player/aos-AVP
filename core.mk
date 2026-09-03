@@ -6,7 +6,7 @@ JAVA_DEPS :=
 build_type :=
 prev_build_type = $(shell cat $(AVOS_DIR)/obj/build_type 2>/dev/null)
 
-phony_rules :=
+phony_rules := all full extractdb install logs clearlogs screenshot layout dumplayout clean
 native_rules :=
 native_clean_rules :=
 
@@ -223,6 +223,36 @@ publish:
 
 release:
 	cd AVP/release; ./release.sh
+
+extractdb:
+	adb exec-out run-as org.courville.nova cat databases/media.db > media.db
+
+install:
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew installNoamazonDebug
+
+logs:
+	@n=1; \
+	while [ -e "nova-$$(printf '%03d' $$n).log" ]; do \
+		n=$$((n+1)); \
+	done; \
+	logfile="nova-$$(printf '%03d' $$n).log"; \
+	trap 'echo ""; echo "Log file: $$logfile"' INT; \
+	pid=$$(adb shell pidof -s org.courville.nova); \
+	if [ -z "$$pid" ]; then \
+		echo "org.courville.nova is not running"; \
+		exit 1; \
+	fi; \
+	echo "Capturing logcat for pid $$pid to $$logfile (Ctrl-C to stop)..."; \
+	adb logcat --pid=$$pid -v brief | tee "$$logfile"
+
+clearlogs:
+	adb logcat -c
+
+screenshot:
+	adb exec-out screencap -p > screenshot.png
+
+layout dumplayout:
+	adb shell uiautomator dump /data/local/tmp/window_dump.xml && adb pull /data/local/tmp/window_dump.xml
 
 AVP/android-setup: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
 
