@@ -134,7 +134,6 @@ TORRENTD_PREBUILT_DIR := native/prebuilt/torrentd
 
 NATIVE_PKG_LIST := \
 	FileCoreLibrary \
-	native/libyuv \
 	native/libnativehelper
 
 $(foreach PKG,$(NATIVE_PKG_LIST),$(eval PKG_EXTRA_DEPS_$(PKG) := native_build_$(PKG)))
@@ -412,7 +411,6 @@ clean_native_build:
 	rm -rf native/libtorrent-android-builder/libtorrent
 	rm -rf native/torrentd/obj
 	rm -rf $(AVOS_DIR)/obj $(AVOS_DIR)/libs
-	rm -rf native/libyuv/obj native/libyuv/libs
 	rm -rf native/libnativehelper/obj native/libnativehelper/libs
 
 clean_prebuilt:
@@ -534,8 +532,6 @@ external_clean_cling:
 
 external_clean_seamless:
 	cd external/seamless; mvn clean; rm -f ../../MediaLib/libs/seamless*-1.1.2.jar
-
-native_libyuv: native_build_native/libyuv
 
 native_libnativehelper: native_build_native/libnativehelper
 

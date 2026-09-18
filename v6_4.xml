@@ -19,7 +19,6 @@
   <project path="native/opus-android-builder" name="opus-android-builder-nobin" revision="20241012" />
   <project path="native/libmysofa-android-builder" name="libmysofa-android-builder" revision="main" />
   <project path="native/openssl-android-builder" name="openssl-android-builder-nobin" revision="v3_5_2" />
-  <project path="native/libyuv" name="aos-libyuv" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent-android-builder" name="aos-libtorrent-android-builder" revision="main" />
