@@ -6,7 +6,7 @@ JAVA_DEPS :=
 build_type :=
 prev_build_type = $(shell cat $(AVOS_DIR)/obj/build_type 2>/dev/null)
 
-phony_rules := all full extractdb install logs clearlogs screenshot layout dumplayout clean
+phony_rules := all full extractdb install logs clearlogs screenshot layout dumplayout publish release share crowdindl clean
 native_rules :=
 native_clean_rules :=
 
@@ -218,18 +218,67 @@ all:
 full:
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew -PadultScrape -Psponsor aND
 
+# Publish release bundle
 publish:
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew publishNoamazonReleaseBundle
 
+# Build release artifacts
 release:
 	cd AVP/release; ./release.sh
 
+# Build APKs and upload them to Google Drive (AVP/share/) via rclone
+# Usage:
+#   make share           (keeps previous APKs on Google Drive by default)
+#   make share KEEP=0    (cleans up previous APKs on Google Drive)
+#   make share CLEAN=1   (alias for KEEP=0)
+share:
+	@echo "--- Starting build ---"
+	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew -PbugReport -Psponsor aNR
+	@APK_BASE_DIR="Video/build/outputs/apk/noamazon/release"; \
+	RCLONE_REMOTE="gmailmarc"; \
+	REMOTE_PATH="AVP/share"; \
+	if [ "$(KEEP)" = "0" ] || [ "$(KEEP)" = "false" ] || [ "$(CLEAN)" = "1" ] || [ "$(CLEAN)" = "true" ]; then \
+		echo "--- Cleaning up previous APKs on Google Drive ---"; \
+		rclone delete "$${RCLONE_REMOTE}:$${REMOTE_PATH}/" --include "org.courville.nova-*.apk"; \
+	else \
+		echo "--- Keeping previous APKs on Google Drive (use KEEP=0 or CLEAN=1 to delete) ---"; \
+	fi; \
+	LINK_ARM64=""; \
+	LINK_ARM32=""; \
+	for arch in "arm64-v8a" "armeabi-v7a"; do \
+		APK_FILE=$$(ls $${APK_BASE_DIR}/org.courville.nova-*-$${arch}-release.apk 2>/dev/null | head -n 1); \
+		if [ -f "$$APK_FILE" ]; then \
+			FILENAME=$$(basename "$$APK_FILE"); \
+			echo "Uploading $$FILENAME..."; \
+			rclone copy "$$APK_FILE" "$${RCLONE_REMOTE}:$${REMOTE_PATH}/" --progress; \
+			LINK=$$(rclone link "$${RCLONE_REMOTE}:$${REMOTE_PATH}/$${FILENAME}"); \
+			if [ "$$arch" = "arm64-v8a" ]; then \
+				LINK_ARM64="$$LINK"; \
+			elif [ "$$arch" = "armeabi-v7a" ]; then \
+				LINK_ARM32="$$LINK"; \
+			fi; \
+			echo "Architecture: $$arch"; \
+			echo "Public Link : $$LINK"; \
+			echo "------------------------------------------------"; \
+		else \
+			echo "Warning: No APK found for architecture $$arch in $$APK_BASE_DIR"; \
+		fi; \
+	done; \
+	echo ""; \
+	echo "--- Final Message ---"; \
+	echo "Can you please try this [arm64 apk]($${LINK_ARM64}) or [arm32 apk]($${LINK_ARM32}) depending of your architecture and report if it helps?"; \
+	echo ""; \
+	echo "Finished."
+
+# Extract media database from connected device
 extractdb:
 	adb exec-out run-as org.courville.nova cat databases/media.db > media.db
 
+# Install debug build to connected device
 install:
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew installNoamazonDebug
 
+# Stream logcat for running app to next available nova-NNN.log file
 logs:
 	@n=1; \
 	while [ -e "nova-$$(printf '%03d' $$n).log" ]; do \
@@ -245,14 +294,21 @@ logs:
 	echo "Capturing logcat for pid $$pid to $$logfile (Ctrl-C to stop)..."; \
 	adb logcat --pid=$$pid -v brief | tee "$$logfile"
 
+# Clear device logcat buffer
 clearlogs:
 	adb logcat -c
 
+# Capture screenshot from connected device
 screenshot:
 	adb exec-out screencap -p > screenshot.png
 
+# Dump UI hierarchy XML from connected device
 layout dumplayout:
 	adb shell uiautomator dump /data/local/tmp/window_dump.xml && adb pull /data/local/tmp/window_dump.xml
+
+# Download translations from Crowdin
+crowdindl:
+	crowdin download
 
 AVP/android-setup: AVP/android-cmdline-tools AVP/android-ndk AVP/android-cmake AVP/android-others
 
