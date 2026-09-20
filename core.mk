@@ -423,6 +423,7 @@ clean_prebuilt:
 	rm -rf $(DAV1D_PREBUILT_DIR)/lib/*
 	rm -rf $(OPUS_DIR)/build-*
 	rm -rf $(OPUS_PREBUILT_DIR)/lib/*
+	rm -rf $(OPUS_PREBUILT_DIR)/include/*
 	rm -rf $(OPENSSL_PREBUILT_DIR)/dist-*
 	rm -rf $(LIBMYSOFA_DIR)/build-*
 	rm -rf $(LIBMYSOFA_PREBUILT_DIR)/lib/*
