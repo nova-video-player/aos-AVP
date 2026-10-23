@@ -130,6 +130,24 @@ OPENSSL_DIR := native/openssl-android-builder
 OPENSSL_PREBUILT_DIR := native/prebuilt/openssl
 LIBMYSOFA_DIR := native/libmysofa-android-builder
 LIBMYSOFA_PREBUILT_DIR := native/prebuilt/libmysofa
+FREETYPE_DIR := native/libfreetype-android-builder
+FREETYPE_PREBUILT_DIR := native/prebuilt/freetype
+FRIBIDI_DIR := native/libfribidi-android-builder
+FRIBIDI_PREBUILT_DIR := native/prebuilt/fribidi
+HARFBUZZ_DIR := native/harfbuzz-android-builder
+HARFBUZZ_PREBUILT_DIR := native/prebuilt/harfbuzz
+LIBASS_DIR := native/libass-android-builder
+LIBASS_PREBUILT_DIR := native/prebuilt/libass
+ZLIB_DIR := native/zlib-android-builder
+ZLIB_PREBUILT_DIR := native/prebuilt/zlib
+LIBPNG_DIR := native/libpng-android-builder
+LIBPNG_PREBUILT_DIR := native/prebuilt/libpng
+LIBXML2_DIR := native/libxml2-android-builder
+LIBXML2_PREBUILT_DIR := native/prebuilt/libxml2
+LIBUNIBREAK_DIR := native/libunibreak-android-builder
+LIBUNIBREAK_PREBUILT_DIR := native/prebuilt/libunibreak
+FONTCONFIG_DIR := native/fontconfig-android-builder
+FONTCONFIG_PREBUILT_DIR := native/prebuilt/fontconfig
 TORRENTD_PREBUILT_DIR := native/prebuilt/torrentd
 
 NATIVE_PKG_LIST := \
@@ -348,6 +366,7 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/armeabi-v7a/libdav1d.so $(1)/libs/armeabi-v7a/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/armeabi-v7a/libopus.so $(1)/libs/armeabi-v7a/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/armeabi-v7a/libmysofa.so $(1)/libs/armeabi-v7a/libmysofa.so; \
+		cp $(LIBXML2_PREBUILT_DIR)/lib/armeabi-v7a/libxml2.so $(1)/libs/armeabi-v7a/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-armeabi-v7a/lib/*so $(1)/libs/armeabi-v7a; \
 	fi;
 	@if [ "$(NDK_CPU_X86)" = "1" ];then \
@@ -355,6 +374,7 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/x86/libdav1d.so $(1)/libs/x86/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/x86/libopus.so $(1)/libs/x86/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/x86/libmysofa.so $(1)/libs/x86/libmysofa.so; \
+		cp $(LIBXML2_PREBUILT_DIR)/lib/x86/libxml2.so $(1)/libs/x86/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-x86/lib/*so $(1)/libs/x86; \
 	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
@@ -362,6 +382,7 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/arm64-v8a/libdav1d.so $(1)/libs/arm64-v8a/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/arm64-v8a/libopus.so $(1)/libs/arm64-v8a/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/arm64-v8a/libmysofa.so $(1)/libs/arm64-v8a/libmysofa.so; \
+		cp $(LIBXML2_PREBUILT_DIR)/lib/arm64-v8a/libxml2.so $(1)/libs/arm64-v8a/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
 	fi
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
@@ -369,6 +390,7 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/x86_64/libdav1d.so $(1)/libs/x86_64/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/x86_64/libopus.so $(1)/libs/x86_64/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/x86_64/libmysofa.so $(1)/libs/x86_64/libmysofa.so; \
+		cp $(LIBXML2_PREBUILT_DIR)/lib/x86_64/libxml2.so $(1)/libs/x86_64/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-x86_64/lib/*so $(1)/libs/x86_64; \
 	fi
 endef
@@ -412,6 +434,15 @@ clean_native_build:
 	rm -rf native/torrentd/obj
 	rm -rf $(AVOS_DIR)/obj $(AVOS_DIR)/libs
 	rm -rf native/libnativehelper/obj native/libnativehelper/libs
+	rm -rf $(FREETYPE_DIR)/freetype
+	rm -rf $(FRIBIDI_DIR)/fribidi $(FRIBIDI_DIR)/build-* $(FRIBIDI_DIR)/meson-cross-*
+	rm -rf $(HARFBUZZ_DIR)/harfbuzz $(HARFBUZZ_DIR)/build-* $(HARFBUZZ_DIR)/meson-cross-*
+	rm -rf $(LIBASS_DIR)/libass
+	rm -rf $(ZLIB_DIR)/zlib
+	rm -rf $(LIBPNG_DIR)/libpng
+	rm -rf $(LIBXML2_DIR)/libxml2
+	rm -rf $(LIBUNIBREAK_DIR)/libunibreak
+	rm -rf $(FONTCONFIG_DIR)/fontconfig
 
 clean_prebuilt:
 	rm -rf native/torrentd/obj
@@ -426,6 +457,15 @@ clean_prebuilt:
 	rm -rf $(LIBMYSOFA_DIR)/build-*
 	rm -rf $(LIBMYSOFA_PREBUILT_DIR)/lib/*
 	rm -rf $(LIBMYSOFA_PREBUILT_DIR)/include/*
+	rm -rf $(FREETYPE_PREBUILT_DIR)/*
+	rm -rf $(FRIBIDI_PREBUILT_DIR)/*
+	rm -rf $(HARFBUZZ_PREBUILT_DIR)/*
+	rm -rf $(LIBASS_PREBUILT_DIR)/*
+	rm -rf $(ZLIB_PREBUILT_DIR)/*
+	rm -rf $(LIBPNG_PREBUILT_DIR)/*
+	rm -rf $(LIBXML2_PREBUILT_DIR)/*
+	rm -rf $(LIBUNIBREAK_PREBUILT_DIR)/*
+	rm -rf $(FONTCONFIG_PREBUILT_DIR)/*
 	rm -rf MediaLib/libs/trakt-java.jar
 	rm -rf MediaLib/libs/cling-*-2.1.2.jar
 	rm -rf MediaLib/libs/seamless-*-1.1.2.jar
@@ -442,7 +482,7 @@ native_avos_full: native_build_native/ffmpeg-android-builder
 	$(call cp_ffmpeg_libs,MediaLib,full)
 	$(call make_avos,MediaLib,full)
 
-native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder native_build_native/libmysofa-android-builder
+native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder native_build_native/libmysofa-android-builder native_build_native/libass-android-builder
 	cd native/ffmpeg-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
 
 native_build_native/dav1d-android-builder:
@@ -456,6 +496,38 @@ native_build_native/openssl-android-builder:
 
 native_build_native/libmysofa-android-builder:
 	cd native/libmysofa-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/zlib-android-builder:
+	cd native/zlib-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libpng-android-builder: native_build_native/zlib-android-builder
+	cd native/libpng-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libxml2-android-builder: native_build_native/zlib-android-builder
+	cd native/libxml2-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libfreetype-android-builder: native_build_native/zlib-android-builder native_build_native/libpng-android-builder
+	cd native/libfreetype-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libfribidi-android-builder:
+	cd native/libfribidi-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/harfbuzz-android-builder: native_build_native/libfreetype-android-builder
+	cd native/harfbuzz-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libunibreak-android-builder:
+	cd native/libunibreak-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/fontconfig-android-builder: native_build_native/libfreetype-android-builder native_build_native/libxml2-android-builder
+	cd native/fontconfig-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+native_build_native/libass-android-builder: native_build_native/libfreetype-android-builder native_build_native/libfribidi-android-builder native_build_native/harfbuzz-android-builder native_build_native/fontconfig-android-builder native_build_native/libunibreak-android-builder
+	cd native/libass-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
+
+# avos links directly against the libass toolchain prebuilt static libs
+# (see native/avos/jni/libass_prebuilt.mk), so it must be built after them
+# regardless of whether ffmpeg is built first.
+native_build_native/avos: native_build_native/libass-android-builder
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 	@if [ -f $(TORRENTD_PREBUILT_DIR)/libs/arm64-v8a/torrentd ]; then \

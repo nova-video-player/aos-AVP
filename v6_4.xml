@@ -18,6 +18,15 @@
   <project path="native/dav1d-android-builder" name="dav1d-android-builder-nobin" revision="v1_4" />
   <project path="native/opus-android-builder" name="opus-android-builder-nobin" revision="20241012" />
   <project path="native/libmysofa-android-builder" name="libmysofa-android-builder" revision="main" />
+  <project path="native/zlib-android-builder" name="zlib-android-builder" revision="main" />
+  <project path="native/libpng-android-builder" name="libpng-android-builder" revision="main" />
+  <project path="native/libxml2-android-builder" name="libxml2-android-builder" revision="main" />
+  <project path="native/libfreetype-android-builder" name="libfreetype-android-builder" revision="main" />
+  <project path="native/libfribidi-android-builder" name="libfribidi-android-builder" revision="main" />
+  <project path="native/harfbuzz-android-builder" name="harfbuzz-android-builder" revision="main" />
+  <project path="native/libunibreak-android-builder" name="libunibreak-android-builder" revision="main" />
+  <project path="native/fontconfig-android-builder" name="fontconfig-android-builder" revision="main" />
+  <project path="native/libass-android-builder" name="libass-android-builder" revision="main" />
   <project path="native/openssl-android-builder" name="openssl-android-builder-nobin" revision="v3_5_2" />
   <project path="native/libnativehelper" name="aos-libnativehelper" />
   <project path="native/boost" name="aos-boost-android-builder" />
