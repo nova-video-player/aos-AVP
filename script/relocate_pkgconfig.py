@@ -18,6 +18,9 @@
 Usage: python3 AVP/script/relocate_pkgconfig.py [--check] native/prebuilt/zlib ...
 
 Pass each library's install root, not the common native/prebuilt directory.
+For per-ABI installations such as FFmpeg, pass each dist-* directory and use
+--prebuilt-root native/prebuilt to relocate references to sibling dependencies.
+The relative layout of those dependencies must be retained after relocation.
 Only pkg-config metadata is edited; binaries, .la files and config scripts are
 untouched. Run after installation, including when a builder reuses its cache.
 """
@@ -33,7 +36,12 @@ import tempfile
 PREFIX = re.compile(r"^prefix[ \t]*=[ \t]*(.*)$", re.MULTILINE)
 
 
-def relocated_text(text, pc, root):
+def pc_relative(path, pc):
+    relative = Path(os.path.relpath(path, pc.parent)).as_posix()
+    return "${pcfiledir}" if relative == "." else "${pcfiledir}/" + relative
+
+
+def relocated_text(text, pc, root, prebuilt_root=None):
     match = PREFIX.search(text)
     if not match:
         raise ValueError(f"{pc}: missing prefix assignment")
@@ -43,15 +51,28 @@ def relocated_text(text, pc, root):
 
     # FreeType can embed literal install paths directly in Libs and Cflags.
     # Also handle a partially relocated file whose prefix is already relative.
-    prefixes = {str(root)}
+    replacements = {str(root): "${prefix}"}
     if old_prefix.startswith("/"):
-        prefixes.add(old_prefix)
-    for prefix in sorted(prefixes, key=len, reverse=True):
+        replacements[old_prefix] = "${prefix}"
+    if prebuilt_root is not None:
+        relative = root.relative_to(prebuilt_root)
+        if not relative.parts:
+            raise ValueError("pass individual install roots, not --prebuilt-root itself")
+        shared = pc_relative(prebuilt_root, pc)
+        replacements[str(prebuilt_root)] = shared
+        # Infer the original shared directory only when the install layout
+        # matches, never from an unrelated target prefix such as /usr/local.
+        old = Path(old_prefix)
+        depth = len(relative.parts)
+        if old.is_absolute() and old.parts[-depth:] == relative.parts:
+            original_shared = old.parents[depth - 1]
+            if original_shared != Path("/"):
+                replacements[str(original_shared)] = shared
+    for prefix in sorted(replacements, key=len, reverse=True):
         pattern = re.escape(prefix) + r"(?=/|[\s\"';]|$)"
-        text = re.sub(pattern, lambda _: "${prefix}", text)
+        text = re.sub(pattern, lambda _: replacements[prefix], text)
 
-    relative = Path(os.path.relpath(root, pc.parent)).as_posix()
-    value = "${pcfiledir}" if relative == "." else "${pcfiledir}/" + relative
+    value = pc_relative(root, pc)
     return PREFIX.sub(lambda _: "prefix=" + value, text)
 
 
@@ -84,11 +105,14 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true",
                         help="report files needing relocation without changing them")
+    parser.add_argument("--prebuilt-root", type=Path,
+                        help="shared directory containing sibling dependency installs")
     parser.add_argument("roots", type=Path, nargs="+", help="library install roots")
     args = parser.parse_args(argv)
     pending = []
     seen = set()
     try:
+        shared = args.prebuilt_root.resolve(strict=True) if args.prebuilt_root else None
         for supplied in args.roots:
             root = supplied.resolve(strict=True)
             if not root.is_dir():
@@ -98,7 +122,7 @@ def main(argv=None):
                     continue
                 seen.add(pc)
                 old = pc.read_text(encoding="utf-8")
-                new = relocated_text(old, pc, root)
+                new = relocated_text(old, pc, root, shared)
                 if new != old:
                     pending.append((pc, new))
         for pc, text in pending:
