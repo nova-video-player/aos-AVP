@@ -38,4 +38,13 @@
   <project path="native/prebuilt/openssl" name="prebuilt-openssl" revision="v3_5"/>
   <project path="native/prebuilt/libmysofa" name="prebuilt-libmysofa" revision="v1_3"/>
   <project path="native/prebuilt/torrentd" name="prebuilt-torrentd" revision="main"/>
+  <project path="native/prebuilt/zlib" name="prebuilt-zlib" revision="main"/>
+  <project path="native/prebuilt/libpng" name="prebuilt-libpng" revision="main"/>
+  <project path="native/prebuilt/libxml2" name="prebuilt-libxml2" revision="main"/>
+  <project path="native/prebuilt/freetype" name="prebuilt-freetype" revision="main"/>
+  <project path="native/prebuilt/fribidi" name="prebuilt-fribidi" revision="main"/>
+  <project path="native/prebuilt/harfbuzz" name="prebuilt-harfbuzz" revision="main"/>
+  <project path="native/prebuilt/libunibreak" name="prebuilt-libunibreak" revision="main"/>
+  <project path="native/prebuilt/fontconfig" name="prebuilt-fontconfig" revision="main"/>
+  <project path="native/prebuilt/libass" name="prebuilt-libass" revision="main"/>
 </manifest>
