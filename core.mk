@@ -366,7 +366,6 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/armeabi-v7a/libdav1d.so $(1)/libs/armeabi-v7a/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/armeabi-v7a/libopus.so $(1)/libs/armeabi-v7a/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/armeabi-v7a/libmysofa.so $(1)/libs/armeabi-v7a/libmysofa.so; \
-		cp $(LIBXML2_PREBUILT_DIR)/lib/armeabi-v7a/libxml2.so $(1)/libs/armeabi-v7a/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-armeabi-v7a/lib/*so $(1)/libs/armeabi-v7a; \
 	fi;
 	@if [ "$(NDK_CPU_X86)" = "1" ];then \
@@ -374,7 +373,6 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/x86/libdav1d.so $(1)/libs/x86/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/x86/libopus.so $(1)/libs/x86/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/x86/libmysofa.so $(1)/libs/x86/libmysofa.so; \
-		cp $(LIBXML2_PREBUILT_DIR)/lib/x86/libxml2.so $(1)/libs/x86/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-x86/lib/*so $(1)/libs/x86; \
 	fi
 	@if [ "$(NDK_CPU_ARM_64)" = "1" ];then \
@@ -382,7 +380,6 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/arm64-v8a/libdav1d.so $(1)/libs/arm64-v8a/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/arm64-v8a/libopus.so $(1)/libs/arm64-v8a/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/arm64-v8a/libmysofa.so $(1)/libs/arm64-v8a/libmysofa.so; \
-		cp $(LIBXML2_PREBUILT_DIR)/lib/arm64-v8a/libxml2.so $(1)/libs/arm64-v8a/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-arm64-v8a/lib/*so $(1)/libs/arm64-v8a; \
 	fi
 	@if [ "$(NDK_CPU_X86_64)" = "1" ];then \
@@ -390,7 +387,6 @@ define cp_ffmpeg_libs
 		cp $(DAV1D_PREBUILT_DIR)/lib/x86_64/libdav1d.so $(1)/libs/x86_64/libdav1d.so; \
 		cp $(OPUS_PREBUILT_DIR)/lib/x86_64/libopus.so $(1)/libs/x86_64/libopus.so; \
 		cp $(LIBMYSOFA_PREBUILT_DIR)/lib/x86_64/libmysofa.so $(1)/libs/x86_64/libmysofa.so; \
-		cp $(LIBXML2_PREBUILT_DIR)/lib/x86_64/libxml2.so $(1)/libs/x86_64/libxml2.so; \
 		cp -r $(FFMPEG_PREBUILT_DIR)/dist-$(2)-x86_64/lib/*so $(1)/libs/x86_64; \
 	fi
 endef
@@ -482,7 +478,7 @@ native_avos_full: native_build_native/ffmpeg-android-builder
 	$(call cp_ffmpeg_libs,MediaLib,full)
 	$(call make_avos,MediaLib,full)
 
-native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder native_build_native/libmysofa-android-builder native_build_native/libass-android-builder
+native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-builder native_build_native/opus-android-builder native_build_native/openssl-android-builder native_build_native/libmysofa-android-builder
 	cd native/ffmpeg-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_ffmpeg.sh
 
 native_build_native/dav1d-android-builder:
