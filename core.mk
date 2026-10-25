@@ -154,6 +154,13 @@ NATIVE_PKG_LIST := \
 	FileCoreLibrary \
 	native/libnativehelper
 
+# Older AVOS versions use libyuv; select it from the checked-out AVOS config,
+# rather than a directory that may remain after switching manifests.
+AVOS_USES_LIBYUV := $(shell grep -Eq '^[[:space:]]*LIBYUV[[:space:]]*=[[:space:]]*ON([[:space:]]|$$)' $(AVOS_DIR)/avos_config_android.mk 2>/dev/null && echo 1)
+ifeq ($(AVOS_USES_LIBYUV),1)
+NATIVE_PKG_LIST += native/libyuv
+endif
+
 $(foreach PKG,$(NATIVE_PKG_LIST),$(eval PKG_EXTRA_DEPS_$(PKG) := native_build_$(PKG)))
 
 NATIVE_LIST := $(NATIVE_PKG_LIST) \
@@ -429,6 +436,9 @@ clean_native_build:
 	rm -rf native/libtorrent-android-builder/libtorrent
 	rm -rf native/torrentd/obj
 	rm -rf $(AVOS_DIR)/obj $(AVOS_DIR)/libs
+ifeq ($(AVOS_USES_LIBYUV),1)
+	rm -rf native/libyuv/obj native/libyuv/libs
+endif
 	rm -rf native/libnativehelper/obj native/libnativehelper/libs
 	rm -rf $(FREETYPE_DIR)/freetype
 	rm -rf $(FRIBIDI_DIR)/fribidi $(FRIBIDI_DIR)/build-* $(FRIBIDI_DIR)/meson-cross-*
@@ -520,10 +530,14 @@ native_build_native/fontconfig-android-builder: native_build_native/libfreetype-
 native_build_native/libass-android-builder: native_build_native/libfreetype-android-builder native_build_native/libfribidi-android-builder native_build_native/harfbuzz-android-builder native_build_native/fontconfig-android-builder native_build_native/libunibreak-android-builder
 	cd native/libass-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
 
-# avos links directly against the libass toolchain prebuilt static libs
-# (see native/avos/jni/libass_prebuilt.mk), so it must be built after them
-# regardless of whether ffmpeg is built first.
+# Only AVOS versions integrating libass need the subtitle dependencies.
+ifneq ($(wildcard $(AVOS_DIR)/jni/libass_prebuilt.mk),)
 native_build_native/avos: native_build_native/libass-android-builder
+endif
+
+ifeq ($(AVOS_USES_LIBYUV),1)
+native_build_native/avos: native_build_native/libyuv
+endif
 
 native_build_native/torrentd: native_build_native/boost native_build_native/libtorrent
 	@if [ -f $(TORRENTD_PREBUILT_DIR)/libs/arm64-v8a/torrentd ]; then \
@@ -601,6 +615,10 @@ external_clean_cling:
 
 external_clean_seamless:
 	cd external/seamless; mvn clean; rm -f ../../MediaLib/libs/seamless*-1.1.2.jar
+
+ifeq ($(AVOS_USES_LIBYUV),1)
+native_libyuv: native_build_native/libyuv
+endif
 
 native_libnativehelper: native_build_native/libnativehelper
 
