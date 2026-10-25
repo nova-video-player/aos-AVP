@@ -24,7 +24,7 @@
   <project path="native/boost" name="aos-boost-android-builder" />
   <project path="native/libtorrent-android-builder" name="aos-libtorrent-android-builder" revision="main" />
   <project path="native/torrentd" name="torrentd-nobin" />
-  <project path="native/prebuilt/ffmpeg" name="prebuilt-ffmpeg" revision="v8_0"/>
+  <project path="native/prebuilt/ffmpeg" name="prebuilt-ffmpeg" revision="v6.4-stable"/>
   <project path="native/prebuilt/opus" name="prebuilt-opus" revision="main"/>
   <project path="native/prebuilt/dav1d" name="prebuilt-dav1d" revision="v1_5"/>
   <project path="native/prebuilt/openssl" name="prebuilt-openssl" revision="v3_5"/>
