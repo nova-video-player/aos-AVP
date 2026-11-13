@@ -295,17 +295,16 @@ Nova Video Player supports multiple touch gestures and zones for different contr
     </div>
     <table style="border-collapse: collapse; width: 500px; height: 350px;">
       <tr>
-        <td style="width: 25%; padding: 0;">
+        <td style="width: 33.33%; padding: 0;">
           <table style="border-collapse: collapse; width: 100%; height: 350px;">
-            <tr style="height: 75%; border-bottom: 2px solid #ff6b6b;">
+            <tr style="height: 66.67%; border-bottom: 2px solid #ff6b6b;">
               <td style="border: 1px solid #666; text-align: center; background: #e8f4fd; vertical-align: middle;">
                 <strong>LEFT TOP</strong><br>
-                <small>🔊 SCROLL: Volume</small><br><br>
                 <strong>⏪ DOUBLE TAP:</strong><br>
                 <strong>Rewind 10s</strong>
               </td>
             </tr>
-            <tr style="height: 25%;">
+            <tr style="height: 33.33%;">
               <td style="border: 1px solid #666; text-align: center; background: #f0e8ff; vertical-align: middle;">
                 <strong>LEFT BOTTOM</strong><br>
                 <strong>🔽 DOUBLE TAP:</strong><br>
@@ -315,26 +314,26 @@ Nova Video Player supports multiple touch gestures and zones for different contr
             </tr>
           </table>
         </td>
-        <td style="border: 1px solid #666; text-align: center; background: #fff2e8; width: 50%; vertical-align: middle;">
-          <strong>CENTRAL ZONE</strong><br>
-          <small>(middle 1/3 of screen - FULL HEIGHT)</small><br><br>
+        <td style="border: 1px solid #666; text-align: center; background: #fff2e8; width: 33.34%; vertical-align: middle;">
+          <div style="width: 80px; height: 80px; margin: 0 auto 10px; border: 3px dashed #ff6b6b; border-radius: 50%; background: #fff2e8; box-sizing: border-box; font-size: 34px; line-height: 74px; text-align: center;">▶</div>
+          <strong>CENTRAL CIRCLE</strong><br>
+          <small>(centered on the play icon)</small><br><br>
           <strong>📱 SINGLE TAP:</strong><br>
-          • If playing ▶️: Pause ⏸️ + Show OSD<br>
-          • If paused ⏸️: Resume ▶️ + Hide OSD<br><br>
-          <small style="color: #666;">Outside zones: Single tap = OSD toggle only</small><br><br>
-          <small style="color: #999;">No 75%/25% split here</small>
+          • Playing ▶️: Pause + Show OSD<br>
+          • Paused ⏸️: Resume + Hide OSD<br><br>
+          <small style="color: #666;">Outside: single tap = OSD only</small><br>
+          <small style="color: #999;">160dp diameter<br>(200dp on tablets)</small>
         </td>
-        <td style="width: 25%; padding: 0;">
+        <td style="width: 33.33%; padding: 0;">
           <table style="border-collapse: collapse; width: 100%; height: 350px;">
-            <tr style="height: 75%; border-bottom: 2px solid #ff6b6b;">
+            <tr style="height: 66.67%; border-bottom: 2px solid #ff6b6b;">
               <td style="border: 1px solid #666; text-align: center; background: #e8f4fd; vertical-align: middle;">
                 <strong>RIGHT TOP</strong><br>
-                <small>☀️ SCROLL: Brightness</small><br><br>
                 <strong>⏩ DOUBLE TAP:</strong><br>
                 <strong>Forward 10s</strong>
               </td>
             </tr>
-            <tr style="height: 25%;">
+            <tr style="height: 33.33%;">
               <td style="border: 1px solid #666; text-align: center; background: #f0e8ff; vertical-align: middle;">
                 <strong>RIGHT BOTTOM</strong><br>
                 <strong>🔼 DOUBLE TAP:</strong><br>
@@ -347,31 +346,32 @@ Nova Video Player supports multiple touch gestures and zones for different contr
       </tr>
     </table>
     <div style="position: absolute; right: -120px; top: 120px; font-size: 12px; color: #666;">
-      ← TOP 75%
+      ← TOP 2/3
     </div>
     <div style="position: absolute; right: -140px; top: 290px; font-size: 12px; color: #666;">
-      ← BOTTOM 25%
+      ← BOTTOM 1/3
     </div>
   </div>
 </div>
 
+**Vertical scroll:** the left half of the screen adjusts brightness; the right half adjusts volume.
 
 **Gesture Summary:**
 
-- **Single Tap Central Zone**: Toggle pause/play (pause shows OSD, resume hides OSD)
+- **Single Tap Central Circle**: Toggle pause/play (pause shows OSD, resume hides OSD)
 - **Single Tap Outside**: Toggle OSD controls only (no pause/play change)
-- **Double Tap Top 75% Left**: Rewind 10 seconds
-- **Double Tap Top 75% Right**: Fast forward 10 seconds
-- **Double Tap Bottom 25% Left**: Decrease audio playback speed (-0.05×)
-- **Double Tap Bottom 25% Right**: Increase audio playback speed (+0.05×)
-- **Scroll Left Side**: Adjust volume
-- **Scroll Right Side**: Adjust screen brightness
+- **Double Tap Top 2/3 Left Third**: Rewind 10 seconds
+- **Double Tap Top 2/3 Right Third**: Fast forward 10 seconds
+- **Double Tap Bottom 1/3 Left Third**: Decrease audio playback speed (-0.05×)
+- **Double Tap Bottom 1/3 Right Third**: Increase audio playback speed (+0.05×)
+- **Vertical Scroll Left Half**: Adjust screen brightness
+- **Vertical Scroll Right Half**: Adjust volume
 
 **Notes:**
 
 - Audio speed control requires the playback speed feature to be enabled in settings
 - When the player is locked, all gestures show unlock instructions instead
-- The central zone spans the middle third of the screen horizontally (full height)
+- The central zone is a circle centered on the central play icon (160dp diameter, 200dp on tablets); it stays centered there even while the icon is hidden during playback
 - Central zone behavior is based on playback state, not OSD visibility
 
 ## What keyboard shortcuts are available?
