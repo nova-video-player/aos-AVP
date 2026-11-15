@@ -124,6 +124,8 @@ FFMPEG_DIR := native/ffmpeg-android-builder
 FFMPEG_PREBUILT_DIR := native/prebuilt/ffmpeg
 DAV1D_DIR := native/dav1d-android-builder
 DAV1D_PREBUILT_DIR := native/prebuilt/dav1d
+FASTTEXT_DIR := native/fastText-android-builder
+FASTTEXT_PREBUILT_DIR := native/prebuilt/fastText
 OPUS_DIR := native/opus-android-builder
 OPUS_PREBUILT_DIR := native/prebuilt/opus
 OPENSSL_DIR := native/openssl-android-builder
@@ -431,6 +433,7 @@ native_avos: native_build_native/avos
 clean_native_build:
 	rm -rf native/boost/boost-*
 	rm -rf $(DAV1D_DIR)/build-*
+	rm -rf $(FASTTEXT_DIR)/build-* $(FASTTEXT_DIR)/fastText-* $(FASTTEXT_DIR)/downloads
 	rm -rf $(FFMPEG_DIR)/ffmpeg.git
 	rm -rf $(OPUS_DIR)/opus $(OPUS_DIR)/build-*
 	rm -rf $(OPENSSL_DIR)/openssl.git
@@ -459,6 +462,8 @@ clean_prebuilt:
 	rm -rf $(FFMPEG_PREBUILT_DIR)/dist-*
 	rm -rf $(DAV1D_DIR)/build-*
 	rm -rf $(DAV1D_PREBUILT_DIR)/lib/*
+	rm -rf $(FASTTEXT_DIR)/build-*
+	rm -rf $(FASTTEXT_PREBUILT_DIR)/lib $(FASTTEXT_PREBUILT_DIR)/include $(FASTTEXT_PREBUILT_DIR)/share
 	rm -rf $(OPUS_DIR)/build-*
 	rm -rf $(OPUS_PREBUILT_DIR)/lib/*
 	rm -rf $(OPUS_PREBUILT_DIR)/include/*
@@ -499,6 +504,10 @@ native_build_native/ffmpeg-android-builder: native_build_native/dav1d-android-bu
 
 native_build_native/dav1d-android-builder:
 	cd native/dav1d-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash bootstrap_avp_dav1d.sh
+
+.PHONY: native_build_native/fastText-android-builder
+native_build_native/fastText-android-builder:
+	cd $(FASTTEXT_DIR) && REPO_TOP_DIR=$(REPO_TOP_DIR) NDK_APP_ABI="$(NDK_APP_ABI)" bash build.sh
 
 native_build_native/opus-android-builder:
 	cd native/opus-android-builder; REPO_TOP_DIR=$(REPO_TOP_DIR) bash build.sh
@@ -547,6 +556,13 @@ endif
 # Only AVOS versions integrating libdovi need it.
 ifneq ($(wildcard $(AVOS_DIR)/jni/libdovi_prebuilt.mk),)
 native_build_native/avos: native_build_native/libdovi-android-builder
+endif
+
+# The builder is optional until its repository is distributed by the manifest.
+ifneq ($(wildcard $(AVOS_DIR)/jni/fasttext_prebuilt.mk),)
+ifneq ($(wildcard $(FASTTEXT_DIR)/build.sh),)
+native_build_native/avos: native_build_native/fastText-android-builder
+endif
 endif
 
 ifeq ($(AVOS_USES_LIBYUV),1)
