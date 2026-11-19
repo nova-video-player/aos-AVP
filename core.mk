@@ -126,6 +126,10 @@ DAV1D_DIR := native/dav1d-android-builder
 DAV1D_PREBUILT_DIR := native/prebuilt/dav1d
 FASTTEXT_DIR := native/fastText-android-builder
 FASTTEXT_PREBUILT_DIR := native/prebuilt/fastText
+LIBEBML_DIR := native/libebml-android-builder
+LIBEBML_PREBUILT_DIR := native/prebuilt/libebml
+LIBMATROSKA_DIR := native/libmatroska-android-builder
+LIBMATROSKA_PREBUILT_DIR := native/prebuilt/libmatroska
 OPUS_DIR := native/opus-android-builder
 OPUS_PREBUILT_DIR := native/prebuilt/opus
 OPENSSL_DIR := native/openssl-android-builder
@@ -434,6 +438,8 @@ clean_native_build:
 	rm -rf native/boost/boost-*
 	rm -rf $(DAV1D_DIR)/build-*
 	rm -rf $(FASTTEXT_DIR)/build-* $(FASTTEXT_DIR)/fastText-* $(FASTTEXT_DIR)/downloads
+	rm -rf $(LIBEBML_DIR)/build-* $(LIBEBML_DIR)/sources $(LIBEBML_DIR)/downloads
+	rm -rf $(LIBMATROSKA_DIR)/build-* $(LIBMATROSKA_DIR)/sources $(LIBMATROSKA_DIR)/downloads
 	rm -rf $(FFMPEG_DIR)/ffmpeg.git
 	rm -rf $(OPUS_DIR)/opus $(OPUS_DIR)/build-*
 	rm -rf $(OPENSSL_DIR)/openssl.git
@@ -464,6 +470,8 @@ clean_prebuilt:
 	rm -rf $(DAV1D_PREBUILT_DIR)/lib/*
 	rm -rf $(FASTTEXT_DIR)/build-*
 	rm -rf $(FASTTEXT_PREBUILT_DIR)/lib $(FASTTEXT_PREBUILT_DIR)/include $(FASTTEXT_PREBUILT_DIR)/share
+	rm -rf $(LIBEBML_PREBUILT_DIR)/lib $(LIBEBML_PREBUILT_DIR)/include $(LIBEBML_PREBUILT_DIR)/build-info
+	rm -rf $(LIBMATROSKA_PREBUILT_DIR)/lib $(LIBMATROSKA_PREBUILT_DIR)/include $(LIBMATROSKA_PREBUILT_DIR)/share $(LIBMATROSKA_PREBUILT_DIR)/build-info
 	rm -rf $(OPUS_DIR)/build-*
 	rm -rf $(OPUS_PREBUILT_DIR)/lib/*
 	rm -rf $(OPUS_PREBUILT_DIR)/include/*
@@ -657,3 +665,10 @@ native : $(native_rules)
 native_clean: $(native_clean_rules)
 
 clean: native_clean external_clean
+
+.PHONY: native_build_native/libebml-android-builder native_build_native/libmatroska-android-builder
+native_build_native/libebml-android-builder:
+	cd $(LIBEBML_DIR) && REPO_TOP_DIR=$(REPO_TOP_DIR) NDK_APP_ABI="$(NDK_APP_ABI)" bash build.sh
+
+native_build_native/libmatroska-android-builder: native_build_native/libebml-android-builder
+	cd $(LIBMATROSKA_DIR) && REPO_TOP_DIR=$(REPO_TOP_DIR) NDK_APP_ABI="$(NDK_APP_ABI)" bash build.sh
