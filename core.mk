@@ -310,7 +310,7 @@ extractdb:
 install:
 	cd Video; ANDROID_SDK_ROOT=$(android_sdk) ./gradlew installNoamazonDebug
 
-# Stream logcat for running app to next available nova-NNN.log file
+# Capture every process: subtitle analysis and scanning use separate app PIDs.
 logs:
 	@n=1; \
 	while [ -e "nova-$$(printf '%03d' $$n).log" ]; do \
@@ -318,13 +318,8 @@ logs:
 	done; \
 	logfile="nova-$$(printf '%03d' $$n).log"; \
 	trap 'echo ""; echo "Log file: $$logfile"' INT; \
-	pid=$$(adb shell pidof -s org.courville.nova); \
-	if [ -z "$$pid" ]; then \
-		echo "org.courville.nova is not running"; \
-		exit 1; \
-	fi; \
-	echo "Capturing logcat for pid $$pid to $$logfile (Ctrl-C to stop)..."; \
-	adb logcat --pid=$$pid -v brief | tee "$$logfile"
+	echo "Capturing all app processes to $$logfile (Ctrl-C to stop)..."; \
+	adb logcat -b main -b system -b crash -v threadtime '*:V' | tee "$$logfile"
 
 # Clear device logcat buffer
 clearlogs:
