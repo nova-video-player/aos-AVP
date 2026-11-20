@@ -4,15 +4,15 @@
 
   <default revision="master" remote="github" />
 
-  <project path="AVP" name="aos-AVP" revision="dev/subtitle-language-editor" >
+  <project path="AVP" name="aos-AVP" revision="dev/subtitleIdentification" >
     <copyfile src="Makefile" dest="Makefile" />
   </project>
 
-  <project path="Video" name="aos-Video" revision="dev/subtitle-language-editor" />
-  <project path="MediaLib" name="aos-MediaLib" revision="dev/subtitle-language-editor" />
-  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="dev/subtitle-language-editor" />
+  <project path="Video" name="aos-Video" revision="dev/subtitleIdentification" />
+  <project path="MediaLib" name="aos-MediaLib" revision="dev/subtitleIdentification" />
+  <project path="FileCoreLibrary" name="aos-FileCoreLibrary" revision="dev/subtitleIdentification" />
 
-  <project path="native/avos" name="aos-avos" revision="dev/subtitle-language-editor" />
+  <project path="native/avos" name="aos-avos" revision="dev/subtitleIdentification" />
   <project path="native/audiocompress" name="aos-audiocompress" />
   <project path="native/ffmpeg-android-builder" name="ffmpeg-android-builder-nobin" revision="v9_0" />
   <project path="native/dav1d-android-builder" name="dav1d-android-builder-nobin" revision="v1_5" />
@@ -50,7 +50,7 @@
   <project path="native/prebuilt/fontconfig" name="prebuilt-fontconfig" revision="main"/>
   <project path="native/prebuilt/libass" name="prebuilt-libass" revision="main"/>
   <project path="native/fastText-android-builder" name="fastText-android-builder" revision="main" />
-  <project path="native/prebuilt/fastText" name="prebuilt-fastText" revision="dev/fastText" />
+  <project path="native/prebuilt/fastText" name="prebuilt-fastText" revision="dev/subtitleIdentification" />
   <project path="native/libebml-android-builder" name="libebml-android-builder" revision="main" />
   <project path="native/libmatroska-android-builder" name="libmatroska-android-builder" revision="main" />
   <project path="native/prebuilt/libebml" name="prebuilt-libebml" revision="main" />
